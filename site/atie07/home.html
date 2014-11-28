@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title><?=$meta[title]?></title>
+<meta name="description" content="<?=$meta[desc]?>" />
+<link href="design.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<center>
+<div class="content">
+    <center>
+    <p>&nbsp;</p>
+    <table width="100%">
+        <tr>
+            <td width="25%"></td>
+            <td><a href="./">Top PTC Sites <?=date('Y', time())?></a></td>
+            <td><a href="../catalog/?r=<?=$aff?>">PTC Strategy Products</a></td>
+        </tr>
+    </table>
+     
+    <p>&nbsp;</p>
+        
+    <h1>2014 PTC <span class="blinktext"><span class="red">Big</span></span> Players</h1>
+    <h3>Come. Join them all. <span class="blinktext"><span class="red">Click</span></span> the banners below to read more...</h3>
+
+    <table>
+        <tr>
+            <td>
+                <h2>BuxP</h2>
+                <a href="http://buxp.org/?r=atie07"><img src="http://buxp.org/images/promote/advertise_banner_468x60.gif" alt="" /></a>
+            </td>
+            <td width="30px"></td>
+             <td>
+                <h2>Wordlinx </h2>
+                <a href="http://wordlinx.com/?r=467919"><img src="http://wordlinx.net/x/468x60_1.gif" alt="WordLinx - Get Paid To Click" width="468" height="60" border="0" /></a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h2>Clixsense</h2> 
+                <a href="http://www.clixsense.com/?4176467" target=_blank><img src="http://csstatic.com/banners/clixsense468x60a.gif" border=0></a>
+            </td>
+            <td width="30px"></td>
+             <td>
+                <h2>Neobux</h2>
+                <?
+                $imgSite = 'http://images.neobux.com/imagens/banner9/?u=atie07&u3=10304708';
+                $linkSite = 'http://www.neobux.com/?r=atie07';
+                $image = img($imgSite, 'Neobux', 'Neobux');
+                echo '<p>'.anchor($linkSite, 'target=_blank', $image).'</p>';
+                ?>
+            </td>
+        </tr>
+        <tr> 
+            <td colspan="3" align="center">
+                <h2>Hits4Pay</h2>
+                <?
+                $imgSite = 'http://hits4pay.com/imgn/banners/468x60.png';
+                $linkSite = 'http://hits4pay.com/members/index.cgi?atie07';
+                $image = img($imgSite, 'Linkgrand', 'Linkgrand');
+                echo '<p>'.anchor($linkSite, 'target=_blank', $image).'</p>';
+                ?>
+            </td>
+             
+        </tr>
+    </table>
+      
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<table>
+    <tr>
+        <td><h2>Ref Ban </h2>
+            <script type="text/javascript" src="http://refban.com/js/banner.php?b=8a4112999d"></script>
+        </td>
+        <td width="30px"></td>
+        <td>
+            <h2>EasyHits4U</h2>
+            <a href="http://www.easyhits4u.com/?ref=atie07"><img src="http://static.easyhits4u.com/img/banners/468x60_13.gif" width="468" height="60" alt="The Best Traffic Exchange" border="0"></a>
+        </td>
+    </tr>
+</table>
+</center>
+
+        <p>&nbsp;</p>
+        <div id="footer">
+        <p>Copyright &copy; 2012 to <?=date('Y', time())?> PTC Mini-Sites <br><br> Want a site like this? 
+                <a href="<?=$msLink?>">Click here for more details</a>
+        </p>
+        <p>&nbsp;</p>
+        </div>
+    </div>
+</center>
+</body></html>

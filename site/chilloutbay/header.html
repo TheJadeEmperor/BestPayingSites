@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title><?=$meta[title]?></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/easySlider1.5.js"></script>
+<script type="text/javascript" charset="utf-8">
+// <![CDATA[
+$(document).ready(function(){	
+	$("#slider").easySlider({
+		controlsBefore:	'<p id="controls">',
+		controlsAfter:	'</p>',
+		auto: true, 
+		continuous: true
+	});	
+});
+// ]]>
+</script>
+<style type="text/css">
+.gallery { width:876px; height:316px; margin:0 auto; padding:0; }
+#slider { margin:0; padding:0; list-style:none; }
+#slider ul,
+#slider li { margin:0; padding:0; list-style:none; }
+/* 
+    define width and height of list item (slide)
+    entire slider area will adjust according to the parameters provided here
+*/
+#slider li { width:876px; height:316px; overflow:hidden; }
+p#controls { margin:0; padding:0; position:relative; }
+#prevBtn { display:block; margin:0; overflow:hidden; width:42px; height:32px; position:absolute; left:-81px; top:-180px; }
+#nextBtn { display:block; margin:0; overflow:hidden; width:42px; height:32px; position:absolute; left: 917px; top:-180px; }
+#prevBtn a { display:block; width:42px; height:32px; background:url(images/l_arrow.gif) no-repeat 0 0; }
+#nextBtn a { display:block; width:42px; height:32px; background:url(images/r_arrow.gif) no-repeat 0 0; }
+</style>
+</head>
+<body>
+<div class="main">
+  <div class="header">
+    <div class="logo"><a href="./"><img src="images/logo.png" width="500" height="55" border="0" alt="logo" /></a></div>
+    <div class="search">
+      <form id="form1" name="form1" method="post" action="">
+        <label>
+          <input name="q" type="text" class="keywords" id="textfield" maxlength="50" value="Search..." />
+          <input name="b" type="image" src="images/search.gif" class="button" />
+        </label>
+      </form>
+    </div>
+    <div class="clr"></div>
+    <div class="header_text">
+      <div class="gallery">
+        <div id="slider">
+          <ul>
+            <li>
+              <div class="div"><img src="images/simple_img_1.jpg" alt="screen 1" width="297" height="294" border="0" class="screen"  />
+                <div class="left1">
+                  <h2>Advertise Your Site Here Through Adhitz! </h2>
+                  <p>Available Choices are: <br />
+- Text Ads 468×60 (Shows on the bottom of all static pages and posts) <br />
+- Text Ads 125×125 (Shows in the footer on the middle ad slot <br />
+- Banner 125×125 (Shows in the footer on the left ad spot) <br />
+- Banner 468×60 (Shows in the Top Header beside site logo) <br />
+- Banner 120×600 (Shows in the left sidebar)</p>
+			
+             
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="div"><img src="images/simple_img_2.jpg" alt="screen 1" width="297" height="294" border="0" class="screen"  />
+                <div class="left1">
+                  <h2><strong>Make Money</strong> From Home</h2>
+
+                  <p>We will show you how to do just that with PTC's</p>
+				  
+				  <p>No experience is required, no technical skills necessary.</p> 
+				  <p>The only thing you need is to work hard</p>
+                 
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="div"><img src="images/simple_img_3.jpg" alt="screen 1" width="297" height="294" border="0" class="screen"  />
+                <div class="left1">
+                  <h2>NUS Video Course</h2>
+                  <p>The Neobux Ultimate Strategy Video Course is the first of its kind, a video course that
+				  teaches you step by step how to get referrals on auto-pilot</p>
+				  
+				  <p>You can learn how to make $20 to $30 per day from all PTC's with this video course</p>
+				  
+				  <p>Get up to 40+ direct referrals overnight without spending a fortune - we show you everything and hold
+				  nothing back</p>
+					
+					<p><a href="<?=$vcLink?>" target=_blank>Please visit our link here</a></p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="clr"></div>
+    </div>
+    <div class="clr"></div>
+    <div class="menu">
+      <ul>
+        <li><a href="./" class="active">Home</a></li>
+        <li><a href="./?page=neobux">Neobux</a></li>
+        <li><a href="./?page=clixsense">Clixsense</a></li>
+        <li><a href="./?page=probux">Probux</a></li>
+        <li><a href="./?page=buxhostlist">My Buxhost List</a></li>
+        <li><a href="./?page=about">About</a></li>
+      </ul>
+      <div class="clr"></div>
+    </div>
+    <div class="Twitter"><img src="images/twitter.gif" alt="picture" width="43" height="30" />
+      <p> <a href="#">follow me</a></p>
+    </div>
+    <div class="clr"></div>
+  </div>
+  <div class="clr"></div>
+  <div class="body">

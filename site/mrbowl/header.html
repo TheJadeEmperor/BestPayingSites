@@ -1,0 +1,82 @@
+<?
+$metaTitle='PTC Mini-Sites Layout C Sample'; ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<title><?=$metaTitle?></title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<link rel='stylesheet' type='text/css' href='styleC.css' title='wsite-theme-css' /> 
+<style type='text/css'>
+	#wsite-content {
+		width: 900px;
+		align: center;
+		text-align: left;
+	}
+	#wsite-content div.paragraph, #wsite-content p, .blog-sidebar div.paragraph, .blog-sidebar p, .wsite-form-field label, .wsite-form-field label {
+		font-family: arial !important;
+		color: #FF6600 !important;
+	}
+	#wsite-content h2, #wsite-content .product-title, .blog-sidebar h2 {
+		font-family: arial !important;
+	}
+	#wsite-title {
+		font-family: arial !important;
+		font-size: 32px !important;
+		color: #FF9900 !important;
+		text-align: center; 
+	}
+	#wsite-content a:link, .blog-sidebar a:link {
+		color: #FF9900 !important;
+	}
+	#wsite-content a:visited, .blog-sidebar a:visited {
+		color: #FF9900 !important;
+	}
+	#wsite-content a:hover, .blog-sidebar a:hover {
+		color: #CCCCCC !important;
+	}
+</style> 
+</head> 
+<body class='wsite-page-index'> 
+<div id="wrapper"> 
+	<div class="title"><span id="wsite-title">Great PTC Sites - Make Money Online</span></div> 
+	<div id="navigation"> 
+	<ul>
+		<li id='active'><a href='./'>Home Page</a></li>
+	</ul> 
+    </div> 
+    
+	<div id="container"> 
+	<div id="content"> 
+	
+ 	<center>
+ 	<h1>Check out these great sites below</h1>
+ 	<p>&nbsp;</p>
+	<?
+	$clixsense = img('http://csstatic.com/banners/clixsense468x60f.gif', '', 'Clixsense'); 
+	echo anchor('http://www.clixsense.com/?3435307', 'target=_blank', $clixsense); 
+
+	echo '<p>&nbsp;</p>';
+	
+	$neobux = img('http://images.neobux.com/imagens/banner8.gif', '', 'Neobux'); 
+	echo anchor('http://www.neobux.com/?r=mrbowl', 'target=_blank', $neobux); 
+	
+	echo '<p>&nbsp;</p>';
+	
+	$ptcms = img('http://bestpayingsites.com/images/banners/ebook1.jpg', '', 'PTC Mini-Sites');
+	echo anchor($nusLink, 'target=_blank', $ptcms); 
+	?>
+ 	</center>
+	<p>&nbsp;</p>
+	
+	</div><!-- body -->
+
+	<center><div class="footer"><p>Copyright &copy; 2011 - PTC Mini-Sites <br>
+		<a href="<?=$msLink?>">Get your own PTC Mini Site Today</a></p>
+	</center>
+
+	</div><!-- content -->
+	</div><!-- container -->
+	<div class="clear"></div>            
+</div><!-- wrapper --><br>
+</body> 
+</html>

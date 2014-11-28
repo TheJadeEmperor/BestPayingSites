@@ -1,0 +1,92 @@
+@charset "utf-8";
+body { margin:0; padding:0; width:100%; background:#1b3b67 url(images/main_bg.jpg) center top repeat-x;}
+html { padding:0; margin:0;}
+
+a { text-decoration:none;}
+a:hover { text-decoration:underline;}
+
+/* main */
+.main { padding:52px 0 0 0; margin:0 auto; width:1028px;}
+/********** header **********/
+.header { padding:0; margin:0; height:480px; background:url(images/header_bg_top.jpg) top no-repeat;}
+.header2 { padding:0; margin:0; height:331px; background:url(images/header_bg2.jpg) top no-repeat;}
+/* logo */
+.logo { padding:48px 0 0 53px; margin:0; width:493px; float:left;}
+/* search */
+.search { width:350px; float:right; padding:65px 0 0 0; margin:0; }
+.search span { display:block; float:left;}
+.search form { display:block; float:left; padding:0;}
+.search form .keywords { float:left; background:url(images/search_bg.gif) left top no-repeat; border:0; height:14px; width:187px; padding:6px 10px; margin:0; font:normal 10px Arial, Helvetica, sans-serif; color:#000;}
+.search form .button { float:left; margin:0; padding:0; width:24px;}
+/* Twitter */
+.Twitter { padding:5px 0 0 0; margin:0 40px 0 0; width:120px; float:right;}
+.Twitter img { float:right; margin:0; padding:0;}
+.Twitter p { padding:8px 0 0 0; margin:0;}
+.Twitter a { font: bold 11px Arial, Helvetica, sans-serif; color:#163154; text-decoration:none; margin:0; padding:0;}
+/* menu */	
+.menu { padding:0; margin:0; width:575px; float:left;}
+.menu ul { padding:2px 0 0 40px; margin:0; list-style:none; border:0;}
+.menu ul li { float:left; margin:0; padding:5px 5px; border:0;}
+.menu ul li a { float:left; margin:0; padding:8px 5px; color:#fff; font:bold 11px Arial, Helvetica, sans-serif; text-decoration:none; text-transform:uppercase;}
+.menu ul li a:hover { color:#a7ddff;}
+.menu ul li a.active { color:#a7ddff;}
+/*header_text*/
+.header_text { width:1028px; height:316px; margin:0 auto; padding:1px 0 0 0;}
+.header_text .div { float:right; width:876px; padding:0; margin:0 auto;}
+.header_text img.screen { float:left; margin:0; padding:17px 0 0 22px;}
+.header_text .div .left1 { float:right; width:480px; padding:0; margin:0;}
+.header_text .div .left1 h2 { font:normal 48px Arial, Helvetica, sans-serif; color:#fff; padding:20px 0 0 20px; margin:0;}
+.header_text .div .left1 h2 span { color:#000; font: normal 62px Arial, Helvetica, sans-serif; padding:0; margin:0;}
+.header_text .div .left1 a { color: white; text-decoration:underline;}
+.header_text p { font:normal 14px Arial, Helvetica, sans-serif; color:#fff; padding:5px 0 5px 20px; margin:0; line-height:1.8em;}
+.header_text p.ulli { width:300px; font: normal 11px  Tahoma, Geneva, sans-serif; color:#fff; padding:5px 15px; margin:5px 0 5px 20px; background:#767676 url(images/simple_ul_li.gif) left no-repeat;}
+/* header_text2 */
+.header_text2 { height:168px; margin:0; padding:0 20px;}
+.header_text2 h2 { width:300px; float:left; font: bold 48px Arial, Helvetica, sans-serif; color:#fff; margin:0; padding:50px 0 0 50px;}
+.header_text2 h2 span { color:#fc0c61;}
+.header_text2 p { font: normal 14px Arial, Helvetica, sans-serif; color:#fff; padding:50px 0 0 30px; width:550px; float:left;}
+/********** body **********/
+.body { width:1001px; margin:0 13px 0 14px; padding:10px 0 0 0; background:url(images/body_bg.gif) top repeat-y;}
+.body .sub_left { width:616px; float:left; margin:0; padding:25px;}
+.body .sub_right { width:257px; background:#e5e5e5; float:right; margin:0 25px 0 0 !important; margin:0 13px 0 0; padding:25px; border:1px solid #d3d6d6;}
+.body h1 { font: 26px Arial; }
+.body h2 { color:#101111; font:normal 22px  Arial, Helvetica, sans-serif; margin:5px 0; padding:10px 0 10px 35px;}
+.body h4 { color:#101111; font:normal 22px  Arial, Helvetica, sans-serif; margin:0; padding:5px;}
+.body h2.all { background:url(images/h2_people.gif) left no-repeat;}
+.body h2.cont { background:url(images/h2_contacts.gif) left no-repeat;}
+.body h3 { color:#132b4b; font: normal 22px Arial, Helvetica, sans-serif; margin:10px 5px; padding:10px 5px; border-bottom:1px solid #b2bdcc;}
+
+.body p { font:normal 14px  Arial, Helvetica, sans-serif; color:#333; padding:5px; margin:0;}
+.body p span { color:#3678d0; }
+.body a { text-decoration:underline; color:#3678d0; line-height:1.8em;}
+.body a.back { background:url(images/a_bg.gif) left no-repeat; padding:0 0 0 15px; margin:0; text-decoration:underline; color:#3678d0; line-height:1.8em;}
+.body_small { border-left:1px solid #aaccff; width:284px; float:right; margin:0; padding:25px;}
+.body_small p.test { background:url(images/bg_test.gif) top no-repeat; height:124px; padding:5px 10px; margin:0 auto;}
+.body_big { width:616px; float:left; margin:0; padding:25px;}
+.botttoms { width:150px; margin:5px; padding:5px; float:right;}
+.botttoms a { font: normal 13px Arial, Helvetica, sans-serif; color:#994f69; padding:2px 5px; margin:2px; text-decoration:underline;}
+.botttoms a:hover { color:#fc0c65; background:#320e1c; text-decoration:none;}
+.bg_around { border-top:1px solid #c0d7f4; background:#dfecff; margin:0 auto; padding:0;}
+/*bloga*/
+
+.body .bloga  { width:210px; float:left; margin:10px 0; padding:10px 19px; border-right:1px dashed #cfd1d1;}
+.body .no_border { border:0;}
+.body .bloga ul { list-style:none; margin:0; padding:0;}
+.body .bloga li { background:url(images/a_bg.gif) left no-repeat; font: normal 11px Arial, Helvetica, sans-serif; color:#3678d0; padding:5px 15px; margin:0;}
+/* END_bloga*/
+/********** footer **********/
+.footer { width:1001px; margin:0 auto; padding:0; background:url(images/footer_bg.gif) top repeat-x; border:1px solid #173257; height:75px;}
+.footer ul { margin:0; padding:30px 10px 30px 10px; list-style:none; float:left;}
+.footer img { display:inline; margin:5px 10px; padding:0;}
+.footer ul li { margin:0; padding:0 10px; float:left;}
+.footer p { margin:0; padding:30px 20px 30px 20px; float:right; color:#fff; font:normal 11px Arial, Helvetica, sans-serif; line-height:1.8em;}
+.footer a { color:#79c3ff; font:normal 11px Tahoma, Geneva, sans-serif; text-decoration:none; line-height:1.8em;}
+.footer a:hover { text-decoration:underline;}
+
+p.clr, .clr { clear:both; padding:0; margin:0;}
+li.bg, .bg { clear:both; border-bottom:1px solid #bb0707; padding:10px 0 0 0; margin:0 0 10px 0; background:none; list-style:none;}
+li.line, .line { border-top:1px solid #2e0718; padding:0; margin:10px 0; background:none; list-style:none;}
+
+.div  {
+	padding: 20px; 
+}

@@ -1,0 +1,40 @@
+body {
+	background-color: #000;
+	font-family: Georgia; }
+	
+h1 {
+	color: blue; 
+	font-family: "Comic Sans MS";
+}
+
+p {
+	line-height: 20px; 	
+}
+
+.checkList {
+	list-style-image:url(../../images/check.png);
+	font-family: Georgia;
+}
+
+.checkList li {
+	margin: 10px 0px 10px 0px;
+}
+
+.footer {
+	font-family: Georgia; 
+	margin: 0px 0px 20px 0px;
+}
+
+.left  {
+	text-align: left;
+	float: left;
+}
+
+.right {
+	text-align: right;
+	float: right;
+}
+
+.subText {
+	width: 468px;
+}

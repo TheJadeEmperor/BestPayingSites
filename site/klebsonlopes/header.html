@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title><?=$meta[title]?></title>
+<meta name="description" content="<?=$meta[desc]?>" />
+<style>@charset "utf-8";
+/* CSS Document */
+body {
+	font:normal 13px Arial, Helvetica, sans-serif;
+	color: #555;
+	margin: 0;
+	background: url('images/money.jpg');
+}
+
+.header {
+	top: 0;
+	position: relative;
+	text-align: center;
+}
+h1,h2,h3,h4 {
+	color: #151515;
+}
+	
+h1 { letter-spacing:-.05em; font-size:36px; font-weight:bold; line-height:36px; }
+h2 { letter-spacing:-.04em; font-size:30px; font-weight:bold; line-height:30px; }
+h3 { letter-spacing:-.03em; font-size:24px; font-weight:bold; line-height:24px; }
+h4 { letter-spacing:-.03em; font-size:20px; font-weight:bold; line-height:20px; }
+
+.center { text-align:center; margin:0 auto; }
+.strong { font-weight:bold; }
+.em { font-style:italic; }
+.ul { text-decoration:underline; }
+.fl { float:left; }
+.fr { float:right; }
+.red { color:#c13100; font-weight: 900; }
+a { color:inherit; margin:0; -moz-user-select:text; }
+a:hover { text-decoration:none; }
+.line { background:url(images/line.gif) no-repeat; height:1px; margin:0 auto; width:780px; }
+
+p, li {
+	color: #000;
+	font-family: Georgia;
+	font-size: 1.2em; }
+	
+#wrapper {
+	margin:0 auto;
+	width:892px;
+}
+#contentWrap {
+	margin:5px 0 0;
+	width:892px;
+}
+#contentTop {
+	background:url(images/contentTop.png) no-repeat;
+	height:36px;
+	width:892px
+}
+#content {
+	background:url(images/contentBG.png) repeat-y;
+	padding: 1px 30px 1px 30px;
+}
+#content h1 {
+	font:bold 40px/42px Arial, Helvetica, sans-serif;
+	margin:0 0 25px;
+	text-align:center;
+}
+#content .subheadline {
+	background:url(images/highlight.png) repeat-y center top;
+	font:italic 20px Arial, Helvetica, sans-serif;
+	margin:0 0 20px;
+	text-align:center;
+}
+#content h3 {
+	font:normal 20px/26px Arial, Helvetica, sans-serif;
+	margin:0 0 20px;
+	text-align:center;
+}
+
+#contentBtm {
+	background:url(images/contentBtm.png) no-repeat;
+	height:36px;
+}
+	
+#footer {
+	text-align:center;
+	margin: 0; 
+	width: 820px;
+}
+
+#footer p {
+	font:normal 14px Arial, Helvetica, sans-serif;
+	padding:12px 0 0;
+	text-align:center;
+}
+		
+.note {
+	color:#767676;
+	font:normal 11px Arial, Helvetica, sans-serif;
+	margin:15px auto 0;
+	text-align:center;
+}
+
+.moduleBlue {
+	font-family: Tahoma, Geneva, sans-serif;
+	border: solid 1px #531d2a;
+	font-weight: 800;
+	text-align: left;
+	background: #eeeeee;
+	margin-top: 0;
+	margin-bottom: 15px;
+}
+.moduleBlue h1 {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	text-align: center;
+	display: block;
+	padding: 0.5em 0.5em;
+	background: #12649b;
+	color: #ffffff;
+	font-size: 1.5em;
+}
+
+.moduleBlue div {
+	padding: 5px 5px;
+}
+
+.checkList {
+	list-style-image:url(images/check.png);
+	font-family: Georgia;
+}
+
+.menu {
+	font: normal 18px Arial, Helvetica, sans-serif;
+}
+
+.blinktext {
+     text-decoration: blink;
+     font-style: normal;
+}
+
+.sidebar {
+    left: 0;
+    top: 25%;
+    height: 320px;
+    width: 60px;
+    position: fixed;
+    padding: 5px 10px 15px 5px;
+    background:#fff;
+    box-shadow:0 0 25px #000;-moz-box-shadow:0 0 25px #000;
+    -webkit-box-shadow:0 0 25px #000;
+    -moz-border-radius:10px;
+    -khtml-border-radius:10px;
+    -webkit-border-radius:10px;
+    border-radius:10px;
+    display:block;
+    text-align: center; 
+}
+
+.optin {
+	width: 450px;
+	padding: 20px;
+	background:#fff;
+	background-color: #FFC;
+	box-shadow:0 0 25px #000;
+	-moz-box-shadow:0 0 25px #000;
+	-webkit-box-shadow:0 0 25px #000;
+	-moz-border-radius:10px;
+	-khtml-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	margin-right: 0px auto; 
+}
+
+.optin h1 {
+	font-size: 26px;
+	font-family: Tahoma, Geneva, sans-serif;
+	color: #600;
+	text-align: center;
+	font-weight: bold;
+}
+
+.orderForm {
+    padding: 5px;
+    border: thick dashed #800000;
+}
+
+td {
+	color: black;
+}
+
+</style>
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher:'67a0d44d-0b79-44c1-bb19-7f31f475d6fe'});</script>
+</head>
+<body>
+<div class="header">
+	<img src="images/top.jpg" />
+</div>
+
+<center>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+new google.translate.TranslateElement({
+	pageLanguage: 'en',
+	includedLanguages: 'es,de,fi,fr,el,id',
+	gaTrack: true,
+	gaId: 'UA-29416561-1',
+	layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+}, 'language');
+}
+</script>
+<div id="language"></div>
+
+	
+<div class="sidebar"><br />
+<center>
+	<span class="st_twitter_vcount" displayText="Tweet"></span>
+	<span class="st_facebook_vcount" displayText="Facebook"></span>
+	<span class="st_fblike_vcount" displayText="share"></span>
+	<span class='st_googleplus_vcount' displayText='G+'></span>
+	<br />
+</center>
+</div>
+</center>
+<div id="wrapper">
+<div id="contentWrap">
+	<div id="contentTop"></div>
+	<div id="content">
+	
+	<center>
+	<p>&nbsp;</p>
+	<table width="500px">
+		<tr>
+			<td></td>
+			<td align="center" width="250px"><a class="menu" href="./">Top PTC Sites List</a></td>
+			<td align="center" width="250px"><a class="menu" href="../catalog/?r=<?=$aff?>">Ultimate Strategy Products</a></td>
+			<td></td>
+		</tr>
+	</table>
+	</center>
+	
+	<p>&nbsp;</p>

@@ -1,0 +1,38 @@
+body {
+	font: 14px Helvetica;}
+.content {
+	margin: 5px;	padding: 10px 25px 0px 25px;	background-color: #FFF;	box-shadow: 0 0 25px #000;	-moz-box-shadow: 0 0 25px #000;	-webkit-box-shadow: 0 0 25px #000;	margin-right: 0 auto;	display: block;	width: 1010px;}
+.leftText {
+	float: left; 	margin: 6px 0px;
+	display: block;}
+
+.rightText {
+	float: right; 
+	margin: 6px 0px;
+	display: block;
+}
+.sideBannerLeft {
+	left: 0;	top: 12%;	position: fixed;	width: 125px;	height: 400px;}
+.sideBannerRight {
+	right: 0;	top: 12%;	position: fixed;}
+.activeBox {
+	text-align: left;
+	padding: 20px;	border: 1px solid #a1a1a1;}
+.activeBox:hover {
+	border: 1px solid black;}
+
+.contentBox {
+	border: 1px solid white;
+	padding: 10px;
+	text-align: center;
+	color: gray;
+}
+
+.contentBox:hover {
+	border: 1px solid #AAAAAA;
+	padding: 10px;
+}
+
+
+.help {
+	float: left;	margin: 0px 5px 0px 0px;}
