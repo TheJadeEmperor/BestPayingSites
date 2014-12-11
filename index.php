@@ -103,8 +103,7 @@ include($dir.'include/spmSettings.php');
 $selP = 'select * from products where folder="'.$path.'"';
 $resP = mysql_query($selP, $conn) or die(mysql_error());
 
-if($p = mysql_fetch_assoc($resP))
-{
+if($p = mysql_fetch_assoc($resP)) {
     //product vars
     $productID = $p['id'];
     $itemName = $p['itemName'];
@@ -175,54 +174,9 @@ if($_POST['dl'])
 }
 
 
-if($_GET['e'])
-    $_GET['r'] = $_GET['e']; 
+ //no affiliate, payee is admin
+$paidToEmail = $paypalEmail;
 
-//referral views
-if($_GET['r'] || $_COOKIE['sponsor'])//check for cookie, set as affiliate
-{
-    if(empty($_GET['r']))
-        $selU = 'select * from users where id="'.$_COOKIE['sponsor'].'"';
-    else
-        $selU = 'select * from users where username="'.$_GET['r'].'"';
-    $resU = mysql_query($selU, $conn) or die(mysql_error());
-
-    $u = mysql_fetch_assoc($resU);
-    $userID = $u['id']; 
-    $affiliateEmail = $u['paypal'];    
-    
-    $cookieExpire = time() + 60*60*24*30*12; //expires after 1 year
-    setcookie("sponsor", $userID, $cookieExpire);
-    setcookie("productID", $productID, $cookieExpire);     
-
-    //update aff stats    
-    updateAffStats($userID, $productID); 
-    
-    $sel = 'select * from affstats where userID="'.$_COOKIE[sponsor].'" and productID="'.$productID.'"'; 
-    $aff = mysql_fetch_assoc(mysql_query($sel, $conn));
-  
-    //default payee is the admin
-    $paidToEmail = $paypalEmail; 
-    
-    //determine who gets paid 
-    if($salesPercent == 100) //give away product 
-    {
-        $paidToEmail = $affiliateEmail; 
-    }
-    else if($salesPercent > 0) //commissions is set
-    {   //formula for affiliate sales
-        $decimal = bcdiv($aff[salesPaid], $aff[sales], 3) * 100;
-        
-        if($decimal <= $salesPercent)  //affiliate gets paid
-        {
-            $paidToEmail = $affiliateEmail; 
-        }  
-    }  
-}
-else //no affiliate, payee is admin
-{
-    $paidToEmail = $paypalEmail;
-}
 
 if(false) //debug
 {
@@ -256,38 +210,27 @@ switch($action) {
         $fileName = $dir.'templates/thankyou.html';
        
         break;
-default:
-    $keywords = $p['keywords'];
-    $description = $p['description']; 
+    default:
+        $keywords = $p['keywords'];
+        $description = $p['description']; 
 
-    $fileName = $salespage; //default action: show sales page  
-    $pageView = '/'.$path;
-    
-    //blog post
-/*    if($_GET[p])
-    {
-        $templateHeader = $val['blogHeader'];
-        $templateFooter = $val['blogFooter'];   
-        $fileName = 'blog/post.php';
-        $meta = postMetaTags($_GET['p']);     
-        $pageView = '/?p='.$_GET['p'];
-    }    
-*/
-    
-    //custom site pages 
-    $selM = 'select * from memberpages order by url';
-    $resM = mysql_query($selM, $conn) or die(mysql_error());
-    
-    while($m = mysql_fetch_assoc($resM))
-    {
-        if($action == $m['url'])
+        $fileName = $salespage; //default action: show sales page  
+        $pageView = '/'.$path;
+
+        //custom site pages 
+        $selM = 'select * from memberpages order by url';
+        $resM = mysql_query($selM, $conn) or die(mysql_error());
+
+        while($m = mysql_fetch_assoc($resM))
         {
-            $templateHeader = $m['header'];
-            $templateFooter = $m['footer'];
-            $fileName = $m['file'];
-            $pageView = '/?action='.$m['url'];
-        }
-    }       
+            if($action == $m['url'])
+            {
+                $templateHeader = $m['header'];
+                $templateFooter = $m['footer'];
+                $fileName = $m['file'];
+                $pageView = '/?action='.$m['url'];
+            }
+        }       
 }
 
 if(file_exists($templateHeader))
