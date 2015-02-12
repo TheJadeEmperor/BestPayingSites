@@ -1,8 +1,9 @@
-<?
-$oneMonthAgo = 60 * 60 * 24 * 30;
-?>
 <h1>Get Paid To Process Emails Instructions</h1>
 <div class="innerContent">
+
+    <?
+    $oneMonthAgo = 60 * 60 * 24 * 30;
+    ?>
 
     <p class="list" align="center">Last Edited <?=date('M d, Y', time()-$oneMonthAgo)?></p>
 
@@ -20,18 +21,16 @@ $oneMonthAgo = 60 * 60 * 24 * 30;
 
 <p>&nbsp;</p>
 <h2>Step-by-Step Instructions<br />
-Method #1 (The Basic Email Processing)</h2>
-
+Method #1 (Work From Home Jobs)</h2>
 
     <p>There are thousands of companies around the world that are willing to pay you to find out how you think and why you buy certain products. 
     By gathering in this info, companies can improve their products and services, which makes them more money. You can become an integral part
     of this process and get paid for your opinions. </p>
 
-    <p>Step 1.   Click the link below to access the Work From Home Directory: <br />
+    <p>Step 1. Click the link below to access the Work From Home Directory: <br />
     <a href="?action=directory">http://bestpayingsites.com/members/?action=directory</a>
 
     <p>Step 2.   This Directory is a huge list of companies willing to pay you to take surveys, read emails, shop, eat, etc. Log onto as many company sites as possible to register. Note: The more companies you register with, the more emails you will process. </p>
-
 
 
 <p>&nbsp;</p>
@@ -56,7 +55,7 @@ Method #2 (Freelance Email Processing)</h2>
 <p><b>Step 1. Select Your Payment Method - We recommend Paypal</b></p>
 
 <p>Paypal:  <a href="http://paypal.com" target="_blank">http://paypal.com</a><br />
-Egopay: <a href="http://egopay.com" target="_blank">http://egopay.com</a> <br />
+SolidTrustPay: <a href="http://solidtrustpay.com" target="_blank">http://solidtrustpay.com</a> <br />
 Skrill: <a href="https://www.skrill.com" target="_blank">https://www.skrill.com</a> <br />
 Neteller: <a href="http://www.neteller.com">http://www.neteller.com</a> <br />
 </p>
@@ -88,7 +87,7 @@ Neteller: <a href="http://www.neteller.com">http://www.neteller.com</a> <br />
      
 <p><b>Step 3. Placing Your Advertisement in the FREE Classifieds Provided</b></p>
 
-<p> After writing your personal advertisement, you must begin promoting it. The best place to start  placing your personal advertisement is in the FREE online classifieds below. Remember, the more  ads you place, the more prospects you are bound to receive--it's just common sense.</p>
+<p> After writing your personal advertisement, you must begin promoting it. The best place to start  placing your personal advertisement is in the FREE online classifieds below. Remember, the more  ads you place, the more prospects you are bound to receive - it's just common sense.</p>
 
 <p> The amount of e-mails you can process is determined by how hard you are willing to work. The  more e-mails you want to process the more ads you should place.</p>
 
@@ -119,7 +118,7 @@ Neteller: <a href="http://www.neteller.com">http://www.neteller.com</a> <br />
 <p>&nbsp;</p>
 
 <h2>Step-by-Step Instructions<br />
-Method #3</h2>
+Method #3 (The Entrepreneur)</h2>
 
 <p>This method is for the Internet savvy. It involves creating your own website and promoting your own version of Email Processing System. The websites are already built for you. All that is required of you is to edit and upload them to your server using an FTP program.</p>
 
@@ -170,11 +169,7 @@ Please e-mail [insert your e-mail address here] for additional information.</tex
 Over 600 work-at-home firms want to pay you to work. For the complete report of over 600 firms please pay $15.00-$25.00 via Paypal to (your email address here) and we will send the information to your e-mail address. Please e-mail for additional information.</textarea>
 
 
-<h3> Example 3</h3>
-<textarea cols="80" rows="4">Enjoy getting paid for working from the comfort of your own home or office. Simply pay $15.00-$25.00 via Paypal to (your email address here) for a complete report of over 670 work-at-home firms! Please e-mail for additional information.</textarea>
-
-
-<h3> Example 4 - Short ad listing</h3>
+<h3> Example 3 - Short ad listing</h3>
 <textarea cols="80" rows="6">Earn Thousands of Dollars From Home!
 Get listings of 600+ Work at Home companies!
 You won't believe how easy it really is... 
@@ -182,66 +177,14 @@ Paypal $25 to (your email address here)
 for Report or email for more info.</textarea>
 </center>
 
-<p>&nbsp;</p>
-<h2 id="classified">Classified Ads</h2>
-<?
-$classifiedAds = array(
-'http://www.1second.com/1america.htm',    
-'http://www.1second.com/a.htm',
-'http://www.1second.com/freead.htm',
-'http://www.adpost.com/',
-'http://www.adlandpro.com',
-'http://www.classified2000.net/',
-'http://www.absolutelyfreebies.com/classified_section/free_classified.html',
-'http://www.classifiedsforfree.com',
-'http://www.clockwatchers.com/classifieds',
-'http://www.ecki.com/links',
-'http://www.epage.com',
-'http://www.holton.com/classads', 
-'http://www.recycler.com',
-'http://www.funguppy.com/',
-'http://www.theadnet.com',
-'http://www.usfreeads.com',
-'http://www.interking.com/',
-'http://bestmall.com/class/submit.html',
-'http://www.clickit.com/',
-);
-
-echo '<table width="100%"><tr><td width="100px"></td><td>';
-foreach($classifiedAds as $url) {
-    echo '<p><a href="'.$url.'" target="_blank">'.$url.'</a></p>';
-}
-echo '</td></tr></table>';
-?>
 </div>
 
 <p>&nbsp;</p>
 
 <h3 id="cutAndPaste">Cut and Paste Emails</h3>
-<center>
-<p>This is how your reply should read:</p>
 
+<p>After someone sends you money, you need to send them their access to the system. This is how your reply should read:</p>
 
-<textarea cols="80" rows="10">Hello,
-
-Thank you for your purchase. 
-
-Please find attached the Work From Home Directory in pdf format.
-
-In order to open this file you will require the free Acrobat reader 
-which can be downloaded directly from the Adobe website.
-http://www.adobe.com/products/acrobat/readstep2.html
-
-Regards,
-
-[Your name]</textarea>
-</center>
- 
-<p>&nbsp;</p>
-
-<p>Note: Make sure you attach the Work From Home Directory to the email as this is what the  customer has paid for.</p>
-
-<p>If you do not know how to attach documents to an email, you may simply include the document links in your message body as follows:</p> 
 
 <center>
 <textarea cols="80" rows="10">Hello,
@@ -249,8 +192,7 @@ Regards,
 Thank you for your purchase. 
 
 To access the Work From Home Directory please go to the following website:  
-http://www.emailprocessinghomebiz.com/directory or for downloads
-http://www.emailprocessinghomebiz.com/directory/directory.pdf
+http://bestpayingsites.com/?action=download&id=vipuser
 
 Regards,
 

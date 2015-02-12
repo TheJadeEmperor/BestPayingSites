@@ -57,7 +57,7 @@ else {
         </section>
         <!-- /.blackbox -->
         <footer class="footer">
-            Created By <a href="http://www.bestpayingsites.com">Profit With PTC's</a>
+            Created By <a href="http://www.bestpayingsites.com">Best Paying Sites</a>
         </footer>
     </section>
     <!-- /.content-box -->

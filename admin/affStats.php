@@ -105,7 +105,6 @@ while($p = mysql_fetch_assoc($resP))
 </div>
 
 <p>&nbsp;</p>
-<? echo affstats($userID) ?>
 <p>&nbsp;</p>
 <table cellpadding=5 cellspacing=0 border=1>
     <tr>

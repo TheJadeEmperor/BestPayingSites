@@ -99,8 +99,7 @@ h1 {
 .red { color:#c13100; }
 </style>
 </head>
-<!--<body onbeforeunload="return ExitPage();">-->
-<body>
+<body onbeforeunload="return ExitPage();">
 <center>
 <br />
 <div class="content">
@@ -122,7 +121,7 @@ h1 {
 			<td align="center">
 				<img style="width: 249px; height: 90px;" alt="" src="<?=$imgDir?>redArrows.png">
 				
-				<form method="post" onsubmit="window.onbeforeunload=null;" 
+				<form method="post" onsubmit="NoExitPage=true;"
 				action="http://www.trafficwave.net/cgi-bin/autoresp/inforeq.cgi">
 
 				<input type=hidden name="da_name" id="da_name" value="Internet Marketer">
@@ -138,7 +137,7 @@ h1 {
 				
 				<br /><br />
 				
-				<input name="submit" id="submit" src="<?=$imgDir?>getInstantAccess.png" type="image">
+				<input name="submit" id="submit" src="<?=$imgDir?>getInstantAccess.png" type="image" />
 				</form>
 			</td>
 		</tr>

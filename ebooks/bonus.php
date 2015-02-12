@@ -2,7 +2,7 @@
 $bonus1 = '/home2/codegeas/ebooks/bonus/Traffic-Assault.pdf';
 $bonus2 = '/home2/codegeas/ebooks/bonus/Traffic-Heist.pdf';
 $bonus3 = '/home2/codegeas/ebooks/bonus/Traffic-Soldiers.pdf';
-$bonusPPB = '/home2/codegeas/ebooks/bonus/Make $18K in 30 Days.pdf';
+$bonusPPB = '/home2/codegeas/ebooks/bonus/Make-$18K-in-30-Days.pdf';
 $bonusMMS = '/home2/codegeas/ebooks/bonus/MakeMoneySurveys.pdf';
 $bonusNUS = '/home2/codegeas/ebooks/bonus/NeobuxBasics.pdf';
 $bonusPTC = '/home2/codegeas/ebooks/bonus/Santanderinos-PTC-Course.pdf'

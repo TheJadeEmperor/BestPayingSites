@@ -117,3 +117,11 @@ foreach($listC as $name => $url) {
 echo '</td></tr></table>';
 echo '<p>&nbsp;</p>';
 ?>
+
+
+<center>
+    <p>Click here to claim your bonuses (worth over $1,000)</p>
+    <a href="<?=$dir?>?action=bonus"><img src="<?=$dir?>images/members/bonus.png" /></a>
+</center>
+
+<p>&nbsp;</p>

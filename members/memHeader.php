@@ -1,38 +1,47 @@
 <?php
 function affiliateMenu() 
 {
-    $output = '
-    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+    $output = '<table cellspacing="0" cellpadding="0" width="100%" border="0">
     <tr>
-        <td align="center">
+        <td width="20px"></td>
+        <td align="left">
             <a href="?action=affcenter">Members Home</a>
         </td>
-        <td align="center">
-            <a href="?action=tools">Promotion Tools</a>
-        </td>
-        <td align="center">
-            
+        <td width="25%" align="center">
+            <a href="http://bestpayingsites.com/?action=bonus" target="_blank">Bonus Downloads</a>
         </td>
         <td align="center">
             <a href="?action=details">Update Profile</a>
         </td>
-        <td align=center width="16%">
+        <td align="right">
             <a href="?action=logout">Logout</a>
         </td>
     </tr>
     </table>';
     
     //check if customer of EPS
-    $sel = "SELECT payerEmail FROM sales WHERE productID=12 AND 
+    $sel = "SELECT payerEmail FROM sales WHERE productID='12' AND 
         (payerEmail = '".$_SESSION['login']['paypal']."' || payerEmail = '".$_SESSION['login']['email']."')";
     $res = mysql_query($sel) or die(mysql_error());
     
     if(mysql_num_rows($res) > 0) {
-        $output .= '<br /><table width="100%"><tr>
-    <td width="40%" align="center"><b><a href="?action=eps">Email Profit System</a></b></td>
-    <td width="40%" align="center"><b><a href="?action=directory">Paying Sites Directory</a></b></td>
-    <td width="30%" align="center"><b><a href="http://bestpayingsites.com/?action=bonus" target="_blank">Bonus</a></b></td>
-</tr></table>';
+        $output .= '<br />
+        <table cellspacing="0" cellpadding="0" width="100%" border="0">
+        <tr>
+            <td width="20px"></td>
+            <td  align="left">
+                <b><a href="?action=eps">Email Profit System</a></b>
+            </td>
+            <td align="center">
+                <b><a href="?action=classified">Classified Ads</a></b>
+            </td>
+            <td align="center">
+                <b><a href="?action=directory">Paying Sites Directory</a></b>
+            </td>
+            <td align="right">
+                <b><a href="?action=tools">Promotion Tools</a></b>
+            </td>
+        </tr></table>';
     }
 
     return $output.'<br /><hr color="#25569a" size="4" />';

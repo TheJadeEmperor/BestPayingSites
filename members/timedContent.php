@@ -7,8 +7,9 @@ switch($_GET['action'])
     case 'directory':
         $fileName = 'content/directory.php';
         break;
+    case 'classified':
+        $fileName = 'content/classified.php';
 }
-
 
 list($joinDate, $time) = split(' ', $u['joinDate']);
 $joinDate = strtotime($joinDate);
@@ -18,10 +19,10 @@ $numDaysInSeconds = $numDays * 24 * 60 * 60;
 
 if(($today) >= ($joinDate + $numDaysInSeconds)) //X days have passed
 {
-	include($fileName);
+    include($fileName);
 }
 else //X days not passed yet, show coming soon page
 {
-	include('content/comingSoon.php');		
+    include('content/comingSoon.php');		
 }
 ?>

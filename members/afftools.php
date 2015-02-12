@@ -1,52 +1,30 @@
 <?php
 function showBannerCode($bannerURL) {
-    global $refLink;
+    global $frontEndProduct;
     
-    return '<p><a href="'.$refLink.'" title="" target="_blank"><img src="'.$bannerURL.'" /></a></p>
+    return '<p><a href="'.$frontEndProduct.'" title="" target="_blank"><img src="'.$bannerURL.'" /></a></p>
         
-<p><textarea rows=4 cols=75 onclick="javascript:this.select()">&lt;a href="'.$refLink.'"&gt;&lt;img border="0"
-src="<?=$bannerDir?>crash-course5.gif" width="468" height="60"&gt;&lt;/a&gt;</textarea></p>
+<p><textarea rows=4 cols=75 onclick="javascript:this.select()">&lt;a href="'.$frontEndProduct.'"&gt;&lt;img border="0"
+src="http://www.bestpayingsites.com/images/banners/eps.jpg" width="468" height="60"&gt;&lt;/a&gt;</textarea></p>
 
 <p class="note">Direct image link: '.$bannerURL.'</p>';
 }
 
-global $refLink;
+global $frontEndProduct;
 $frontEndProduct = 'http://bestpayingsites.com/';
 $bannerDir = 'http://www.bestpayingsites.com/images/banners/';
 $itemName = 'Email Profit System';
 
 $username = $u[username];
-$refLink = $frontEndProduct.'?r='.$username;
-$turboLink = $frontEndProduct.'ppturbo/?r='.$username;
 ?>
 
 <br />
 <div class="innerContent">
-<p><h1><?=$businessName?> Affiliate Tools</h1></p>
+<p><h1><?=$businessName?> Promotion Tools</h1></p>
 
-<p>Although <b><?=$itemName?></b> can be promoted with a raw Affiliate Link,
-I've provided some ad copy and banners for those of you who wish to boost your
-income with our affiliate program. </p>
-</p>
-
-<p>Your affiliate link contains your username, so make sure that you set your username. It has to be alpha-numeric
-with no special characters.</p>
-
-<p>Here's your main affiliate link(s): </p>
-<p><b><font size=2><?=$refLink?></font></b></p>
-
-<p><b><font size=2><?=$turboLink?></font></b></p>
-
-<p>This is the most important link you need to sell our products. Bookmark this link and
-make sure you do not misspell it.</p>
-
-<div class="line"></div>
-
-<h2>Cloaked Affiliate Link</h2>
-
-<p>The URL cloaker we recommend is bit.ly <br />
-No registration required. Just use their service here: <a href="http://bit.ly">http://bit.ly</a></p>
-
+<p>The Email Profit System can be promoted many different ways, as described in the system. 
+But you can also use banner ads and text ads to promote the EPS. Below we will give you
+some tools to advertise the system.</p>
 
 <div class="line"></div>
 
@@ -64,21 +42,23 @@ No registration required. Just use their service here: <a href="http://bit.ly">h
     of these banners.
 <div class="line"></div>
 
-<h2>Text Ads</h2>
+<h2>Text Ad Samples</h2>
 
-<p>These are short text Ads for Adhitz, Google Adwords, and other text link ads.</p>
-<? $boxSize='rows="3" cols="37"'; ?>
+<p>Here are some ads you can use. They are just basic ideas so you can come up 
+with something that will catch a lot of attention and get you the responses 
+you are looking for to build your business. </p>
+
+<p>The short text ads are for Google Adwords, PPC sites, and other small ads. 
+The longer ads are for classified postings. </p>
+
+<? 
+$boxSize = 'rows="3" cols="37"'; 
+$boxSizeFull = 'rows="6" cols="80"'; 
+?>
 <table>
     <tr valign="top">
 	<td align="left">
 
-            <p><b>Make $200 in 15 minutes!</b><br />
-            The easiest money making system <br />
-            You will ever find! Guaranteed!</p>
-
-            <textarea <?=$boxSize?> onclick="javascript:this.select()">Make $200 in 15 minutes!
-The easiest money making system
-You will ever find! Guaranteed!</textarea>
             
             <p>&nbsp;</p>
 
@@ -88,18 +68,10 @@ You will ever find! Guaranteed!</textarea>
 
             <textarea <?=$boxSize?> onclick="javascript:this.select()">Get $15 to $25 Per Email Processed
 You are guaranteed to get paid
-For each email you process
-</textarea>
+For each email you process</textarea>
 
         </td><td width="25px"></td><td align="left">
-
-            <p><b>$200 in 15 minutes??</b><br />
-            This is 100% real and legit...<br />
-            Check out the Paypal Turbo System</p>
-
-            <textarea <?=$boxSize?> onclick="javascript:this.select()">$200 in 15 minutes??
-This is 100% real and legit...
-Check out the Paypal Turbo System</textarea>
+ 
 
             <p>&nbsp;</p>
 
@@ -115,80 +87,59 @@ Check out our website to find out how!</textarea>
     </tr>
 </table>
 
+
 <p>&nbsp;</p>
+
 
 <div class="line"></div>
 
-<!--
-<p><h2>Email Text for Mailing Lists & Safe Lists</h2>
-<p>If you have a mailing list, you can send the sales email below to your subscribers.</p>
-
-<center>
-
-<textarea name=s1 rows=18 cols=70>Want to Make $20 to $30 a Day from PTC Websites? 
-
-(date)
-
-Hi fellow PTC User, 
-
-Wouldn't it be nice to make a bundle of money quickly, with minimal effort, working at home in your pajamas? 
-
-Of course it would. I, for one, would love to have money flowing into my bank account, working only a few hours a week from home, so I'd have more time to spend with my family and loved ones, without a boss looking over my shoulder. 
-
-But the reality of internet business is not all flowers and roses. As the internet grows in numbers, so do the number of scams. Making money online seems to be getting harder and harder these days, isn't it? 
-
-As you may already know, PTC stands for "pay to click" websites. These are sites that pay you a little bit of money in exchange for viewing advertisements. You can sign up for free and make money without any experience or technical knowledge. 
-
-It's so simple anyone can do it. However, that's where the downfall is. Because it seems so easy, millions have fallen prey to scams that were promising big money and failing to deliver. 
-
-Over the course of my career, I have been scammed many times. Looking back I can't believe how stupid I was. I joined sites that pay 0.01 per click, and I clicked every day diligently, waiting for my $5.00 cashout. 
-
-But once a PTC goes scam, you will never see your hard earned money.
-
-Often times I found myself working for nothing. I couldn't even get the little amount of money that they owe me, the money I worked hard for.
-
-But fear not, there's a positive side to this. Some sites are legit and have been paying for years. And they are not hard to find. 
-
-However, even if you know which sites to join, you a plan of action to succeed. Without a strategy, you may as well be shooting blindly. 
-
-With the right strategy, you can aim straight at the bullseye and hit your target every time. 
+<p>&nbsp;</p>
 
 
-I know how hard it is to survive in the PTC World, especially as a newbie. Without a proper plan of action, things can get real muddy. 
+<p>
+Some headlines to use: <br /><br />
 
-I don't want you to make the same mistakes I did. Learn from my mistakes and benefit from my many years of experience.
-
-That is why I am offering the PTC Crash Course - a strategy guide for PTC Users of all levels
-
-<?=$refLink?>
-
-
-Here are some of the benefits to the e-course: 
-
-* How to get tons of referrals on auto-pilot for free - build a downline without ever spending a dime!
-
-* How to get 40+ direct referrals daily and put your referral clicking on steroids
-
-* Learn the secrets of the high earners of PTC Sites - just apply these techniques, and join the club of high earners
-
-* Learn how to make a blog and exactly what to do to attract tons of referrals on auto-pilot
-
-* Also included are 3 bonus ebooks - and much more!
+$100/hour with your PC!!!! <br />
+$4,000/Month with your PC!!!! <br />
+FIRE YOUR BOSS!!!! <br />
+FREE TO JOIN!!!! <br />
+THOUSANDS FROM HOME!!!! <br />
+$1,500/Week with your computer!!!!</p>
 
 
-Many users have already signed up and are getting a lot of value from it. It's like having your own instructor sitting next to you, telling you what to do so you don't fail.
+<table width="100%">
+    <tr>
+        <td>
+            <p>&nbsp;</p>
+            Ad #1: <br />
+            <textarea rows=6 cols=80 onclick="javascript:this.select()">Looking for honest, dependable associates who are interested in earning a 
+six figure part-time income from the comfort of their own homes. This is not 
+a get-rich-scheme, but a proven method to generate a full time income with 
+part-time effort. To learn how to become part of this revolutionary 
+business, email me at (your email address). Or visit my site at (your website address) Have a great day!</textarea>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>&nbsp;</p>
+            Ad #2: <br />  
+            <textarea rows=6 cols=80>Yes! You can work with your computer from the comfort of your own home. 
+Please email me at (your email address). Or visit my site at (your website address) for more info. Thanks, and have a great day!</textarea>
 
-To get the benefits of the PTC Crash Course, grab a copy today.
+    </tr>
+    <tr>
+        <td>
+            <p>&nbsp;</p>
+            Ad #3: <br />
+            <textarea rows=6 cols=80>Earn thousands a week from home, working with your computer. For more info, please email me at (your email address). Or visit my site at (your website address). See you at the top!</textarea>
 
-<?=$refLink?>
+        </td>
+    </tr>
+</table>
 
 
-Sincerely, 
-[Your Name] </textarea>
+<p>&nbsp;</p>
 
-</center>
-
-<div class="line"></div>-->
 
 <p>&nbsp;</p>
 </div>
