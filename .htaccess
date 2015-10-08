@@ -13,21 +13,11 @@ RewriteRule ^translatejobs http://tinyurl.com/real-translator-jobs-product [L,R=
  
 RewriteRule ^/?action=translate http://bestpayingsites.com/splash/translate/ [L,R=301]
 
-RewriteRule ^ppbooster http://pp-booster-system.com [L,R=301]
-
 RewriteRule ^ppturbo http://bestpayingsites.com [L,R=301]
 
 RewriteRule ^eps http://bestpayingsites.com [L,R=301]
 
 RewriteRule ^catalog http://bestpayingsites.com/site/catalog/ [L,R=301]
-
-
-
-RewriteRule ^neobux/$ http://neobuxultimatestrategy.com/ [L,R=301]
-
-RewriteRule ^ultimate http://neobuxultimatestrategy.com/ [L,R=301]
-
-RewriteRule ^minisite$ http://neobuxultimatestrategy.com/minisite/ [L,R=301]
 
 ErrorDocument 400 /images/
 ErrorDocument 401 /images/
