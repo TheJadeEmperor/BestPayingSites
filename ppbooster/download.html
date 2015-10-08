@@ -1,0 +1,93 @@
+<?
+$upsellPage = 'http://ad.trwv.net/t.pl/57718/374163';
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title><?=$itemName?> | <?=$businessName?></title>
+<link href="<?=$dir?>include/css/buttons.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="<?=$dir?>include/css/booster.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<center>
+<div class="content">
+    <center>
+    <h1><b>Thank you for your purchase, <?=$firstName.' '.$lastName ?>!</b></h1>
+    </center>
+		
+    <p>Your payment has been successful. If you used your credit card, it will show a charge from PayPal. 
+    You can login to www.paypal.com anytime to view transaction details.</p>
+
+    <p>The <font color="#0000FF"><i><?=$itemName ?></i></font> is available inside the members area, 
+    To get access to the system, just log in below. For your convenience, we've created an account for you.</p>
+
+    <p>Your credentials are:</p>
+
+    <p><i>Username: <?=$payerEmail?><br />
+            Password: <?=$password?></i>
+    </p>
+
+    <a href="<?=$dir?>members" target=_blank>Click here to go to the Members Area</a></p>
+
+    <p>After you login, we recommend that you change your password to something easier to remember.</p>
+
+    <p>If you have any problems, contact us below with your full name, 
+    email address (<?=$payerEmail?>),<br /> and this Transaction ID: <b><?=$transID?></b></p>
+    <p>Contact email: <a href="mailto:<?=$supportEmail?>"><?=$supportEmail?></a> </p>
+
+    <p>&nbsp;</p>
+
+    <center>
+    <h3>In the mean time, check out these offers...</h3>
+    <br />
+
+    <table style="border: 1px solid black; padding: 10px; width: 700px;">
+        <tr>
+            <td>
+                <p><?=$firstName.' '.$lastName ?>, how would you like to make $3,750 a month processing emails? 
+                You can with the Email Profit System. Get paid $15 to $25 per email processed!</p>
+                
+                <p>Everything you need is inside the course - step by step instructions laid out for you - 
+                all you have to do is copy and paste and get paid for every email you process! <br /><br />
+                <a class="url" href="<?=$upsellPage?>" target="_blank">http://bestpayingsites.com/</a></p>
+            </td>
+            <td>
+                <a href="<?=$upsellPage?>" target="_blank"><img src="http://bestpayingsites.com/images/eps/binder.jpg" width="250px" /></a>
+            </td>
+        </tr>
+    </table>
+    
+    <p>&nbsp;</p>
+    
+    <h3>Want more ways to make money?<br />Check out these sponsors below:</h3>
+    
+    <table>
+        <tr>
+            <td>
+                <a href="http://bestpayingsites.com/?action=surveys-ptc&campaign=upsell" target="_blank"><img src="http://bestpayingsites.com/images/banners/surveys/surveys300x250.gif" /></a>
+            </td>
+            <td width="70px"></td>
+            <td>
+                <a href="http://www.clixsense.com/?3373459&upsell" target=_blank><img src="http://csstatic.com/banners/clixsense_gpt300x250a.png" border=0></a>
+            </td>
+        </tr>
+    </table>
+    </center>
+	
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+
+    <div class="blackbox">
+        <b>Copyright &copy; <?=date('Y', time())?> | <span style="color: lime;"><i>PayPal Booster Pro</i></span> | All rights reserved
+        <br /><br />
+        <a href="./">Home</a> &nbsp; | &nbsp; 
+        <a href="?action=faq">F.A.Q.</a> &nbsp; | &nbsp;
+        <a href="?action=support">Contact Us</a> &nbsp; | &nbsp;
+        <a href="members">Members Login</a>
+    </div>
+    <br />
+</div>
+</center>
+</body>
+</html>

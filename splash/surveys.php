@@ -5,26 +5,34 @@ $imgDir = 'images/splash/';
 $redirURL = 'http://bestpayingsites.com/redirect.php?url=';
 $subscrLandingURL = $confirmLandingURL = $redirURL.'http://bestpayingsites.com/?action=get-cash-for-surveys';
 
-if( date('Y-m-d', time()) == '2013-11-30' )
-{
-	$redirURL = 'http://bestpayingsites.com/redirect.php?url=';
-$subscrLandingURL = $confirmLandingURL = $redirURL.'http://www.cashinonbanners.com/l/s96ly';
+//redirect to Neobux opt in
+if( date('Y-m-d', time()) > '2015-05-30' && date('Y-m-d', time()) < '2015-06-22' ) {
+    if($_GET['action'] == 'surveys-ptc') {
+        echo '<h3>Directing you to the sign up page...</h3>
+        <META http-equiv="refresh" content="2;URL=http://neobuxultimatestrategy.com/?action=ecourse">';
+        exit;
+    }
+
+    if($_GET['action'] == 'surveys-neobux') { 
+
+        echo '<h3>Directing you to the sign up page...</h3>
+        <META http-equiv="refresh" content="2;URL=http://neobuxultimatestrategy.com/?action=freereport">';
+        exit;
+    }
 }
 
 
-if($_GET['e']) //email address passed in url
-{
-	$emailField = '<input type=text id="da_email" name="da_email" value="'.$_GET[e].'" class="textField" />';
+if($_GET['e']) { //email address passed in url
+    $emailField = '<input type=text id="da_email" name="da_email" value="'.$_GET[e].'" class="textField" />';
 }
+else {
+    $emailField = '<input type=text id="da_email" name="da_email" value="name@email.com" onclick="if(this.value==\'name@email.com\') this.value=\'\';" class="textField" />';
+}
+
+if($_GET['action'] == 'surveys-neobux')
+    $mainHeadline = '<img src="images/splash/headlineNeobux.jpg" width="810px" />';
 else
-{
-	 $emailField = '<input type=text id="da_email" name="da_email" value="name@email.com" onclick="if(this.value==\'name@email.com\') this.value=\'\';" class="textField" />';
-}
-
-if($_GET[action] == 'surveys-neobux')
-	$mainHeadline = '<img src="images/splash/headlineNeobux.jpg" width="810px" />';
-else
-	$mainHeadline = '<img src="images/splash/headlinePTC.jpg" width="810px" />';
+    $mainHeadline = '<img src="images/splash/headlinePTC.jpg" width="810px" />';
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

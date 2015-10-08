@@ -9,26 +9,22 @@ $resS = mysql_query($selS, $conn) or die(mysql_error());
 
 $sales = mysql_num_rows($resS);
 
-if($s = mysql_fetch_assoc($resS))
-{
-    $firstName = $s[firstName];
-    $lastName = $s[lastName];
-    $salesDate = $s[salesDate];  
-    $expiresDate = $s[expiresDate];
-    $payerEmail = $s[payerEmail];
+if($s = mysql_fetch_assoc($resS)) {
+    $firstName = $s['firstName'];
+    $lastName = $s['lastName'];
+    $salesDate = $s['salesDate'];  
+    $expiresDate = $s['expiresDate'];
+    $payerEmail = $s['payerEmail'];
     
     if(!isset($expiresDate))
         $expiresDate = $salesDate; 
 }
 
-if($oto == 'Y' && !$_POST[skipOTO]) //one time offer 
-{
+if($oto == 'Y' && !$_POST['skipOTO']) { //upsell 
     $fileName = 'oto.html';
 }
-else
-{
-    if($sales > 0) //valid sale
-    {
+else {
+    if($sales > 0) { //valid sale
         //check for expiration date
         $today = time(); 
         $expiresDate = strtotime($expiresDate); 
@@ -92,15 +88,14 @@ else
             
             $fileName = 'download.html';
         } 
-        else 
-		{
+        else {
             $fileName = 'expired.html';
         }
     }
-    else //invalid sale
-    {
+    else { //invalid sale
         $fileName = 'invalid.html';
     }
 }       
+//echo $fileName;
 include($fileName); 
 ?>

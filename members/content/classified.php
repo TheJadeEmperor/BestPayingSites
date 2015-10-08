@@ -1,5 +1,6 @@
+<h1 id="classified">Classified Ads Listing</h1>
+
 <p>&nbsp;</p>
-<h2 id="classified">Classified Ads Listing</h2>
 
 <p>Below is our database of classified ads that you use to promote your system. 
 This list is updated frequently, so check back often for changes. </p>

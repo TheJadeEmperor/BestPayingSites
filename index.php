@@ -1,8 +1,8 @@
 <?php
 /*
 +---------------------------------------------------------------------
-| v1.0
-| Copyright 2011-2014 Sales Page Machine. 
+| v2.0
+| Copyright 2012-2015 Sales Page Machine. 
 | All Rights Reserved
 |
 | The sale, duplication or transfer of the script to any 
@@ -174,9 +174,8 @@ if($_POST['dl'])
 }
 
 
- //no affiliate, payee is admin
+//no affiliate, payee is admin
 $paidToEmail = $paypalEmail;
-
 
 if(false) //debug
 {

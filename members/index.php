@@ -84,6 +84,10 @@ if(isset($u['id'])) { //logged in
         case 'eps':
         case 'directory':
         case 'classified': 
+        case 'pp-booster':
+        case 'pp-html-files':
+        case 'pp-links':
+        case 'pp-tools':
             $affmenu = true;
             $fileName = 'timedContent.php';
             break;

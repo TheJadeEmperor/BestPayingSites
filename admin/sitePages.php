@@ -1,8 +1,7 @@
 <?php
 include('adminCode.php');  
 
-if($_POST[delete])
-{
+if($_POST[delete]) {
     if($_GET[id])
     {
         $delPage = 'delete from memberpages where id="'.$_GET[id].'"';
@@ -90,21 +89,24 @@ else {
 }
 
 
-$sel = 'select * from memberpages order by url';
+$count = 1;
+$sel = 'select * from memberpages order by file';
 $res = mysql_query($sel, $conn) or die(mysql_error());
 
-while($mp = mysql_fetch_assoc($res))
-{
+while($mp = mysql_fetch_assoc($res)) {
     $mp = stripAllSlashes($mp);
     
     if($_GET[id] == $mp[id])
         $m = $mp;
     
     $mList .= '<tr>
-    <td><a href="memberPages.php?id='.$mp[id].'">'.$mp[url].'</a></td>
-    <td>'.$mp['file'].'</td>
-    <td><a href="../?action='.$mp[url].'" target=_blank>Link</a></td>
+        <td>'.$count.'</td>
+        <td><a href="sitePages.php?id='.$mp[id].'">'.$mp[url].'</a></td>
+        <td>'.$mp['file'].'</td>
+        <td><a href="../?action='.$mp[url].'" target=_blank>Link</a></td>
     </tr>';
+    
+    $count++;
 }
 
 $mList = '<table>'.$mList.'</table>';
@@ -114,7 +116,7 @@ $properties = 'type="text" class="activeField"';
 ?>
 
 <form method=post> 
-<div class="moduleBlue"><h1>Add New Page</h1>
+<div class="moduleBlue"><h1>Add / Update Site Page</h1>
 <div class="moduleBody">
     <font color=red><?=$msg?></font>
     <table>
@@ -134,7 +136,7 @@ $properties = 'type="text" class="activeField"';
             <div title="header=[File Name] body=[The location of the file, relative to the website root<br>Ex: folder/file.html] "><img src="<?=$helpImg?>" />
             <input <?=$properties?> name=file value="<?=$m['file']?>" />
             </div>
-            </td>
+        </td>
     </tr>
     <tr>
         <td>Header File</td>

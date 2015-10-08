@@ -9,6 +9,19 @@ switch($_GET['action'])
         break;
     case 'classified':
         $fileName = 'content/classified.php';
+        break;
+    case 'pp-booster':
+        $fileName = 'content/pp-booster.php';
+        break;
+    case 'pp-html-files':
+        $fileName = 'content/pp-html-files.php';
+        break;
+    case 'pp-links':
+        $fileName = 'content/pp-links.php';
+        break;
+    case 'pp-tools':
+        $fileName = 'content/pp-tools.php';
+        break;
 }
 
 list($joinDate, $time) = split(' ', $u['joinDate']);

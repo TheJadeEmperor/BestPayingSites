@@ -36,9 +36,9 @@ body {
     <meta http-equiv="refresh" content="86; <?=$productLink?>" />
     <div class="content">
         <br />
-        <img src="http://copynpastecash.com/turbopaypal/images/watchvideo1.png" height="112" width="490">
-        <embed src="http://www.youtube.com/v/9b9MjzdRL2E?autoplay=1&autohide=1&controls=0&modestbranding=1" type="application/x-shockwave-flash" width="640" height="360" allowscriptaccess="false" allowfullscreen="false"></embed>
+        <img src="images/splash/watchvideo1.png" height="112" width="490" />
 
+        <iframe width="640" height="360" src="http://www.youtube.com/v/q7d6JL588Kk?autoplay=1&autohide=1&controls=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>
         <br />
         <a href="<?=$productLink?>"><img src="images/splash/instantAccess.png"></a>
 

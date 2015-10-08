@@ -1,5 +1,4 @@
 <?
-
 function purchasedProducts() {
     global $conn;
     
@@ -10,7 +9,7 @@ function purchasedProducts() {
         $itemName = $p['itemName']; 
         $productID = $p['id'];
 
-        $selS = 'SELECT *, date_format(purchased, "%m/%d/%y") AS purchased FROM sales WHERE
+        $selS = 'SELECT *, date_format(purchased, "%m/%d/%Y") AS purchased FROM sales WHERE
         (payerEmail="'.$_SESSION['login']['paypal'].'" or contactEmail="'.$_SESSION['login']['email'].'") 
             AND productID="'.$p['id'].'"'; 
         $resS = mysql_query($selS) or die(mysql_error());
@@ -22,7 +21,7 @@ function purchasedProducts() {
     
         if($p['itemPrice'] == 0) { //free gift - download is available
 
-            $downloadContent  = $itemName.' is a free product.
+            $downloadContent = $itemName.' is a free product.
             The product was last updated on '.date('m/d/Y', time()).' <br>
             Click below to download the latest version of '.$itemName.' <br>
             <center>
@@ -76,20 +75,43 @@ function purchasedProducts() {
             }
         }
 
-        return '<div class="moduleBlue"><h1>'.$p[itemName].'</h1><div>
+        $allContent .= '<div class="moduleBlue"><h1>'.$p[itemName].'</h1><div>
         '.$downloadContent .'
         </div></div> <br />'; 
     }
 
+    return $allContent;
 }
 ?>
-<p>&nbsp;</p>
-
 <h1>Members Home</h1>
 
 <p>&nbsp;</p> 
 <?
 echo purchasedProducts(); 
+
+//check if customer of PPB
+$sel = "SELECT payerEmail FROM sales WHERE productID='10' AND 
+    (payerEmail = '".$_SESSION['login']['paypal']."' || payerEmail = '".$_SESSION['login']['email']."')";
+    
+$res = mysql_query($sel) or die(mysql_error());
+    
+if(mysql_num_rows($res) > 0) {
+    ?>
+    <fieldset>
+        <h2>Paypal Booster</h2>
+        
+        <p><a href="?action=pp-booster">Paypal Booster Video</a></p>
+        
+        <p><a href="?action=pp-html-files">HTML Files</a></p>
+              
+        <p><a href="?action=pp-links">Booster Links</a></p>
+                
+        <p><a href="?action=pp-tools">Promotion Tools</a></p>
+               
+    </fieldset>
+
+<?
+}
 
 //check if customer of EPS
 $sel = "SELECT payerEmail FROM sales WHERE productID='12' AND 
@@ -98,19 +120,25 @@ $res = mysql_query($sel) or die(mysql_error());
 
 if(mysql_num_rows($res) > 0) {
 ?>
+    <br /><br />
     <fieldset>
+        <h2>Email Profit System</h2>
+        
     <p>To get started using the Email Profit System, go to the links below:</p>
 
     <p><a href="?action=eps">3 Steps to the Email Profit System</a></p>
 
     <p><a href="?action=classified">Classified Ads List</a></p>
 
-    <p><a href="?action=directory">Paying Sites Directory</a> </p>
+    <p><a href="?action=directory">Paying Sites Directory</a></p>
+    
+    <p><a href="?action=tools">Promotion Tools</a></p>
     </fieldset>
 <?
 }
 ?>
 
+<p>&nbsp;</p>
 <p>&nbsp;</p>
 
 <center>

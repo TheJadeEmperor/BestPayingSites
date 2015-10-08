@@ -2,8 +2,7 @@
 if(!$_SESSION[login][id])
     header('Location: index.php');
 
-function updateSession()
-{
+function updateSession() {
     global $conn; 
     
     $sel = 'select * from users where username="'.$_SESSION[login][username].'" 
@@ -69,38 +68,71 @@ if($_POST[pw])
 
 $msg = '<font color=red><b>'.$msg.'</b></font>';
 
-if($_SESSION[login][username] == 'VIPUser' || $_SESSION[login][username] == 'vipuser') {
-    $disable = 'disabled'; 
-    $warning = '<span class="red">You are on a shared account, changing your details is not allowed</span><br /><br />';
-}
+$username = $u['username'];
+$password = $u['password'];
+$email = $u['email'];
 ?>
 <p>&nbsp;</p>
+
 <center>
-<?=$msg?>
-<?=$warning?>
+<?
+echo $msg; 
+
+if($_SESSION[login][username] == 'VIPUser' || $_SESSION[login][username] == 'vipuser') {
+    $disable = 'disabled'; 
+
+    echo '<center>
+        <table>
+<tr>
+<td>
+    <div class="moduleBlue"><h1>Update Profile</h1>
+    <div class="moduleBody">
+        <table>
+        <tr>
+            <td>Username: </td><td>'.$username.'</td>
+        </tr>
+        <tr>
+            <td>Paypal Email:  </td><td>'.$paypalEmail.'</td>
+        </tr>
+        <tr>
+            <td>Password:</td> <td>'.$password.'</td>
+        </tr>
+        </table>
+    </div>
+    </div>
+    </td>
+    </tr>
+</table>
+</center>';
+}
+else {
+?>
+
+
+
 <form method="POST">
 <table>
 <tr>
 <td>
-    <div class="moduleBlue"><h1>Update Profile</h1>
+    <div class="moduleBlue"><h1>Account Profile</h1>
     <div class="moduleBody">
         <br />
         <table>
         <tr>
             <td align="right">Username: </td>
             <td>
-                <input <?=$disable?> type="text" class="activeField" name="username" value="<?=$u[username]?>" size="30" />
+                <input <?=$disable?> type="text" class="activeField" name="username" value="<?=$username?>" size="30" />
             </td>
         </tr>
         <tr>
             <td align="right">Paypal Email: </td>
             <td>
-                <input <?=$disable?> type="text" class="activeField" name="email" value="<?=$u[email]?>" size="30" /> 
+                <input <?=$disable?> type="text" class="activeField" name="email" value="<?=$email?>" size="30" /> 
             </td>
         </tr>
         <tr>
             <td align="center" colspan="2">
-                <input <?=$disable?> type=submit name=update value="Update Profile" class="btn primary" onclick="alert('Warning: if you update your username, your old referral link with your old username will become invalid')"  />
+                <input <?=$disable?> type=submit name=update value="Update Profile" class="btn primary"  />
             </td>
         </tr>
         </table>
@@ -140,4 +172,7 @@ if($_SESSION[login][username] == 'VIPUser' || $_SESSION[login][username] == 'vip
 </tr>
 </table>
 </center>
+<?
+}
+?>
 <p>&nbsp;</p>

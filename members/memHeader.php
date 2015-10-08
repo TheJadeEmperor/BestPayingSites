@@ -43,13 +43,13 @@ function affiliateMenu()
             </td>
         </tr></table>';
     }
-
-    return $output.'<br /><hr color="#25569a" size="4" />';
+    
+    return $output.'<br /><hr color="#25569a" size="4" /><p>&nbsp;</p>';
 }
 
 $imgDir = $dir.'images/crashcourse/'; 
 $refDir = $dir.'images/refs/';
-$itemName = 'PTC Crash Course';
+$itemName = 'Email Profit System';
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html xmlns="http://www.w3.org/1999/xhtml">

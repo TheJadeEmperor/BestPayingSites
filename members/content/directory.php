@@ -1,5 +1,7 @@
 <h1>Work From Home Directory </h1>
 
+<p>&nbsp;</p>
+
 <p>Below are a list of companies that will pay you cash to complete surveys. All you have to do is sign up
 to the companies' websites below and begin taking surveys right away. Some companies will require you
 to confirm some information before you can get started. </p>

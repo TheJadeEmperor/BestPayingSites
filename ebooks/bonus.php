@@ -158,7 +158,7 @@ $bonusPTC = '/home2/codegeas/ebooks/bonus/Santanderinos-PTC-Course.pdf'
             </td>
             <td width="70px"></td>
             <td>
-                 <a href="http://bestpayingsites.com/?action=translate&campaign=upsell" target="_blank"><img src="http://bestpayingsites.com/images/banners/translate/translate1.gif" /></a>
+                <a href="http://www.clixsense.com/?3373459&upsell" target=_blank><img src="http://csstatic.com/banners/clixsense_gpt300x250a.png" border=0></a>
             </td>
         </tr>
     </table>

@@ -17,11 +17,9 @@ $itemName = 'Email Profit System';
 
 $username = $u[username];
 ?>
+<h1><?=$itemName?> Promotion Tools</h1>
 
-<br />
 <div class="innerContent">
-<p><h1><?=$businessName?> Promotion Tools</h1></p>
-
 <p>The Email Profit System can be promoted many different ways, as described in the system. 
 But you can also use banner ads and text ads to promote the EPS. Below we will give you
 some tools to advertise the system.</p>

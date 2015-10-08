@@ -55,21 +55,21 @@ $properties = 'class="activeField" size="40"';
             From Email: 
         </td>
         <td>
-        	<div title="header=[SMTP From Email] body=[Email account used to send mass emails from] ">
-        		<img src="<?=$helpImg?>" />
-        		<input <?=$properties?> name=fromEmail value="<?=$val[fromEmail]?>">
-    		</div>
-		</td>
+            <div title="header=[SMTP From Email] body=[Email account used to send mass emails from] ">
+                    <img src="<?=$helpImg?>" />
+                    <input <?=$properties?> name=fromEmail value="<?=$val[fromEmail]?>">
+            </div>
+        </td>
     </tr>
     <tr title="fromName">
         <td>
             From Name: 
         </td>
         <td>
-        	<div title="header=[SMTP From Name] body=[Email name used to send mass emails from] ">
-        		<img src="<?=$helpImg?>" />
-        		<input <?=$properties?> name=fromName value="<?=$val[fromName]?>">
-    		</div>
+            <div title="header=[SMTP From Name] body=[Email name used to send mass emails from] ">
+                <img src="<?=$helpImg?>" />
+                <input <?=$properties?> name=fromName value="<?=$val[fromName]?>">
+            </div>
     	</td>
     </tr>
     <tr title="smtpHost">
@@ -77,22 +77,22 @@ $properties = 'class="activeField" size="40"';
             SMTP Host: 
         </td>
         <td>
-        	<div title="header=[SMTP Host] body=[Hostname of your email server, please consult your
+            <div title="header=[SMTP Host] body=[Hostname of your email server, please consult your
             email provider for this] ">
-            	<img src="<?=$helpImg?>" />
-            	<input <?=$properties?> name=smtpHost value="<?=$val[smtpHost]?>">
-        	</div>
+                <img src="<?=$helpImg?>" />
+                <input <?=$properties?> name=smtpHost value="<?=$val[smtpHost]?>">
+            </div>
     	</td>
     </tr>
     <tr title="smtpPass">
         <td>
-        	SMTP Password: </td>
+            SMTP Password: </td>
         <td>
-        	<div title="header=[SMTP Password] body=[Password of your email server, please consult your
+            <div title="header=[SMTP Password] body=[Password of your email server, please consult your
             email provider for this] ">
-            	<img src="<?=$helpImg?>" />
-            	<input <?=$properties?> name=smtpPass value="<?=$val[smtpPass]?>">
-        	</div>
+                <img src="<?=$helpImg?>" />
+                <input type="password" <?=$properties?> name=smtpPass value="<?=$val[smtpPass]?>">
+            </div>
     	</td>
     </tr>
     </table>
@@ -142,24 +142,26 @@ $properties = 'class="activeField" size="40"';
 <td>    
     <div class="moduleBlue"><h1>Admin Account</h1>
     <div class="moduleBody">
-	    <table>
+        <table>
 	    <tr>
 	        <td>Username: </td>
 	        <td>
-	        	<div title="header=[Admin Username] body=[This is what you use to log into the admin area]">
-	                <img src="<?=$helpImg?>" />
-		        	<input <?=$properties?> name=adminUser value="<?=$val[adminUser]?>" size=30>
-        		</div>
+                    <div title="header=[Admin Username] body=[This is what you use to log into the admin area]">
+                        <img src="<?=$helpImg?>" />
+                        <input <?=$properties?> name=adminUser value="<?=$val[adminUser]?>" size=30>
+                    </div>
         	</td>
-	    </tr><tr>
+	    </tr>
+            <tr>
 	        <td>Password: </td>
 	        <td>
-	        	<div title="header=[Admin Password] body=[This is what you use to log into the admin area]">
-	                <img src="<?=$helpImg?>" />
-	        		<input <?=$properties?> name=adminPass value="<?=$val[adminPass]?>" size=30></td>
-				</div>
+                    <div title="header=[Admin Password] body=[This is what you use to log into the admin area]">
+                        <img src="<?=$helpImg?>" />
+                        <input type="password" <?=$properties?> name=adminPass value="<?=$val[adminPass]?>" size=30>
+                    </div>
+                </td>
 	    </tr>
-	    </table>
+        </table>
     </div>
     </div>
 	    

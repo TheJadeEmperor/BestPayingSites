@@ -1,22 +1,12 @@
 <?php
 date_default_timezone_set('America/New_York'); 
 $imgDir = 'images/booster/';
-$redirURL = 'http://bestpayingsites.com/redirect.php?url=';
-$subscrLandingURL = $confirmLandingURL = $redirURL.'http://bestpayingsites.com/ppbooster'; 
-
-/*
-$now = date( 'Y-m-d h:i:s', time() );
-
-if($now > '2014-04-10 01:00:00' && $now < '2014-04-11 23:00:00') {
-    $subscrLandingURL = $confirmLandingURL = $redirURL.'http://www.clixsense.com/?3440023';
-}
-*/
+$landingURL = 'http://bestpayingsites.com/redirect.php?url=http://bestpayingsites.com/ppbooster'; 
 
 if($_GET['e']) { //email address passed in url
     $emailField = '<input type=text size="25" id="da_email" name="da_email" value="'.$_GET['e'].'" class="activeField">';
 }
-else
-{
+else {
     $emailField = '<input type=text size="25" id="da_email" name="da_email" value="name@email.com" onclick="if(this.value==\'name@email.com\') this.value=\'\';" class="activeField">';
 }
 
@@ -103,53 +93,53 @@ h1 {
 <center>
 <br />
 <div class="content">
-	<br />
-	<h2 class="subheadline"><span class="strong red">Warning: </span>This offer will expire on <?=date('F dS', time())?> at midnight...</h2>
+    <br />
+    <h2 class="subheadline"><span class="strong red">Warning: </span>This offer will expire on <?=date('F dS', time())?> at midnight...</h2>
 
-	<h1><i><span style="background-color: yellow; color: rgb(204, 0, 0);"><span style="background-color: black; color: white;">FREE!</span> <?=$mainHeadline?></span></i>
-	
-	<br />
-	<font style="font-size: 16pt;" face="Arial"><span style="color: rgb(51, 102, 255);">Includes Step By Step, Easy To Follow Instructions!</span></font></h1>
-	
-	<br /><br />
-	
-	<table cellspacing=10>
-		<tr valign="top">
-			<td>
-				<img style="width: 334px; height: 250px;" src="<?=$imgDir?>paypal-balance.jpg" class="clickable">
-			</td>
-			<td align="center">
-				<img style="width: 249px; height: 90px;" alt="" src="<?=$imgDir?>redArrows.png">
-				
-				<form method="post" onsubmit="NoExitPage=true;"
-				action="http://www.trafficwave.net/cgi-bin/autoresp/inforeq.cgi">
+    <h1><i><span style="background-color: yellow; color: rgb(204, 0, 0);"><span style="background-color: black; color: white;">FREE!</span> <?=$mainHeadline?></span></i>
 
-				<input type=hidden name="da_name" id="da_name" value="Internet Marketer">
-				<input type=hidden name="da_cust1" value="" />
-				<input type=hidden name="da_cust2" value="<?=$_SERVER[HTTP_REFERER]?>" />
-				<input type=hidden name="da_cust3" value="<?=$_GET[campaign]?>" />
-				<input type=hidden name="trwvid" value="theemperor" />
-				<input type=hidden name="series" value="paypalbooster" />
-				<input type=hidden name="subscrLandingURL" value="<?=$subscrLandingURL?>" />
-				<input type=hidden name="confirmLandingURL" value="<?=$confirmLandingURL?>" />
+    <br />
+    <font style="font-size: 16pt;" face="Arial"><span style="color: rgb(51, 102, 255);">Includes Step By Step, Easy To Follow Instructions!</span></font></h1>
 
-				<?=$emailField?>
+    <br /><br />
+	
+    <table cellspacing=10>
+        <tr valign="top">
+            <td>
+                <img style="width: 334px; height: 250px;" src="<?=$imgDir?>splash-balance.jpg" class="clickable">
+            </td>
+            <td align="center">
+                <img style="width: 249px; height: 90px;" alt="" src="<?=$imgDir?>redArrows.png">
+
+                <form method="post" onsubmit="NoExitPage=true;" action="http://www.trafficwave.net/cgi-bin/autoresp/inforeq.cgi">
+
+                        <input type=hidden name="da_name" id="da_name" value="Internet Marketer">
+                        <input type=hidden name="da_cust1" value="<?=$_SERVER['HTTP_REFERER']?>" />
+                        <input type=hidden name="da_cust2" value="<?=$_SERVER['HTTP_REFERER']?>" />
+                        <input type=hidden name="da_cust3" value="<?=$_GET['campaign']?>" />
+                        <input type=hidden name="trwvid" value="theemperor" />
+                        <input type=hidden name="series" value="paypalbooster" />
+                        <input type=hidden name="subscrLandingURL" value="<?=$landingURL?>" />
+                        <input type=hidden name="confirmLandingURL" value="<?=$landingURL?>" />
+
+                        <?=$emailField?>
 				
-				<br /><br />
+                        <br /><br />
 				
-				<input name="submit" id="submit" src="<?=$imgDir?>getInstantAccess.png" type="image" />
-				</form>
-			</td>
-		</tr>
-	</table>													
+                        <input name="submit" id="submit" src="<?=$imgDir?>getInstantAccess.png" type="image" />
+                </form>
+            </td>
+        </tr>
+    </table>													
 		
-	<p style="color: rgb(153, 153, 153); font-size: 10px;" align="center"><img src="images/splash/lock.png"> 
-	<font face="Arial">We hate spam and will never sell your email address<br /> to others. 
-	All opt-ins are completely optional.</font></p>
+    <p style="color: rgb(153, 153, 153); font-size: 10px;" align="center"><img src="images/splash/lock.png"> 
+    <font face="Arial">We hate spam and will never sell your email address<br /> to others. 
+    All opt-ins are completely optional.</font></p>
 
 </div>
 </center>
 <br />
 <p style="color: rgb(153, 153, 153);" align="center">
-    <small><small><small> <font face="Arial">Copyright 2013 &copy; Paypal Booster. All Rights Reserved.</font></small></small></small>
+    <small><small><small>
+        <font face="Arial">Copyright 2013 &copy; Paypal Booster. All Rights Reserved.</font></small></small></small>
 </p>
