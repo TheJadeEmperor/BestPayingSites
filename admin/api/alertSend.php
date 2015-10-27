@@ -1,7 +1,6 @@
 <?
 /* 
- * Send email alerts whenever there is a new high or low price
- * 
+ * Send email alerts hourly for the price of BTC and LTC
  */
 
 require_once('btce-api.php');
@@ -29,47 +28,9 @@ $ltcBTC['highPrice'] = $api->getHighPrice('ltc_btc');
 $ltcBTC['lowPrice'] = $api->getLowPrice('ltc_btc');
 
 
-$nvcUSD['lastPrice'] = $api->getLastPrice('nvc_usd');
-$nvcUSD['highPrice'] = $api->getHighPrice('nvc_usd');
-$nvcUSD['lowPrice'] = $api->getLowPrice('nvc_usd');
 
-
-$nmcUSD['lastPrice'] = $api->getLastPrice('nmc_usd');
-$nmcUSD['highPrice'] = $api->getHighPrice('nmc_usd');
-$nmcUSD['lowPrice'] = $api->getLowPrice('nmc_usd');
-
-
-$sendEmailBody = '';
-
-if($btcUSD['lastPrice'] >= $btcUSD['highPrice']) {
-    $sendEmailBody = 'BTC new high price: '.$btcUSD['highPrice'].' ';
-}
-else if($btcUSD['lastPrice'] <= $btcUSD['lowPrice']) {
-    $sendEmailBody = 'BTC new low price: '.$btcUSD['lowPrice'].' ';
-}
-
-
-if($ltcUSD['lastPrice'] >= $ltcUSD['highPrice']) {
-    $sendEmailBody .= 'LTC new high price: '.$ltcUSD['highPrice'].' ';
-}
-else if($ltcUSD['lastPrice'] <= $ltcUSD['lowPrice']) {
-    $sendEmailBody .= 'LTC new low price: '.$ltcUSD['lowPrice'].' ';
-}
-
-
-if($nvcUSD['lastPrice'] >= $nvcUSD['highPrice']) {
-    $sendEmailBody .= 'NVC new high price: '.$nvcUSD['highPrice'].' ';
-}
-else if($nvcUSD['lastPrice'] <= $nvcUSD['lowPrice']) {
-    $sendEmailBody .= 'NVC new low price: '.$nvcUSD['lowPrice'].' ';
-}
-
-if($nmcUSD['lastPrice'] >= $nmcUSD['highPrice']) {
-    $sendEmailBody .= 'NMC new high price: '.$nmcUSD['highPrice'].' ';
-}
-else if($nmcUSD['lastPrice'] <= $nmcUSD['lowPrice']) {
-    $sendEmailBody .= 'NMC new low price: '.$nmcUSD['lowPrice'].' ';
-}
+$subject = 'BTC: '.$btcUSD['lastPrice'];
+$sendEmailBody = 'LTC: '.$ltcUSD['lastPrice'].' / LTC/BTC: '.$ltcBTC['lastPrice'];
 
 
 $headers = 'From: alerts@bestpayingsites.com' . "\r\n" .
@@ -79,18 +40,18 @@ $headers = 'From: alerts@bestpayingsites.com' . "\r\n" .
 echo $headers;
 
 if($sendEmailBody) {
-    $emailTo = '17182136574@tmomail.net';
-    $mailSent = mail($emailTo, 'Text alert', $sendEmailBody, $headers);
+    $emailTo = '17182136574@tmomail.net'; //text to phone number
+    $mailSent = mail($emailTo, $subject, $sendEmailBody, $headers);
     
     if($mailSent) {
-        $subject = 'Text alert sent';
+        $subjectEmail = 'Text alert sent';
     }
     else {
-        $subject = 'Text alert NOT sent';
+        $subjectEmail = 'Text alert NOT sent';
     }
     
     $emailTo = 'louie.benjamin@gmail.com'; 
-    echo mail($emailTo, $subject, $sendEmailBody, $headers);
+    echo mail($emailTo, $subjectEmail, $sendEmailBody, $headers);
 }
 
 ?>

@@ -2,6 +2,7 @@
 date_default_timezone_set('America/New_York'); 
 $imgDir = 'images/booster/';
 $landingURL = 'http://bestpayingsites.com/redirect.php?url=http://bestpayingsites.com/ppbooster'; 
+$landingURL = 'http://neobuxultimatestrategy.com/redirect.php?url=http://www.clixsense.com/?3373459';
 
 if($_GET['e']) { //email address passed in url
     $emailField = '<input type=text size="25" id="da_email" name="da_email" value="'.$_GET['e'].'" class="activeField">';
@@ -12,7 +13,7 @@ else {
 
 $mainHeadline = 'Make $267 A Day From Neobux And Clixsense With Our System! The Easiest Money You\'ll Ever Make!';
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <title>Paypal Booster | Paypal Booster Pro | Paypal Booster System</title>
@@ -113,20 +114,20 @@ h1 {
 
                 <form method="post" onsubmit="NoExitPage=true;" action="http://www.trafficwave.net/cgi-bin/autoresp/inforeq.cgi">
 
-                        <input type=hidden name="da_name" id="da_name" value="Internet Marketer">
-                        <input type=hidden name="da_cust1" value="<?=$_SERVER['HTTP_REFERER']?>" />
-                        <input type=hidden name="da_cust2" value="<?=$_SERVER['HTTP_REFERER']?>" />
-                        <input type=hidden name="da_cust3" value="<?=$_GET['campaign']?>" />
-                        <input type=hidden name="trwvid" value="theemperor" />
-                        <input type=hidden name="series" value="paypalbooster" />
-                        <input type=hidden name="subscrLandingURL" value="<?=$landingURL?>" />
-                        <input type=hidden name="confirmLandingURL" value="<?=$landingURL?>" />
+					<input type=hidden name="da_name" id="da_name" value="Internet Marketer">
+					<input type=hidden name="da_cust1" value="<?=$_SERVER['HTTP_REFERER']?>" />
+					<input type=hidden name="da_cust2" value="<?=$_SERVER['HTTP_REFERER']?>" />
+					<input type=hidden name="da_cust3" value="<?=$_GET['campaign']?>" />
+					<input type=hidden name="trwvid" value="theemperor" />
+					<input type=hidden name="series" value="paypalbooster" />
+					<input type=hidden name="subscrLandingURL" value="<?=$landingURL?>" />
+					<input type=hidden name="confirmLandingURL" value="<?=$landingURL?>" />
 
-                        <?=$emailField?>
-				
-                        <br /><br />
-				
-                        <input name="submit" id="submit" src="<?=$imgDir?>getInstantAccess.png" type="image" />
+					<?=$emailField?>
+			
+					<br /><br />
+			
+					<input name="submit" id="submit" src="<?=$imgDir?>getInstantAccess.png" type="image" />
                 </form>
             </td>
         </tr>
@@ -140,6 +141,7 @@ h1 {
 </center>
 <br />
 <p style="color: rgb(153, 153, 153);" align="center">
-    <small><small><small>
-        <font face="Arial">Copyright 2013 &copy; Paypal Booster. All Rights Reserved.</font></small></small></small>
+    <small><small><small><font face="Arial">
+		Copyright <?=date('Y', time())?> &copy; Paypal Booster. All Rights Reserved.
+	</font></small></small></small>
 </p>
