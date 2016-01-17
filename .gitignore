@@ -1,5 +1,5 @@
 # Sensitive files
-include/config.php
+/include/config.php
 
 # Windows image file caches
 Thumbs.db
