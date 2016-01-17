@@ -1,6 +1,7 @@
 # Sensitive files
 include/config.php
 nbproject/
+backup/
 .project
 
 # Windows image file caches
