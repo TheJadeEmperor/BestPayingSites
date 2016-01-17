@@ -1,6 +1,10 @@
 body {
 	background-color: #000;
 	font-family: Georgia; }
+
+.leftBorder {
+	background:url('images/4b.gif');width:17px
+}
 	
 .checkList {
 	list-style-image:url(../../images/check.png);

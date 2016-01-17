@@ -13,4 +13,6 @@ switch($_GET['page']) {
 include('header.html');
 include($file);
 include('footer.html');
+
+unlink('error_log');
 ?>
