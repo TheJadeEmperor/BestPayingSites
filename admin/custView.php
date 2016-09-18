@@ -15,55 +15,62 @@ function getUser($userEmailOrID)
     return mysql_fetch_assoc($resU);
 }
 
+$saleID = $_GET['id'];
+
+//extend the expiration date
+if($_POST[extendExpires])
+{
+    $expireSeconds = $_POST['expiresHours'] * 60 * 60; //# of hours converted to seconds
+    $newExpDate = time() + $expireSeconds; //new expiration date in seconds
+    $newExpDate = date('Y-m-d h:m:i', $newExpDate); //new expiration date in sql format
+    
+    $upd = 'update sales set expires="'.$newExpDate.'" where id="'.$saleID.'"';
+    $res = mysql_query($upd, $conn) or die(mysql_error());
+}
+
+
 //get info from this sale 
 $selS = 'select *, date_format(purchased, "%m/%d/%Y") as bought, date_format(expires, "%m/%d/%Y") as 
-expires from sales where id="'.$_GET[id].'"';
+expiresDate from sales where id="'.$saleID .'"';
 $resS = mysql_query($selS, $conn) or die(mysql_error());
 
 if($s = mysql_fetch_assoc($resS)) //sale array
 {
-    $s[notes] = stripslashes($s[notes]);
-    $amount = '$'.number_format($s[amount], 2);
+    $s['notes'] = stripslashes($s['notes']);
+    $amount = '$'.number_format($s['amount'], 2);
     
-    //get all products 
-    $selP = 'select * from products where id="'.$s[productID].'"';
+    //get the product
+    $selP = 'select * from products where id="'.$s['productID'].'"';
     $resP = mysql_query($selP, $conn) or die(mysql_error());
     
     $p = mysql_fetch_assoc($resP); //product array
 }
 
+$salesDate = $s['bought'];
+$expiresDisplay = $s['expiresDate'];
+
 //check for expiration date
 $today = time(); 
-$salesDate = strtotime($s[purchased]); 
-$expireSeconds = $p[expires] * 60 * 60; 
+$expiresDate = strtotime($s['expiresDate']);
+$expireSeconds = $p['expires'] * 60 * 60; 
 
-if(($today) <= ($salesDate + $expireSeconds))
+if(($today) <= ($expiresDate + $expireSeconds))
 {
     $downloadLinkStatus = 'Active';
     $disExtend = 'disabled'; 
 }
-else {
+else 
+{
     $downloadLinkStatus = 'Expired';
 }
 
-//get the download link
-$folder = $p[folder];
-if($folder == '')
-    $downloadLink = $websiteURL.'/?action=download&id='.$s[transID];
-else
-    $downloadLink = $websiteURL.'/'.$folder.'/?action=download&id='.$s[transID];
 
-//extend the expiration date
-if($_POST[extendExpires])
-{
-    $expireSeconds = $p[expires] * 60 * 60; 
-     
-    $newExpDate = time() + $expireSeconds;
-    $newExpDate = date('Y-m-d h:m:i', $newExpDate);
-    
-    $upd = 'update sales set expires="'.$newExpDate.'" where id="'.$s[id].'"';
-    $res = mysql_query($upd, $conn) or die(mysql_error());
-}
+//get the download link
+$folder = $p['folder'];
+if($folder == '')
+    $downloadLink = '../?action=download&id='.$s[transID];
+else
+    $downloadLink = '../'.$folder.'/?action=download&id='.$s[transID];
 
 if($_POST[makeAccount])
 {
@@ -101,8 +108,8 @@ if($_POST[updateNotes])
         $msg = 'Failed to update this sale';
 }
 
-
-$selU = 'select * from users where paypal="'.$s[payerEmail].'"';
+//members account
+$selU = 'select * from users where paypal="'.$s[payerEmail].'" || email="'.$s[payerEmail].'"';
 $resU = mysql_query($selU, $conn) or die(mysql_error());
 
 $u = mysql_fetch_assoc($resU);
@@ -135,7 +142,7 @@ if($msg)
             <tr>
                 <td>Transaction ID</td>
                 <td><div title="header=[Paypal Transaction ID] body=[The unique transaction ID sent from Paypal upon purchase <br /> This is ID used in the download link]">
-                    <a href="<?=$downloadLink?>" target=_blank><?=$s[transID]?></a> <img src="<?=$helpImg?>" /> </div>
+                    <a href="<?=$downloadLink?>" target="_blank"><?=$s[transID]?></a> <img src="<?=$helpImg?>" /> </div>
                 </td>
             </tr>
             <tr>
@@ -164,19 +171,20 @@ if($msg)
             <tr>
                 <td>Purchased </td>
                 <td><div title="header=[Purchase Date] body=[When the sale was made]">
-                    <?=$s[bought]?> <img src="<?=$helpImg?>" /> </div></td>
+                    <?=$salesDate?> <img src="<?=$helpImg?>" /> </div></td>
             </tr>
             <tr>
                 <td>Download Link Expires</td>
                 <td><div title="header=[Download Link Expires] body=[When the download link expires <br /> The # of hours can be set in the product options]">
-                    <?=$s[expires]?>  (<?=$p[expires]?> Hours) <img src="<?=$helpImg?>" /> </div></td>
+                    <?=$expiresDisplay?>  (<?=$p['expires']?> Hours) <img src="<?=$helpImg?>" /> </div></td>
             </tr>
             <tr>
                 <td>Download Link Status</td>
-                <td><?=$downloadLinkStatus?></td>
+                <td><a href="<?=$downloadLink?>" target="_blank"><?=$downloadLinkStatus?></a></td>
             </tr>
             <tr>
                 <td colspan=2 align=center>
+                	<input type=hidden name=expiresHours value="<?=$p['expires']?>">
                     <input type=submit name=extendExpires value=" Extend Expiration Date " onclick="confirm('Are you sure?');" <?=$disExtend?> />
                 </td>
             </tr>
@@ -188,6 +196,15 @@ if($msg)
     </td>
     <td width="10px"></td>
     <td>
+    	<div class="moduleBlue"><h1>More Options</h1>
+        <div class="moduleBody">
+            <center><a href="custManage.php?id=<?=$saleID?>"><input type=button value="Edit Sales Details" onclick="alert('Warning: You are about to make changes to the database\nClick OK if you know what this means')"/></a>
+        	</center>
+        </div>
+        </div>
+    	
+    	<p>&nbsp;</p>
+    	
         <div class="moduleBlue"><h1>Affiliate Details</h1>
         <div>
             <table>
@@ -200,7 +217,7 @@ if($msg)
                 <td><a href="updateProfile.php?id=<?=$s[affiliate]?>"><?=$affUser[username]?></a></td>                        
             </tr>
             <tr>
-                <td>Paid To Email: ?</td>
+                <td>Paid To Email: </td>
                 <td><?=$s[paidTo]?></td>
             </tr>
             </table>
@@ -225,11 +242,7 @@ if($msg)
         </div>
     </td>
 	<td>
-        <div class="moduleBlue"><h1>More Options</h1>
-        <div class="moduleBody">
-            <a href="custManage.php?id=<?=$_GET[id]?>"><input type=button value="Edit Sales Details" onclick="alert('Warning: You are about to make changes to the database\nClick OK if you know what this means')"/></a>
-        </div>
-        </div>
+        
     </td>
 </tr>
 </table>

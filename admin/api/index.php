@@ -1,4 +1,6 @@
 <?php
+include('include/api_database.php');
+include('include/api_bitfinex.php');
 include('include/config.php');
 
 
@@ -7,35 +9,34 @@ function priceRow($pair) {
     
     global $allPrices;
     
-    return '<td> <a href="https://btc-e.com/exchange/'.$pair.'" target="_blank">'.$allPrices[$pair]['last'].'</a> </td>
-            <td> '.$allPrices[$pair]['buy'].' / '.$allPrices[$pair]['sell'].' </td>
-            <td> '.$allPrices[$pair]['high'].' / '.$allPrices[$pair]['low'].'</td>';
+    return '<td><a href="https://btc-e.com/exchange/'.$pair.'" target="_blank">'.$allPrices[$pair]['last'].'</a></td>
+        <td> '.$allPrices[$pair]['high'].' </td>
+        <td> '.$allPrices[$pair]['low'].'</td>';
 }
 
 
 function priceTable($allPrices) {
-    echo '
-        <table border="1" class="table">
+    echo '<table border="1" class="table">
             <tr>
                 <td>Pair</td>
                 <td>Last Price</td>
-                <td>Buy/Sell</td>
-                <td>High/Low</td>
+                <td>24h High</td>
+                <td>24h Low</td>
             </tr>
             <tr>
                 <td>BTC/USD</td>
                 '.priceRow('btc_usd').'
             </tr>
             <tr>
-                <td> LTC/USD </td>
+                <td>LTC/USD </td>
                 '.priceRow('ltc_usd').'
             </tr>
             <tr>
-                <td> LTC/BTC </td>
+                <td>LTC/BTC </td>
                 '.priceRow('ltc_btc').'            
             </tr>
             <tr>
-                <td> EUR/USD </td>
+                <td>EUR/USD </td>
                 '.priceRow('eur_usd').'            
             </tr>
         </table>';
@@ -61,6 +62,76 @@ function getPriceData($pair) {
     return $json[$pair];
 }
 
+
+$candleData = new Database($db);
+$candleData->get_options();
+$candleData->get_candles('bitfinex_btc');
+$diff = $candleData->get_percent();
+
+$percentDiff_12 = $candleData->get_percent(); //trend of 12 candles (6 hours)
+$percentDiff_12 = number_format($percentDiff_12, 2);
+//echo $percentDiff_12;
+
+
+//get ema10 and ema21
+$k21 = 2/(21+1); //smoothing constant - 21 day
+$k10 = 2/(10+1); //smoothing constant - 10 day
+
+$q = 'SELECT date_format(time, "%m/%d/%Y %h:%i %p") as time, bitfinex_btc from api_prices order by count desc';
+$res = $db->query($q);
+
+$array = array();
+$arrayPrice = array();
+foreach($res as $row) {
+    array_push($array, $row);
+    array_push($arrayPrice, $row['bitfinex_btc']);
+}
+
+$ema10 = $ema21 = 0;
+for($count = 1; $count < 70; $count++) {
+
+    $bitfinex_btc = $array[$count]['bitfinex_btc'];
+    if($count > 9) {
+        $last_10 = array_slice($arrayPrice, $count-10, 10, true);
+        $sma10 = array_sum ($last_10)/10;
+        
+        if($ema10 == 0) $ema10 = $sma10;
+        else $ema10 = $k10 * ($bitfinex_btc - $ema10) + $ema10;
+        
+        if($count > 20) {
+            $last_21 = array_slice($arrayPrice, $count-21, 21, true);
+            $sma21 = array_sum ($last_21)/21;
+            
+            if($ema21 == 0) $ema21 = $sma21;
+            else $ema21 = $k21 * ($bitfinex_btc - $ema21) + $ema21;
+        }
+    }
+
+    $sma10 = number_format($sma10, 2);
+    $ema10 = number_format($ema10, 2);
+    $sma21 = number_format($sma21, 2);
+    $ema21 = number_format($ema21, 2);
+    
+    $emaTable .= '<tr>
+        <td>'.$count.'</td>
+        <td>'.$array[$count]['time'].'</td>
+        <td>'.$array[$count]['bitfinex_btc'].'</td>
+        <td title="SMA-10: '.$sma10.'">'.$ema10.'</td>  
+        <td title="SMA-21: '.$sma21.'">'.$ema21.'</td>
+    </tr>';    
+}
+
+$bitfinexEMA = '<table class="table">
+<tr>
+    <th>count</th>
+    <th>day</th>
+    <th>price</th>
+    <th>10 day ema</th>
+    <th>21 day ema</th>
+</tr>
+'.$emaTable.'
+</table>';
+
 global $public_api;
 $public_api = 'https://btc-e.com/api/3/';
 
@@ -71,30 +142,30 @@ foreach($currencyPair as $cPair) {
     $allPrices[$cPair] = getPriceData($cPair);
 }
 
-
+//changing the trade options 
 if($_POST['submit_options']) {
-    $btc_e_currency = $_POST['btc_e_currency'];
-    $btc_e_balance = $_POST['btc_e_balance'];
-    $btc_e_trading = $_POST['btc_e_trading'];
     $bitfinex_currency = $_POST['bitfinex_currency'];
     $bitfinex_balance = $_POST['bitfinex_balance'];
     $bitfinex_trading = $_POST['bitfinex_trading'];
+    $bitfinex_sl_range = $_POST['bitfinex_sl_range'];
+    $bitfinex_pd_percent = $_POST['bitfinex_pd_percent'];
+    $bitfinex_pl_exit = $_POST['bitfinex_pl_exit'];
     
     //do multiple queries in one call
     $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, 0);
     
     $queryO = 'UPDATE '.$context['optionsTable'].' SET
-            setting = "'.$btc_e_currency.'" WHERE opt = "btc_e_currency";               
-        UPDATE '.$context['optionsTable'].' set
-            setting = "'.$btc_e_trading.'" WHERE opt = "btc_e_trading";
-        UPDATE '.$context['optionsTable'].' set
-            setting = "'.$btc_e_balance.'" WHERE opt = "btc_e_balance";
-        UPDATE '.$context['optionsTable'].' set
             setting = "'.$bitfinex_currency.'" WHERE opt = "bitfinex_currency";
-        UPDATE '.$context['optionsTable'].' set
+        UPDATE '.$context['optionsTable'].' SET
             setting = "'.$bitfinex_balance.'" WHERE opt = "bitfinex_balance";
-        UPDATE '.$context['optionsTable'].' set
+        UPDATE '.$context['optionsTable'].' SET
             setting = "'.$bitfinex_trading.'" WHERE opt = "bitfinex_trading";
+        UPDATE '.$context['optionsTable'].' SET
+            setting = "'.$bitfinex_sl_range.'" WHERE opt = "bitfinex_sl_range";
+        UPDATE '.$context['optionsTable'].' SET
+            setting = "'.$bitfinex_pd_percent.'" WHERE opt = "bitfinex_pd_percent";
+        UPDATE '.$context['optionsTable'].' SET
+            setting = "'.$bitfinex_pl_exit.'" WHERE opt = "bitfinex_pl_exit";
     ';
    
     try {
@@ -106,441 +177,166 @@ if($_POST['submit_options']) {
     }
 }
 
+//get the current options from api_options
 $queryO = $db->query('SELECT * FROM '.$context['optionsTable'].' ORDER BY opt');
 
-foreach($queryO as $opt){ 
-    //echo $opt['opt'].' '.$opt['setting'].'<br>';
-
-    $btc_e_option[$opt['opt']][$opt['setting']] = 'selected';
-    $bitfinex_option[$opt['opt']][$opt['setting']] = 'selected';
-    
-    if($opt['opt'] == 'btc_e_balance') {
-        $btc_e_balance = $opt['setting'];
-    }
-    else if($opt['opt'] == 'bitfinex_balance') {
-        $bitfinex_balance = $opt['setting'];
-    }
+foreach($queryO as $opt) { 
+    if($opt['opt'] == 'bitfinex_trading' || $opt['opt'] == 'bitfinex_currency')
+        $bitfinexOption[$opt['opt']][$opt['setting']] = 'selected';
+    else
+        $bitfinexOption[$opt['opt']] = $opt['setting'];
 }
 
-//print_r($btc_e_trading_option);//
-
-$btc_e_trading_dropdown = '<select name="btc_e_trading">
-    <option '.$btc_e_option['btc_e_trading'][1].'>1</option>
-    <option '.$btc_e_option['btc_e_trading'][0].'>0</option>
-</select>
-';
-
-$btc_e_currency_dropdown = '<select name="btc_e_currency">
-    <option '.$btc_e_option['btc_e_currency']['btc'].'>btc</option>
-    <option '.$btc_e_option['btc_e_currency']['ltc'].'>ltc</option>
-</select>';
+$bitfinex_sl_range = $bitfinexOption['bitfinex_sl_range'];
+$bitfinex_balance = $bitfinexOption['bitfinex_balance'];
+$bitfinex_pd_percent = $bitfinexOption['bitfinex_pd_percent'];
+$bitfinex_pl_exit = $bitfinexOption['bitfinex_pl_exit'];
 
 
 $bitfinex_trading_dropdown = '<select name="bitfinex_trading">
-    <option '.$bitfinex_option['bitfinex_trading'][1].'>1</option>
-    <option '.$bitfinex_option['bitfinex_trading'][0].'>0</option>
+    <option '.$bitfinexOption['bitfinex_trading'][1].'>1</option>
+    <option '.$bitfinexOption['bitfinex_trading'][0].'>0</option>
 </select>';
 
 $bitfinex_currency_dropdown = '<select name="bitfinex_currency">
-    <option '.$bitfinex_option['bitfinex_currency']['btc'].'>btc</option>
-    <option '.$bitfinex_option['bitfinex_currency']['ltc'].'>ltc</option>
+    <option '.$bitfinexOption['bitfinex_currency']['btc'].'>btc</option>
+    <option '.$bitfinexOption['bitfinex_currency']['ltc'].'>ltc</option>
 </select>';
 
-$queryP = $db->query('SELECT * FROM api_prices order by count desc'); 
 
-foreach($queryP as $p) { 
-    $priceHistory .= '<tr>
-        <td>'.$p['time'].'</td>
-        <td>'.$p['btce_btc'].'</td>
-        <td>'.$p['btce_ltc'].'</td>
-        <td>'.$p['bitfinex_btc'].'</td>
-        <td>'.$p['bitfinex_ltc'].'</td>';
+$price_change = array();
+$queryP = $db->query('SELECT *, date_format(time, "%m/%d/%Y %h:%i %p") as time FROM '.$context['pricesTable30m'].' order by count desc'); 
+
+foreach($queryP as $priceRow) { 
+    array_push($price_change, $priceRow);
 }
 
-$priceHistory = '<table class="table">
+$c = 70;
+foreach($price_change as $i => $p) {
+    
+    $exchangeCurrency = array('cex_btc', 'cex_ltc', 'bitfinex_btc', 'bitfinex_ltc');
+            
+    foreach($exchangeCurrency as $ec) {
+        if($price_change[$i-1][$ec] != 0) { //previous price is recorded
+           
+            $diff[$ec] = ($p[$ec] - $price_change[$i-1][$ec])/$p[$ec]*100;
+            $diff[$ec] = number_format($diff[$ec], 2);
+            
+            if($diff[$ec] > 0) { //positive change
+                $diff[$ec] = '<font color="green">(+'.$diff[$ec].'%)</font>';
+            }
+            else { //negative change
+                $diff[$ec] = '<font color="red">('.$diff[$ec].'%)</font>';
+            }
+        }
+    }
+   
+    $bitfinexHistory .= '<tr>
+        <td>'.$p['time'].'</td>
+        <td>'.$c.'</td>
+        <td>'.number_format($p['bitfinex_btc'], 4).' '.$diff['bitfinex_btc'].'</td>
+        <td>'.number_format($p['bitfinex_ltc'], 4).' '.$diff['bitfinex_ltc'].'</td>
+    </tr>';
+    
+    $cexHistory .= '<tr>
+        <td>'.$p['time'].'</td>
+        <td>'.$c.'</td>
+        <td>'.number_format($p['cex_btc'], 4).' '.$diff['cex_btc'].'</td>
+        <td>'.number_format($p['cex_ltc'], 4).' '.$diff['cex_ltc'].'</td>
+    </tr>';
+    
+    $c--;
+}
+
+
+$bitfinexHistory = '<table class="table">
     <tr><td>time</td>
-    <td>btce_btc</td>
-    <td>btce_ltc</td>
+    <td>candle #</td>
     <td>bitfinex_btc</td>
     <td>bitfinex_ltc</td>
     </tr>
-'.$priceHistory.'</table>';
+'.$bitfinexHistory.'</table>';
 
-/*
-$queryT = $db->query('SELECT * FROM '.$context['tradesTable'].' order by pair, action, price');
 
-foreach($queryT as $t) { 
-    $id = $t['id'];
-    $usd = $t['price'] * $t['amount'];
-    
-    $tradeRow = '<tr><td>'.$t['action'].'</td><td>'.$t['pair'].'</td><td> '.$t['price'].'</td>
-        <td>'.$t['amount'].'</td><td>'.$usd.'</td>
-        <td><input type="button" class="btn btn-success updateButton" value=" Update " onclick="fillForm(\''.$id.'\')" /> </td>
-        <td><input type="button" class="btn btn-danger deleteButton" value="X" onclick="deleteRow(\''.$id.'\')" /></td>
-            </tr>';
-    
-    if($t['status'] == 'A')
-        $activeTrades .= $tradeRow;
-    else
-        $disabledTrades .= $tradeRow;
+$cexHistory = '<table class="table">
+    <tr><td>time</td>
+    <td>candle #</td>
+    <td>cex_btc</td>
+    <td>cex_ltc</td>
+    </tr>
+'.$cexHistory.'</table>';
+
+
+
+//get data from api_trade_data 
+$queryTD = $db->query('SELECT *, date_format(last_updated, "%m/%d/%Y %h:%i %p") as updated_last FROM api_trade_data order by last_updated desc'); 
+
+foreach($queryTD as $td) { 
+    $apiTradeData .= '<tr>
+        <td>'.$td['exchange'].'</td>
+        <td>'.$td['currency'].'</td>
+        <td>'.$td['last_action'].'</td>
+        <td>'.$td['last_price'].'</td>
+        <td>'.$td['trade_signal'].'</td>
+        <td>'.$td['updated_last'].'</td></tr>';
 }
-*/
-?>
-<head>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+$apiTradeData = '<table class="table">
+    <tr>
+        <th>Exchange</th>
+        <th>Currency</th>
+        <th>last_action</th>
+        <th>last_price</th>
+        <th>trade_signal</th>
+        <th>last_updated</th>
+    </tr>'.$apiTradeData.'</table>';
 
-<!-- Latest compiled and minified JavaScript -->
-<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>-->
 
-<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" />
+//get daily balance info
+$queryB = $db->query('SELECT *, date_format(date, "%m/%d/%Y") as date FROM api_balance order by date desc');
 
-<script src="http://code.jquery.com/jquery-latest.min.js" type='text/javascript' /></script>
-<script src="include/jquery-ui/ui/jquery-ui.js"></script>
-<style>
-    body {
-        margin: 5px 15px;
+$bCount = 1;
+foreach($queryB as $b) {
+    $balanceBitfinex = number_format($b['balance_bitfinex'], 2);
+    
+    if($bCount < 30) {
+        $col1 .= '<tr>
+        <td>'.$b['date'].'</td>
+        <td>$'.$balanceBitfinex.'</td>
+        </tr>';
     }
-</style>
-<script>
-    function updateRow(id) {
-        $.ajax({ //update this record
-            type        : 'POST', //Method type
-            url         : '<?=$update_call?>', 
-            data        : $('#updateForm').serialize(), 
-            success     : function(msg) {
-                 //alert(msg)
-                 location.reload();
-             }
-        });
-        event.preventDefault(); //Prevent the default submit      
+    else {
+        $col2 .= '<tr>
+        <td>'.$b['date'].'</td>
+        <td>$'.$balanceBitfinex.'</td>
+        </tr>';
+
     }
     
-    function fillForm(id) {
-        //alert(id);
-        $.getJSON("<?=$read_call?>&id="+id+"", function( data ) {
-            
-            $.each( data, function( key, val ) {
-                if(data.hasOwnProperty(key))
-                    $('input[name='+key+']').val(val);
+    $bCount++;
+}
 
-                if(key == 'id') $('input[name=idButton]').val(val);
-
-                if(key == 'action') {
-                    $('select[name="action"]').find('option[value="'+val+'"]').attr("selected",true);
-                }
-                else if(key == 'pair') {
-                    $('select[name="pair"]').find('option[value="'+val+'"]').attr("selected",true);
-                }
-            });
-        });
-    }
-    
-    function deleteRow(id) {
-        if (confirm("Are you sure you want to delete record "+id+"?")) {
-            $.ajax({
-                type: "GET",
-                url: "<?=$delete_call?>&id="+id,
-                success: function() {
-                    alert('Deleted record '+id);
-                    location.reload();
-                }
-            })
-        }    
-    }
-    
-    function createRow() {
-        $.ajax({
-            type: "POST",
-            url: "<?=$create_call?>",
-            data: $('#updateForm').serialize(),
-            success: function(msg) {
-                alert('server msg: '+msg);
-                location.reload();
-            }
-        });
-    }
-    
-    function copyValue() {
-        var file = $("#file").val();
-        var subject = file.substring(5 ,file.length - 5);
-        $("#subject").val(subject);
-    }
- 
-    $(document).ready(function () {
-        $('#updateForm').hide();
-        $('#priceTable').hide();
-        
-        
-        $(".updateButton").click(function () {
-            $("#updateForm").dialog({
-                modal: true,
-                width: 750,
-                position: 'top',
-                show: {
-                    effect: "explode",
-                    duration: 500
-                },
-                hide: {
-                    effect: "explode",
-                    duration: 500
-                },
-                buttons: {
-                    Save: function () {
-                        var id = $('#id').val();
-                        updateRow(id);
-                        $( this ).dialog( "close" );
-                    },
-                    Cancel: function() {
-                        $( this ).dialog( "close" );
-                    },                        
-                }
-            });
-        });
-        
-         $(".priceTable").click(function() {
-            $("#priceTable").dialog({
-                modal: true,
-                width: 700,
-                position: 'top',
-                show: {
-                    effect: "explode",
-                    duration: 500
-                },
-                hide: {
-                    effect: "explode",
-                    duration: 500
-                },
-                buttons: {
-                    Close: function() {
-                        $(this).dialog("close");
-                    }
-                }
-            })
-        })
-        
-        $(".createButton").click(function() {
-            $("#updateForm").dialog({
-                modal: true,
-                width: 700,
-                position: 'top',
-                show: {
-                    effect: "explode",
-                    duration: 500
-                },
-                hide: {
-                    effect: "explode",
-                    duration: 500
-                },
-                buttons: {
-                    Save: function() {
-                        createRow();
-                        $(this).dialog("close");
-                    },
-                    Cancel: function() {
-                        $(this).dialog("close");
-                    }
-                }
-            })
-        });
-
-    });
-    </script>
-</head>    
-<body>
-    <br />
-
-    <table>
+$apiBalance = '<table>
     <tr valign="top">
-        <td width="">
-                    
-            <h3>Trade Options</h3> 
-            
-            <form method="POST">
-            <table>
-                <tr valign="top">
-                    <td>
-                        <pre class="xdebug-var-dump">
-                        <table class="table" border="1">
-                        <tr>
-                            <td>BTC-E Trading</td>
-                            <td>
-                                <?=$btc_e_trading_dropdown?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>BTC-E Currency</td>
-                            <td>
-                                <?=$btc_e_currency_dropdown?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>% of Balance</td>
-                            <td>
-                                <input type="text" name="btc_e_balance" value="<?=$btc_e_balance?>" />
-                            </td>
-                        </tr>
-                        </table>
-                        </pre>
-                    </td>
-                        <td>
-                        <pre class="xdebug-var-dump">
-                        <table class="table" border="1">
-                            <tr>
-                                <td>Bitfinex Trading</td>
-                                <td>
-                                    <?=$bitfinex_trading_dropdown?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Bitfinex Currency</td> 
-                                <td>
-                                    <?=$bitfinex_currency_dropdown?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>% of Balance</td> 
-                                <td>
-                                    <input type="text" name="bitfinex_balance" value="<?=$bitfinex_balance?>" />
-                                </td>
-                            </tr>
-                        </table>
-                        </pre>
-                        </td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center"> <input type="submit" class="btn btn-success" name="submit_options" value="Update" /></td>
-                </tr>
-            </table>
-            </form>
-            
-            <br />
-
-            <h3>View Prices History</h3>
-            <input type="button" class="btn btn-warning updateButton" value="Prices History" />
- 
-            
-            <h3>Price Chart</h3>
-            <input type="button" class="btn btn-warning priceTable" value="Prices History" />
-            
-            <h3>apiTrade Debug Mode</h3>
-            <a href="apiTrade.php?debug=1" target="_blank"><input type="button" class="btn btn-warning" value="apiTrade.php" /></a> &nbsp;
-            
-            <a href="apiTradeBitfinex.php?debug=1" target="_blank"><input type="button" class="btn btn-warning" value="apiTradeBitfinex.php" /></a>
-            
-        </td>
-        <td width="60px"></td>
-        
         <td>
-            
-            <div id="btc_e_links">
-            <h3>BTC-E Links</h3>
-            <pre class="xdebug-var-dump">
-            <table class="">
-                <tr valign="top">
-                    <td>
-                        <a href="https://btc-e.com/" target="_blank">Main Site</a>
-                        <br /><br />
-                        <a href="https://btc-e.com/profile#orders_history" target="_blank">Orders History</a>
-                        <br /><br />
-                        <a href="https://btc-e.com/profile#trade_history" target="_blank">Trade history</a> 
-                        <br /><br />                        
-                    </td>
-                    <td>
-                        <a href="https://btc-e.com/profile#funds" target="_blank">Account Funds</a> 
-                        <br /><br />
-                        <a href="https://btc-e.com/profile#funds/deposit_coin/1" target="_blank">Deposit Coins</a>
-                        <br /><br />
-                        <a href="https://btc-e.com/profile#funds/withdraw_coin/1" target="_blank">Withdraw Coins</a>
-                        <br /><br />
-                    </td>
-                </tr>
+            <table class="table">
+                <tr>
+                    <td>Date</td>
+                    <td>Bitfinex</td>
+                </tr>'.$col1.'
             </table>
-            </pre>
-            </div>
-            
-            <div id="bitcoin_wisdom_links">
-            <h3>Bitcoin Wisdom Links</h3>
-            <pre class="xdebug-var-dump">
-            <table class="">
-                <tr valign="top">
-                    <td>
-                        
-                        <a href="https://bitcoinwisdom.com/markets/btce/btcusd" target="_blank">/markets/btce/btcusd</a>
-                        <br /><br />
-                        
-                        <a href="https://bitcoinwisdom.com/markets/btce/ltcusd" target="_blank">/markets/btce/ltcusd</a>
-                        
-                        <br /><br />
-                        
-                        <a href="https://bitcoinwisdom.com/markets/bitfinex/btcusd" target="_blank">/markets/bitfinex/btcusd</a>
-                         
-                        <br /><br />
-                        
-                        <a href="https://bitcoinwisdom.com/markets/bitfinex/ltcusd" target="_blank">/markets/bitfinex/ltcusd</a>
-                    </td>
-                </tr>
+        </td>
+        <td>
+            <table class="table">
+                <tr>
+                    <td>Date</td>
+                    <td>Bitfinex</td>
+                </tr>'.$col2.'
             </table>
-            </pre>
         </td>
     </tr>
-</table>
+</table>';
 
-<form id="priceTable" title="Price Table">
-    <?=priceTable($allPrices)?>
-</form>
 
-<form id="updateForm" title="Price History">
-
-    <?=$priceHistory?>
-    
-<!--    ID <input type="button" name="idButton" />
-    <br />
-
-    <table>
-        <tr>
-            <td>Pair</td>
-            <td> <select name="pair" id="pair">
-                    <option value="btc_usd">BTC/USD</option>
-                    <option value="ltc_usd">LTC/USD</option>
-                    <option value="ltc_btc">LTC/BTC</option>
-                    <option value="eur_usd">EUR/USD</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Action</td>
-            <td>
-                <select name="action" id="action">
-                    <option value="buy">buy</option>
-                    <option value="sell">sell</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Price</td>
-            <td>
-                <input type="text" name="price" />
-            </td>
-        </tr>
-        <tr>
-            <td>Amount</td>
-            <td>
-                <input type="text" name="amount" />
-            </td>
-        </tr>
-        
-    </table>
-  
-    <input type="hidden" name="id" />
-        
-    Status 
-    <select name="status">
-        <option value="A">Active</option>
-        <option value="D">Disabled</option>
-    </select>-->
-        
-</form>
+include('index.html');
+?>

@@ -18,7 +18,8 @@ $msLink = 'http://neobuxultimatestrategy.com/minisite/?r='.$aff;
         /* CSS Document */
         body {
             font: normal 16px Arial, Helvetica, sans-serif;
-            color: #000; }
+            color: #000; 
+        }
 
         p, li, ol {
             color: #000;
@@ -63,18 +64,22 @@ $msLink = 'http://neobuxultimatestrategy.com/minisite/?r='.$aff;
 
         #wrapper {
             margin: 0 auto;
-            width: 892px;
+           
         }
 
         #contentWrap {
             margin: 5px 0 0;
-            width: 892px;
+             
         }
 
         #contentTop {
             background: url(../../images/splash/contentTop.png) no-repeat;
             height: 36px;
-            width: 892px
+             
+        }
+        
+        #wrapper, #contentWrap, #contentTop {
+             width: 892px;
         }
         
         #content {
@@ -143,80 +148,82 @@ $msLink = 'http://neobuxultimatestrategy.com/minisite/?r='.$aff;
     <div id="contentTop"></div>
     <div id="content">
 
-        <h2 class="subheadline"><span class="strong red">Warning:</span> Prices can go up at any time!</h2>
+        <h2 class="subheadline"><span class="strong red">Warning:</span> Prices can go up at any
+            time!</h2>
         <h1 align="center">PTC Products Catalog</h1>
         <p align="center">Your Sponsor is: <span class="red"><?=$aff?></span></p>
-		 
+
         <table width="100%">
-        <tr valign="top">
+            <tr valign="top">
                 <td align="left">
                     <h3>Neobux Basics<br /><br /></h3><br />
-                        <a href="<?=$basicsLink?>">
-                            <img class="clickable" src="<?=$dir?>images/sales/nus.jpg" alt="Neobux Basics" height="340" />
+                    <a href="<?= $basicsLink ?>">
+                        <img class="clickable" src="<?= $dir ?>images/sales/nus.jpg" alt="Neobux Basics" height="340" />
                     </a>
-                </td><td width="20px"></td>
+                </td>
+                <td width="20px"></td>
                 <td align="center">
                     <h3>Neobux Ultimate Strategy</h3><br /><br />
-                        <a href="<?=$nusLink?>">
-                            <img class="clickable" src="<?=$dir?>images/sales/cd.jpg" alt="Neobux Ultimate Strategy" title="Neobux Ultimate Strategy" height="240" />
-                        </a>
-                        </td>
-                <td width="20px"></td>
-            <td align="center">
-                <h3>PTC Mini-Sites<br /></h3><p>&nbsp;</p><br />
-                        <a href="<?=$msLink?>">
-                            <img class="clickable" src="http://neobuxultimatestrategy.com/images/video/video-course-box.jpg" alt="PTC Mini-Sites" title="PTC Mini-Sites"
-                height="260" />
-                        </a>
+                    <a href="<?= $nusLink ?>">
+                        <img class="clickable" src="<?= $dir ?>images/sales/cd.jpg" alt="Neobux Ultimate Strategy" title="Neobux Ultimate Strategy" height="240" />
+                    </a>
                 </td>
-        </tr><tr>
+                <td width="20px"></td>
+                <td align="center">
+                    <h3>PTC Mini-Sites<br /></h3><p>&nbsp;</p><br />
+                    <a href="<?= $msLink ?>">
+                        <img class="clickable" src="http://neobuxultimatestrategy.com/images/ms/orderBox.jpg" alt="PTC Mini-Sites" title="PTC Mini-Sites"
+                             height="260" />
+                    </a>
+                </td>
+            </tr>
+            <tr>
                 <td><p>Format: PDF<br />
                         Price: <span class="subheadline">FREE</span></p><br />
-                        <center><a href="http://neobuxultimatestrategy.com/basics">Download Now</a></center>
-                </td><td></td><td>
-                        <table width="95%" class="catalog">
+                    <center><a href="http://neobuxultimatestrategy.com/basics">Download Now</a></center>
+                </td>
+                <td></td>
+                <td>
+                    <table width="95%" class="catalog">
                         <tr>
-                                <td colspan="2"><p><b>Format</b>: PDF + Videos<br />
-                                <b>Price</b>: $17.00 <br />
-                                <b>Bonus</b>: Many </p></td>
-                        </tr><tr>
-                                <td align="center"><a href="<?=$nusLink?>">Read More</a></td>
+                            <td colspan="2"><p><b>Format</b>: PDF + Videos<br />
+                                    <b>Price</b>: $17.00 <br />
+                                    <b>Bonus</b>: Many </p></td>
                         </tr>
-                        </table>
-                </td><td></td><td>
-                        <table width="95%" class="catalog">
                         <tr>
-                                <td colspan="2"><p><b>Format</b>: Website<br />
+                            <td align="center"><a href="<?= $nusLink ?>">Read More</a></td>
+                        </tr>
+                    </table>
+                </td>
+                <td></td>
+                <td>
+                    <table width="95%" class="catalog">
+                        <tr>
+                            <td colspan="2"><p><b>Format</b>: Website<br />
                                 <b>Price</b>: $47.00<br>
                                 <b>Bonus</b>: NUS </p></td>
-                        </tr><tr>
-                                <td align="center"><a href="<?=$msLink?>">Read More</a></td>
-                        </tr></table>
+                        </tr>
+                        <tr>
+                            <td align="center"><a href="<?= $msLink ?>">Read More</a></td>
+                        </tr>
+                    </table>
                 </td>
-        </tr>
+            </tr>
         </table>
 
         <p>&nbsp;</p>
         <p>&nbsp;</p>
 
-        <div class="line"></div><br>
+        <div class="line"></div><br />
 
-        <h2 class="subheadline">Want to make some money on auto pilot?</h2>
+            
+            <p>&nbsp;</p>
 
-        <p>Become an affiliate and sell these products! Regisration is quick and painless and you
-        can receive payments to your paypal immediately - no waiting 30 days for payments. Plus,
-        register within the next half hour, and you can use a site like this to promote our products.</p>
+            <p class="note">Neobux Ultimate Strategy<br /> 
+                Copyright © 2011 to <?= date('Y', time()) ?></p>
 
-        <p>To sell the Neobux Ultimate Strategy guide, please <a href="http://neobuxultimatestrategy.com/members/?action=register">go here</a>.</p>
-
-
-        <p>&nbsp;</p>
-
-        <p class="note">Neobux Ultimate Strategy<br /> 
-        Copyright © 2011 to <?=date('Y', time())?></p>
-
-	</div><!-- content -->
-	<div id="contentBtm"></div>
+    </div><!-- content -->
+    <div id="contentBtm"></div>
 </div><!-- Content Wrap -->
 </div><!-- wrapper -->
 </body></html>

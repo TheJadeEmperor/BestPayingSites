@@ -2,8 +2,8 @@
 /*
 +---------------------------------------------------------------------
 | v2.0
-| Copyright 2012-2015 Sales Page Machine. 
-| All Rights Reserved
+| Copyright 2012-2016 Sales Page Machine. 
+| Benjamin Louie
 |
 | The sale, duplication or transfer of the script to any 
 | person other than the original purchaser is a violation
@@ -35,7 +35,7 @@ function updateAffStats($userID, $productID)
     }
     else //update affiliate clicks
     {
-        if(isset($_COOKIE['sponsor'])) //cookie is set, not a unique click
+        if(isset($_COOKIE[sponsor])) //cookie is set, not a unique click
             $cond = 'rawClicks=rawClicks+1';
         else //no cookie set, new visitor
             $cond = 'uniqueClicks=uniqueClicks+1, rawClicks=rawClicks+1';
@@ -65,6 +65,7 @@ function curPageURL()
     return $pageURL;
 }
 
+date_default_timezone_set('America/New_York'); 
 session_start(); 
 /* get the path of the product from url
  * if url is www.domain.com/prod
@@ -80,16 +81,17 @@ if(is_int(strpos(__FILE__, 'C:\\'))) //localhost
     if(is_int(strrpos($path, '?')))
         $path = '';
 }
-else //live website
-{
+else { //live website
+
     list($crap, $path) = explode('//', $url);    
     list($crap, $path) = explode('/', $path); 
-    $path = str_replace('index.php', '', $path);
+    $path = str_replace('index.php', '', $path); //get the current path
     
     if(is_int(strrpos($path, '?')))
         $path = '';
 }
-//directory to the root  
+
+//relative path to the root  
 if($path == '' || $_GET['p']) //already at the root
     $dir = '';    
 else  //not at the root
@@ -134,8 +136,8 @@ if($p = mysql_fetch_assoc($resP)) {
     $ipnURL = $val['websiteURL'].'/ipn.php';
     $cancelURL = $val['websiteURL'];
    
-    if($oto == 'Y') //one time offer
-    {
+    if($oto == 'Y') { //one time offer
+    
         $selO = 'select * from products where id="'.$upsellID.'"';
         $resO = mysql_query($selO, $conn) or die(mysql_error());
         $o = mysql_fetch_assoc($resO);
@@ -157,8 +159,7 @@ if($p = mysql_fetch_assoc($resP)) {
     }
 }
 
-if($_POST['dl'])
-{
+if($_POST['dl']) {
     $item =  $_POST['url'];
     
     header("Content-Type: application/octet-stream");
@@ -173,19 +174,16 @@ if($_POST['dl'])
     exit;
 }
 
+$paidToEmail = $paypalEmail; //paypal account to send payments to
+$action = $_GET['action']; //which page is being read
 
-//no affiliate, payee is admin
-$paidToEmail = $paypalEmail;
-
-if(false) //debug
-{
+if(false) { //debug
     echo 'path: '.$path.'<br>
     productID: '.$productID.'<br>
     userID: '.$userID.' <br>
     paidToEmail: '.$paidToEmail;
     exit;
 }
-$action = $_GET[action];
 
 switch($action) {
     case 'order':
@@ -204,32 +202,38 @@ switch($action) {
         $templateHeader = $val['blogHeader'];
         $templateFooter = $val['blogFooter'];  
         $fileName = 'blog/index.php';
-        break;  
-    case 'thankyou':
-        $fileName = $dir.'templates/thankyou.html';
-       
-        break;
-    default:
-        $keywords = $p['keywords'];
-        $description = $p['description']; 
+        $meta = postMetaTags($_GET['p']);     
+    break;  
+default:
+    $keywords = $p['keywords'];
+    $description = $p['description']; 
 
-        $fileName = $salespage; //default action: show sales page  
-        $pageView = '/'.$path;
-
-        //custom site pages 
-        $selM = 'select * from memberpages order by url';
-        $resM = mysql_query($selM, $conn) or die(mysql_error());
-
-        while($m = mysql_fetch_assoc($resM))
+    $fileName = $salespage; //default action: show sales page  
+    $pageView = '/'.$path;
+    
+    //blog post
+    if($_GET['p']) {
+        $templateHeader = $val['blogHeader'];
+        $templateFooter = $val['blogFooter'];   
+        $fileName = 'blog/post.php';
+        $meta = postMetaTags($_GET['p']);     
+        $pageView = '/?p='.$_GET['p'];
+    }    
+    
+    //custom site pages 
+    $selM = 'select * from memberpages order by url';
+    $resM = mysql_query($selM, $conn) or die(mysql_error());
+    
+    while($m = mysql_fetch_assoc($resM))
+    {
+        if($action == $m['url'])
         {
-            if($action == $m['url'])
-            {
-                $templateHeader = $m['header'];
-                $templateFooter = $m['footer'];
-                $fileName = $m['file'];
-                $pageView = '/?action='.$m['url'];
-            }
-        }       
+            $templateHeader = $m['header'];
+            $templateFooter = $m['footer'];
+            $fileName = $m['file'];
+            $pageView = '/?action='.$m['url'];
+        }
+    }       
 }
 
 if(file_exists($templateHeader))
@@ -241,23 +245,16 @@ if(file_exists($templateFooter))
 include($templateFooter);   
 
 //track pageviews
-if($pageView)
-{
-    if($_GET['r'])
-        $pageView = '/'.$path;
-    
-    if(isset($_COOKIE['lastView'])) //raw views
-    {
+if($pageView) {
+    if(isset($_COOKIE['lastView'])) { //raw views
         $upd = 'update pageviews set rawViews=rawViews+1 where page="'.$pageView.'"';
         $res = mysql_query($upd) or die(mysql_error());      
     }
-    else //unique views
-    {
+    else { //unique views
         $upd = 'update pageviews set uniqueViews=uniqueViews+1, rawViews=rawViews+1 where page="'.$pageView.'"';
         $res = mysql_query($upd) or die(mysql_error());      
     }
-    $cookieExpire = time() + 60*60*24*30*12;
-    setcookie('lastView', 'Y', $cookieExpire);
+    setcookie('lastView', date('m/d/Y', time()));
 }
 
 mysql_close($conn);  ?>

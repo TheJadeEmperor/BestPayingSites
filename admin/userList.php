@@ -49,7 +49,6 @@ while($m = mysql_fetch_assoc($resS))
 	$subscribers[$listCount] .= '<tr>
 	<td><a href="updateProfile.php?id='.$m[id].'">'.$m[id].'</a> - <a href="updateProfile.php?id='.$m[id].'">'.$m[email].'</a> </td>
 	<td><a href="updateProfile.php?id='.$m[id].'">'.$m[username].'</a></td>
-        <td><a href="updateProfile.php?id='.$m[id].'"">'.$m['status'].'</a></td>
 	<td>'.$m[joinDate].'</td>
 	</tr>';
 	
@@ -135,7 +134,7 @@ if($msg)
         <td>
     		<table class=moduleBlue cellspacing=0 cellpading=4>
     		<tr>
-    			<th>User ID - Email</th><th>Username</th><th>Status</th><th>Joined</th>
+    			<th>User ID - Email</th><th>Username</th><th>Joined</th>
     		</tr>
     			<?=$subscribers[$thisPage]?>
     		</table>

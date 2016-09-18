@@ -23,14 +23,14 @@ if($_POST[save]) //insert into db
     else 
     {
         $dbFields = array(
-        'subject' => '"'.addslashes($_POST['subject']).'"', 
-        'post' => '"'.addslashes($_POST['elm1']).'"',
-        'postedBy' => '"'.$_SESSION['login']['id'].'"',
-        'postedOn' => 'now()', 
-        'tags' => '"'.addslashes($_POST['tags']).'"', 
-        'url' => '"'.addslashes($_POST['url']).'"',
-        'status' => '"'.$_POST['status'].'"',
-        'useHTMLFile' => '"'.$_POST['useHTMLFile'].'"'
+            'subject' => '"'.addslashes($_POST['subject']).'"', 
+            'post' => '"'.addslashes($_POST['elm1']).'"',
+            'postedBy' => '"'.$_SESSION['login']['id'].'"',
+            'postedOn' => 'now()', 
+            'tags' => '"'.addslashes($_POST['tags']).'"', 
+            'url' => '"'.addslashes($_POST['url']).'"',
+            'status' => '"'.$_POST['status'].'"',
+            'useHTMLFile' => '"'.$_POST['useHTMLFile'].'"'
         );
     
         $fields = $values = array();
@@ -53,10 +53,9 @@ if($_POST[save]) //insert into db
         $dbOptions = array(
         'tableName' => 'pageviews',
         'dbFields' => array(
-            'page' => $url,
+            'page' => '?p='.$url,
             'uniqueViews' => 0,
             'rawViews' => 0,
-            'url' => '?p='.$url
         ) 
         );
         
@@ -207,9 +206,9 @@ if (document.location.protocol == 'file:') {
 
 <!-- Gets replaced with TinyMCE, remember HTML in a textarea should be encoded -->
 <div>
-	<textarea id="elm1" name="elm1" rows="20" cols="80">
-	<?=$p[post]?>
-	</textarea>
+    <textarea id="elm1" name="elm1" rows="20" cols="80">
+        <?=$p[post]?>
+    </textarea>
 </div>
 
 <a href="javascript:;" onmousedown="tinyMCE.get('elm1').show();">[Show]</a>

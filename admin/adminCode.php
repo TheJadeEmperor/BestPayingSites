@@ -140,9 +140,11 @@ if($_POST['dl']) { //download files
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Site Content <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?=$adir?>memberArea.php" title="Manage Members Area options">Members Area</a></li>
-                            <li><a href="<?=$adir?>sitePages.php" title="Manage site pages">Site Pages</a></li>
-                            <li><a href="<?=$adir?>pageviews.php" title="Pageviews">Pageviews</a></li>
+                            <li><a href="<?=$adir?>memberArea.php">Members Area</a></li>
+                            <li><a href="<?=$adir?>sitePages.php">Site Pages</a></li>
+                            <li><a href="<?=$adir?>pageviews.php">Pageviews</a></li>
+                            <li><a href="<?=$adir?>postNew.php">New Post</a></li>
+                            <li><a href="<?=$adir?>postAll.php">All Posts</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -177,14 +179,12 @@ if($_POST['dl']) { //download files
                         <ul class="dropdown-menu">
                             <li><a href="<?=$adir?>sqlQuery.php">MySQL Query</a></li>
                             <li><a href="<?=$adir?>sqlDatabase.php">View Database</a></li>
-                            <li><a href="<?=$adir?>install.php">Install Script</a></li>
                         </ul>
                     </li>
                     <? } ?>
                     <li class="dropdown">    
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">SEO Tools<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#" class="parent">Sitemap</a></li>
                             <li><a href="<?=$adir?>sitemap.php" target="_blank">Generate Sitemap</a></li>
                             <li><a href="<?=$adir?>sitemap.xml" target="_blank">View Sitemap</a></li>
                             <li class="divider"></li>

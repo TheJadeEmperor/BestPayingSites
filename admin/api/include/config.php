@@ -5,6 +5,7 @@ global $db; //PDO database connection
 global $context; //DB table names
 global $api; //api instance
 global $allPrices; //array with all prices
+global $emailTo; //email address to send alerts to
 
 //database info goes here
 ////////////////////////////////
@@ -15,15 +16,21 @@ $dbName = 'codegeas_trade';
 ////////////////////////////////
 
 if(is_int(strpos(__FILE__, 'C:\\'))) { //localhost
-    $c = $db = new PDO('mysql:host=74.220.207.187:3306;dbname='.$dbName.';charset=utf8', $dbUser, $dbPW);
+    $db = new PDO('mysql:host=74.220.207.187:3306;dbname='.$dbName.';charset=utf8', $dbUser, $dbPW);
 }
 else { //live website
-    $c = $db = new PDO('mysql:host=localhost;dbname='.$dbName.';charset=utf8', $dbUser, $dbPW);
+    $db = new PDO('mysql:host=localhost;dbname='.$dbName.';charset=utf8', $dbUser, $dbPW);
 }
 
-$context['tradeDataTable'] = 'api_trade_data';
-$context['pricesTable'] = 'api_prices';
-$context['optionsTable'] = 'api_options';
+$emailTo = '17182136574@tmomail.net';
 
-//$allPrices = array(); 
+define('BITFINEX_API_KEY', 'ICjjvFfrC63hlQJqBbXAtJifp3tLNWUbtmtxtO4rmRL');
+define('BITFINEX_API_SECRET', 'xhM2a7Lf2Gl3y2q8TSnv3DAzo09F4g8ULL7bKboKMaY');
+
+
+$context['tradeDataTable'] = 'api_trade_data';
+$context['optionsTable'] = 'api_options';
+$context['pricesTable2h'] = 'api_prices';
+$context['pricesTable30m'] = 'api_prices_30m';
+$context['balanceTable'] = 'api_balance';
 ?>
