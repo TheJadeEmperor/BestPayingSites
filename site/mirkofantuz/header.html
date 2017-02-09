@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<title><?=$meta[title]?></title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<style>
+* {
+	margin: 0;
+	padding: 0;
+}
+
+ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, body, html, div.paragraph, blockquote, fieldset, input {
+	margin: 0;
+	padding: 0;
+}
+ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,body,html,p,blockquote,fieldset,input{ margin:0; padding:0; }
+
+ul {
+	list-style: none;
+}
+fieldset {
+	border: 0;
+}
+a img {
+	border: 0;
+}
+.clear {
+	clear: both;
+}
+
+body {
+	background: url(images/bodybg.jpg?268038) repeat-y center;
+	font-family: arial, sans-serif;
+	font-size: 14px;
+	color: #fff;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+a {
+	color: #ff7b38;
+	text-decoration: none;
+}
+div.paragraph {
+	line-height: 170%;
+	color: #fff;
+	font-size: 14px;
+	padding: 10px 0px 10px 0px;
+}
+p {
+	line-height: 170%;
+	color: #fff;
+	font-size: 14px;
+	padding: 10px 0px 10px 0px;
+}
+h1 {
+	font-size: 26px;
+	color: #ffffff;
+	line-height: 1.5;
+	font-weight: normal;
+	padding: 5px 0px 5px 0px;
+}
+h2 {
+	font-size: 21px;
+	color: #ffffff;
+	line-height: 1.5;
+	font-weight: normal;
+	padding: 5px 0px 5px 0px;
+}
+ #wrapper { width:960px; margin: 0 auto; background: url(images/wrapper.jpg?268038) top no-repeat; }
+ .title{ 
+	text-align: center; 
+	font-family: Georgia, arial, sans-serif; width:960px; height: 86px; font-size: 36px; color: #ff7b38; padding: 10px 0px 10px 0px; }
+	
+ #navigation{ font-family: Georgia, arial, sans-serif; position: relative; width: 960px; 
+	height: 30px; 
+	padding: 11px 0px 0px 0px; background: url(images/navigationbg.png?268038) no-repeat; _bbbackground: none; _fffilter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='files/images/navigationbg.png?268038', sizingMethod='crop'); }
+
+#navigation ul li {
+	float: left;
+	font-size: 16px;
+	text-transform: uppercase;
+	padding: 0px;
+	margin: 0px 0px 0px 40px;
+}
+#navigation ul li a {
+	color: #f7f7f7;
+}
+#navigation ul li a:hover, #navigation ul li#active a {
+	color: #ff7b38;
+}
+#wsite-menus .wsite-menu-wrap {
+	z-index: 5000;
+	margin: 13px 0px 0px 0px;
+}
+#wsite-menus .wsite-menu {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+#wsite-menus .wsite-menu li {
+	float: left;
+	clear: left;
+	width: 168px;
+	text-align: left;
+}
+#wsite-menus .wsite-menu li a {
+	position: relative;
+	display: block;
+	width: 148px;
+	background: #000d16;
+	border-top: none;
+	border-bottom: 1px solid #404a51;
+	border-right: 1px solid #404a51;
+	border-left: 1px solid #404a51;
+	text-decoration: none;
+	font-size: 12px;
+	font-weight: normal;
+	line-height: 1;
+	padding: 8px 6px 8px 12px;
+	color: #fff;
+}
+#wsite-menus .wsite-menu li a:hover {
+	background: #131f28;
+	color: #ee7437;
+}
+#container{ width: 958px; border: 1px solid #000; }
+ 
+#content{ 
+	width: 920px; border: 1px solid #40474e; 
+	padding: 18px; background: url(images/contentbg.png?268038); _background: none; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='files/images/contentbg.png?268038', sizingMethod='scale'); }
+
+#inside {
+	padding: 25px;
+}
+
+#header {
+	width: 918px;
+	height: 248px;
+	border: 1px solid #000;
+}
+
+#footer {
+	width: 960px;
+	font-size: 12px;
+	text-align: right;
+	padding: 20px 0px 30px 0px;
+}
+
+.title {
+	font-family: arial !important;
+	font-size: 40px !important;
+	color: #FF9900 !important;
+	text-align: center; 
+}
+
+.text {
+	width: 880px;
+	min-height: 400px;
+	_height: 400px;
+	padding: 25px 19px;
+}
+div.paragraph ul, div.paragraph ol {
+	padding-left: 25px !important;
+	margin: 5px 0 !important;
+	overflow: hidden;
+}
+div.paragraph li {
+	padding-left: 5px !important;
+	margin: 3px 0 0 !important;
+}
+div.paragraph ul, div.paragraph ul li {
+	list-style: disc outside !important;
+}
+
+div.paragraph ol, div.paragraph ol li {
+	list-style: decimal outside !important;
+}
+
+.block {
+	padding: 15px;
+	border: 1px solid white; 
+	text-align: left;
+}
+</style>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+	height: 15
+</script>
+</head> 
+<body> 
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
+
+	<div id="wrapper">
+		<br />
+		<div class="title"><b>BEST PTC SITES</b></div> 
+		<div id="navigation"> 
+		<ul>
+			<li id="active"><a href="./">Home Page</a></li>
+			<li><a href="?page=payment-proof">Payment Proofs</a></li>
+			<li><a href="?page=contact-me">Contact Me</a></li>
+		</ul> 
+		
+		<div style="float: right;">
+		<table>
+		<tr>
+			<td width="45px">
+				
+				<!-- Place this tag where you want the +1 button to render -->
+				<g:plusone size="medium" annotation="none" align="right"></g:plusone>
+
+				<!-- Place this render call where appropriate -->
+				<script type="text/javascript">
+				  (function() {
+					var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+					po.src = 'https://apis.google.com/js/plusone.js';
+					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+				  })();
+				</script>
+			</td>
+			<td>
+				<div class="fb-share-button" data-href="http://bestpayingsites.com/site/mirkofantuz" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Share</a></div>
+			</td>
+			<td>
+			
+				<div style="margin-right: 5px; width: 76px;"><a href="http://twitter.com/share" class="twitter-share-button" 
+					data-url="<?=$_SERVER['PHP_SELF'] ?>" data-count="horizontal" data-via="PTC Mini Sites">Tweet</a>
+						<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+				</div>
+			</td>
+		</tr>
+		</table>
+		</div>
+		&nbsp;&nbsp;
+		</div> 
+		
+		<div id="container"> 
+		<div id="content">
+		<div id="inside">
+		
+		<center>
+		<img src="images/skyline.jpg" width="720px" />
+		</center>
