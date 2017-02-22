@@ -7,19 +7,39 @@
 <style>
 @charset "utf-8";
 /* CSS Document */
-body {
-	font:normal 13px Arial, Helvetica, sans-serif;
-	color: #555;
-}
 
+p, li, table {
+	color:#151515;
+	font-family: Georgia;
+	font-size: 1.2em; }
+	
 h1,h2,h3,h4 {
 	color: #151515;
 }
 
-h1 { letter-spacing:-.05em; font-size:36px; font-weight:bold; line-height:36px; }
-h2 { letter-spacing:-.04em; font-size:30px; font-weight:bold; line-height:30px; }
-h3 { letter-spacing:-.03em; font-size:24px; font-weight:bold; line-height:24px; }
-h4 { letter-spacing:-.03em; font-size:20px; font-weight:bold; line-height:20px; }
+h1 { 
+	letter-spacing:-.05em; 
+	font-size:36px; 
+	font-weight:bold; 
+	line-height:36px; }
+h2 { 
+	letter-spacing:-.04em; 
+	font-size:30px; 
+	font-weight:bold; 
+	line-height:30px; 
+	color: red;}
+h3 { 
+	letter-spacing:-.03em; 
+	font-size:24px; 
+	font-weight:bold; 
+	line-height:24px;
+	color:#c13100;
+	text-align: center;
+	}
+h4 { letter-spacing:-.03em; 
+	font-size:20px; 
+	font-weight:bold; 
+	line-height:20px; }
 
 .clearfix:after {
 	content: ".";
@@ -40,7 +60,6 @@ html[xmlns] .clearfix {
 }
 .center { text-align:center; margin:0 auto; }
 .strong { font-weight:bold; }
-.em { font-style:italic; }
 .ul { text-decoration:underline; }
 .fl { float:left; }
 .fr { float:right; }
@@ -49,11 +68,6 @@ a { color:inherit; margin:0; -moz-user-select:text; }
 a:hover { text-decoration:none; }
 .line { background:url(images/line.gif) no-repeat; height:1px; margin:0 auto; width:780px; }
 
-p, li, table {
-	color:#767676;
-	font-family: Georgia;
-	font-size: 1.2em; }
-	
 #wrapper {
 	margin:0 auto;
 	width:892px;
@@ -82,15 +96,17 @@ p, li, table {
 	margin:0 0 20px;
 	text-align:center;
 }
-#content h3 {
-	font:normal 20px/26px Arial, Helvetica, sans-serif;
-	margin:0 0 20px;
-	text-align:center;
-}
-#content .price {
+
+#content .readMore {
 	color:#a90000;
-	font:bold 50px Arial, Helvetica, sans-serif;
+	font:bold 14px Arial, Helvetica, sans-serif;
 	margin:15px 0;
+	float: right;
+	background: gray;
+}
+
+#content .highlightGray {
+	background: #989898;
 }
  
 .note {
@@ -100,38 +116,10 @@ p, li, table {
 	text-align:center;
 }
 
-.moduleBlue {
-	font-family: Tahoma, Geneva, sans-serif;
-	border: solid 1px #531d2a;
-	font-weight: 800;
-	text-align: left;
-	background: #eeeeee;
-	margin-top: 0;
-	margin-bottom: 15px;
-}
-
-.moduleBlue h1 {
-	margin-top: 0px;
-	margin-bottom: 0px;
-	text-align: center;
-	display: block;
-	padding: 0.5em 0.5em;
-	background: #12649b;
-	color: #ffffff;
-	font-size: 1.5em;
-}
-
-.moduleBlue div {
-	padding: 5px 5px;
-}
-
 #contentBtm {
 	background:url(images/contentBtm.png) no-repeat;
 	height:36px;
 }
-
-.spam {
-	font-size: 1em; }
 
 .checkList{
 	list-style-image:url(images/check.png);
@@ -192,9 +180,10 @@ p, li, table {
 	<p>&nbsp;</p>
 	<table>
 		<tr>
-			<td width="30%" align="center"><a class="subheadline" href="./">Home</a></td>
-			<td width="30%" align="center"><a class="subheadline" href="?page=what-is-ptc">What is PTC?</a></td>
-			<td width="30%" align="center"><a class="subheadline" href="?page=neobux-tutorial">Neobux Tutorial</a></td>
+			<td width="" align="center"><a class="subheadline" href="./">Home</a></td>
+			<td width="25%" align="center"><a class="subheadline" href="?page=what-is-ptc">What is PTC?</a></td>
+			<td width="" align="center"><a class="subheadline" href="?page=how-it-works">How It Works</a></td>
+			<td width="25%" align="center"><a class="subheadline" href="?page=neobux-tutorial">Neobux Tutorial</a></td>
 		</tr>
 	</table>
 	</center>

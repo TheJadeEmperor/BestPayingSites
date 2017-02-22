@@ -28,6 +28,14 @@ switch($_GET['page']) {
 			'desc' => ''); 
 		$file = 'neobux-tutorial.html';
 		break;
+
+	case 'how-it-works':
+		$meta = array(
+			'title' => 'How it Works | Neobux ',
+			'tags' => 'neobux, neobux tutorial, how to use neobux',
+			'desc' => ''); 
+		$file = 'how-it-works.html';
+		break;
 		
 	case 'home':
 	default:
