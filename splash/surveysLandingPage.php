@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Get Cash For Surveys | Make $5 to $75 Per Survey</title>
+<title>Take Surveys For Cash | Make $5 to $75 Per Survey</title>
 <script>
     document.ondragstart = rightclick;
     document.onselectstart = rightclick;
@@ -82,23 +82,23 @@ body {
 </style>
 </head>
 <body>
-    <center>
+<center>
     <?
     $productLink='http://tinyurl.com/high-paying-surveys-product';
     ?>
-    <meta http-equiv="refresh" content="160; <?=$productLink?>">
+    <meta http-equiv="refresh" content="58; <?=$productLink?>">
     <div class="content">
         <br />
     
         <img src="images/splash/watchvideo1.png" height="112" width="490" />
         
-		<iframe width="640" height="360" src="https://www.youtube.com/embed/87HmUqjMIUY?rel=0&amp;controls=0&amp;showinfo=0&amp;autoplay=1" frameborder="0" allowfullscreen></iframe>
+		<iframe width="640" height="360" src="https://www.youtube.com/embed/4XDMGx2h8Ok?rel=0&amp;controls=0&amp;showinfo=0&amp;autoplay=1" frameborder="0" allowfullscreen></iframe>
  
-    <br />
-    
-    <a href="<?=$productLink?>"><img src="images/splash/instantAccess.png"></a>
+		<br />
+		
+		<a href="<?=$productLink?>"><img src="images/splash/instantAccess.png"></a>
 
-	<p>&nbsp;</p>
+		<p>&nbsp;</p>
 	</div>
 </center>
 </body>

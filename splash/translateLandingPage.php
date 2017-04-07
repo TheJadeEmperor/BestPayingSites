@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Real Translator Jobs</title>
+<title>Writing Jobs.net | Real Writing Jobs</title>
 <script>
     document.ondragstart = rightclick;
     document.onselectstart = rightclick;
@@ -29,16 +29,17 @@ body {
 </style>
 </head>
 <body>
-    <center>
+<center>
     <?
-    $productLink = 'http://tinyurl.com/real-translator-jobs-product';
+	$productLink = 'http://tinyurl.com/writing-jobs-online-product';
     ?>
-    <meta http-equiv="refresh" content="86; <?=$productLink?>" />
+    
+    <meta http-equiv="refresh" content="40; <?=$productLink?>" />
     <div class="content">
         <br />
         <img src="images/splash/watchvideo1.png" height="112" width="490" />
 
-        <iframe width="640" height="360" src="https://www.youtube.com/embed/05ZzHdigzsU?rel=0&amp;controls=0&amp;showinfo=0&amp;autoplay=1" frameborder="0" allowfullscreen></iframe>
+        <iframe width="640" height="360" src="https://www.youtube.com/embed/tbpZk-jzNAI?rel=0&amp;controls=0&amp;showinfo=0&amp;autoplay=1" frameborder="0" allowfullscreen></iframe>
 		
         <br />
         <a href="<?=$productLink?>"><img src="images/splash/instantAccess.png"></a>

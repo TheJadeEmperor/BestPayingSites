@@ -1,0 +1,24 @@
+RewriteOptions inherit
+Options +SymLinksIfOwnerMatch
+RewriteEngine On
+
+<ifModule mod_security.c>
+SecFilterEngine Off
+SecFilterScanPOST Off
+</ifModule>
+
+### New links ###
+
+RewriteRule ^translatejobs http://bestpayingsites.com/?action=real-translator-jobs [L,R=301]
+ 
+RewriteRule ^/?action=translate http://bestpayingsites.com/?action=real-translator-jobs [L,R=301]
+
+RewriteRule ^eps http://bestpayingsites.com [L,R=301]
+
+RewriteRule ^catalog http://bestpayingsites.com/site/catalog/ [L,R=301]
+
+ErrorDocument 400 /images/
+ErrorDocument 401 /images/
+ErrorDocument 403 /images/
+ErrorDocument 404 /images/
+ErrorDocument 500 /images/
