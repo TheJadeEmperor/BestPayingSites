@@ -1,7 +1,6 @@
 <?php
-$aff = '';
-$nusLink = 'http://neobuxultimatestrategy.com/?r='.$aff;
-$msLink = 'http://neobuxultimatestrategy.com/minisite/?r='.$aff;
+$nusLink = 'http://neobuxultimatestrategy.com/';
+$msLink = 'http://neobuxultimatestrategy.com/minisite/';
 
 switch($_GET[page])
 {

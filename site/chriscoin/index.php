@@ -13,18 +13,10 @@ function img($url, $extra, $altText)
 
 $dir = '../../';
 $nusLink = 'http://neobuxultimatestrategy.com/';
-$nusImg = 'http://neobuxultimatestrategy.com/images/banners/ebook1.jpg';
 $msLink = 'http://neobuxultimatestrategy.com/minisite/';
 
-switch($_GET[page])
-{
-	case 'ptc':
-		$meta = array(
-			'title' => 'Neobux Ultimate Strategy',
-			'tags' => 'neobux ultimate strategy, neobux referrals, neobux referral',
-			'desc' => ''); 
-		$file = 'ptc.html';
-		break;
+switch($_GET[page]) {
+
 	case 'home':
 	default:
 		$meta = array(
