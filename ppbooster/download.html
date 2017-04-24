@@ -1,6 +1,3 @@
-<?
-$upsellPage = 'http://ad.trwv.net/t.pl/57718/374163';
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -19,8 +16,7 @@ $upsellPage = 'http://ad.trwv.net/t.pl/57718/374163';
     <p>Your payment has been successful. If you used your credit card, it will show a charge from PayPal. 
     You can login to www.paypal.com anytime to view transaction details.</p>
 
-    <p>The <font color="#0000FF"><i><?=$itemName ?></i></font> is available inside the members area, 
-    To get access to the system, just log in below. For your convenience, we've created an account for you.</p>
+    <p>The <font color="#0000FF"><i><?=$itemName ?></i></font> is available inside the members area. For your convenience, we've created an account for you. To get access to the system, just log in below. </p>
 
     <p>Your credentials are:</p>
 
@@ -30,8 +26,13 @@ $upsellPage = 'http://ad.trwv.net/t.pl/57718/374163';
 
     <a href="<?=$dir?>members" target=_blank>Click here to go to the Members Area</a></p>
 
-    <p>After you login, we recommend that you change your password to something easier to remember.</p>
-
+    <?
+    if($_GET['id'] != 'vipuser') {
+    ?>    
+        <p>After you log in, we recommend that you change your password to something easier to remember.</p>
+    <?
+    }
+    ?>
     <p>If you have any problems, contact us below with your full name, 
     email address (<?=$payerEmail?>),<br /> and this Transaction ID: <b><?=$transID?></b></p>
     <p>Contact email: <a href="mailto:<?=$supportEmail?>"><?=$supportEmail?></a> </p>
@@ -50,10 +51,10 @@ $upsellPage = 'http://ad.trwv.net/t.pl/57718/374163';
                 
                 <p>Everything you need is inside the course - step by step instructions laid out for you - 
                 all you have to do is copy and paste and get paid for every email you process! <br /><br />
-                <a class="url" href="<?=$upsellPage?>" target="_blank">http://bestpayingsites.com/</a></p>
+                <a class="url" href="http://bestpayingsites.com" target="_blank">http://bestpayingsites.com/</a></p>
             </td>
             <td>
-                <a href="<?=$upsellPage?>" target="_blank"><img src="http://bestpayingsites.com/images/eps/binder.jpg" width="250px" /></a>
+                <a href="http://bestpayingsites.com" target="_blank"><img src="http://bestpayingsites.com/images/eps/binder.jpg" width="250px" /></a>
             </td>
         </tr>
     </table>
@@ -65,14 +66,15 @@ $upsellPage = 'http://ad.trwv.net/t.pl/57718/374163';
     <table>
         <tr>
             <td>
-                <a href="http://bestpayingsites.com/?action=surveys-ptc&campaign=upsell" target="_blank"><img src="http://bestpayingsites.com/images/banners/surveys/surveys300x250.gif" /></a>
+                <a href="http://bit.ly/goldmoney-facebook" target="_blank"><img src="http://neobuxultimatestrategy.com/images/clixsense/goldmoney_bonus.jpg" /></a>
             </td>
             <td width="70px"></td>
             <td>
-                <a href="http://www.clixsense.com/?3373459&upsell" target=_blank><img src="http://csstatic.com/banners/clixsense_gpt300x250a.png" border=0></a>
+                <a href="http://www.clixsense.com/?3373459&upsell" target="_blank"><img src="http://neobuxultimatestrategy.com/images/clixsense/clixsense_300x250.png" border="0"></a>
             </td>
         </tr>
     </table>
+	
     </center>
 	
     <p>&nbsp;</p>

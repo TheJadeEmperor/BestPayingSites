@@ -2,7 +2,7 @@
 /*
 +---------------------------------------------------------------------
 | v2.0
-| Copyright 2012-2016 Sales Page Machine. 
+| Copyright 2012-2017 Sales Page Machine. 
 | Benjamin Louie
 |
 | The sale, duplication or transfer of the script to any 
