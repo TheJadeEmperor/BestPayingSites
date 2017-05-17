@@ -17,12 +17,11 @@ $basicsLink = 'http://neobuxultimatestrategy.com/basics';
 $nusLink = 'http://neobuxultimatestrategy.com/';
 $vcLink = 'http://neobuxultimatestrategy.com/video/';
 
-switch($_GET['page'])
-{
+switch($_GET['page']) {
 	case 'home':
 	default:
 		$meta = array(
-			'title' => 'Best PTC Sites', 
+			'title' => 'Make $1000 a Month or More From PTC Sites', 
 			'tags' => 'earn money ptc, make money ptc, earn with ptc, get paid to click',
 			'desc' => 'Here are some great ptc sites that you can make money from'); 
 		$fileName = 'home.html';
