@@ -4,6 +4,11 @@ $msLink = 'http://neobuxultimatestrategy.com/minisite/';
 
 switch($_GET['page']) {
 	
+	case 'ptc-referrals':
+		$metaTitle = 'PTC Referrals'; 
+		$file = 'ptc-referrals.html';
+		break;
+	
 	case 'ptc-strategy':
 		$metaTitle = 'PTC Strategy'; 
 		$file = 'ptc-strategy.html';
