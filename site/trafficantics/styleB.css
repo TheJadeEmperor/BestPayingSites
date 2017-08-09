@@ -1,9 +1,10 @@
 body {
 	background-color: #000;
-	font-family: Georgia; }
+	font-family: Georgia; 
+}
 	
 .checkList {
-	list-style-image:url(../../images/check.png);
+	list-style-image:url(images/check.png);
 	font-family: Georgia;
 }
 
@@ -12,11 +13,18 @@ body {
 }
 
 .footer {
-	font-family: Georgia; 
 	margin: 0px 0px 20px 0px;
+}
+
+p {
+	font-size: 18px; 
 }
 
 h1 {
 	color: blue; 
 	font-family: "Comic Sans MS";
+}
+
+li {
+	text-align: left !important;
 }

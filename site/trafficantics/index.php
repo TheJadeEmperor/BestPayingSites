@@ -3,7 +3,7 @@ $nusLink = 'http://neobuxultimatestrategy.com/';
 $msLink = 'http://neobuxultimatestrategy.com/minisite/';
 
 switch($_GET['page']) {
-	
+
 	case 'ptc-strategy':
 		$metaTitle = 'PTC Strategy'; 
 		$file = 'ptc-strategy.html';
