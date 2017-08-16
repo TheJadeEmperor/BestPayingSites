@@ -3,6 +3,11 @@ $nusLink = 'http://neobuxultimatestrategy.com/';
 $msLink = 'http://neobuxultimatestrategy.com/minisite/';
 
 switch($_GET['page']) {
+	
+	case 'ptc-referrals':
+		$metaTitle = 'PTC Referrals'; 
+		$file = 'ptc-referrals.html';
+		break;
 
 	case 'ptc-strategy':
 		$metaTitle = 'PTC Strategy'; 
@@ -13,11 +18,7 @@ switch($_GET['page']) {
 		$metaTitle = 'PTC Reviews'; 
 		$file = 'ptc-reviews.html';
 		break;
-	
-	case 'ptc-sites':
-		$metaTitle = 'PTC Sites'; 
-		$file = 'ptc-sites.html';
-		break;
+		
 	case 'home':
 	default:
 		$metaTitle = 'PTC Sites'; 
