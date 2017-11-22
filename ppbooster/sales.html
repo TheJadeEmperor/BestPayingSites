@@ -4,11 +4,12 @@ $imgDir = $dir.'images/booster/';
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
-<meta charset="utf-8">
-<title>PP Booster Pro | PP Booster System | PP Booster Review</title>
-<link href="<?=$dir?>include/css/sales.css" rel="stylesheet">
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
-<meta name="google-site-verification" content="5zggdbOEXLzro67WPmbG4T6jIyqjGghAEPUV63NCs44" />
+	<meta charset="utf-8">
+	<title>PP Booster Pro | PP Booster System | PP Booster Review</title>
+	<link href="<?=$dir?>include/css/sales.css" rel="stylesheet">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
+	<meta name="google-site-verification" content="5zggdbOEXLzro67WPmbG4T6jIyqjGghAEPUV63NCs44" />
+
 </head>
 <body data-spy="scroll" onbeforeunload="return ExitPage();">
 
@@ -205,41 +206,50 @@ $imgDir = $dir.'images/booster/';
             <span style="font-size: 16px;color: yellow;font-weight: bold"> This One Time Offer Is For A Very Limited Time. So Hurry! </span>
             </p>
 	
-            <!--<div>
-            <center onclick="NoExitPage=true;">
-            
-            <p style="text-align: center"><a href="?action=order" onclick="NoExitPage=true;"><img src="<?=$imgDir?>Paypal-Buy-Now-button.png"></a></p>
+			<?
+			if(true) {
+			?>
+				<div>
+				<center onclick="NoExitPage=true;">
+				
+				<p style="text-align: center"><a href="?action=order" onclick="NoExitPage=true;"><img src="<?=$imgDir?>Paypal-Buy-Now-button.png"></a></p>
 
-            </center>
-            
-            <p style="text-align: center;font-family: Arial,Helvetica; font-size: large; font-weight: bold">
-            You will get instant access to your order after purchase even if <br />it's 2 A.M.   in the morning!</p>
-			</div>-->
+				</center>
+				
+				<p style="text-align: center;font-family: Arial,Helvetica; font-size: large; font-weight: bold">You will get instant access to your order after purchase <br /> even if it's 2 A.M.   in the morning!</p>
+				
+				<p><span class="smallText">Alternate options: <span class="yellow"><a href="mailto:support@bestpayingsites.com&subject=Purchase the Neobux Ultimate Strategy">Pay with Payza</a>  <a href="mailto:support@bestpayingsites.com&subject=Purchase the Neobux Ultimate Strategy">Pay with Bitcoins</a></span></span></p>
+				</div>
 			
-			<center>
-			<p>Paypal payments are not available at this time, sorry for the inconvenience</p>
-			
-			<a href="mailto:support@bestpayingsites.com&subject=Purchase the Neobux Ultimate Strategy"><img src="<?=$imgDir?>payzaButton.png" /></a><br />
-			 <i><font size=2 color="grey">Secure Payments Made Through Payza</font></i>
-			 </center>
+			<?
+			}
+			else {
+				echo '<center>
+				<p>Paypal payments are not available at this time, sorry for the inconvenience</p>
+				
+				<a href="mailto:support@bestpayingsites.com&subject=Purchase the Neobux Ultimate Strategy"><img src="'.$imgDir.'payzaButton.png" /></a><br />
+				<i><font size=2 color="grey">Secure Payments Made Through Payza</font></i>
+				</center>';
+			}
+			?>
 			
         </div>
-        <div style="font-size: 14px;font-weight: bold;width: 620px">
+        <div class="bold smallText" style="width: 620px">
         
-            <p align="left"><span style="color: yellow">P.S.</span> Other People Have Already Taken The Advantage Of This Offer.<br>
-            You cannot find this method anywhere and we are going to do some maintenance soon so you better order now by clicking this link because 
-            when we do our maintenance for adding new improvements, you won't be able to order these materials. When our site come back up (after 
-            the maintenance) the price will shoot to regular price of $19.99 USD.
+            <p align="left"><span class="yellow">P.S.</span> Dozens of other people have already taken advantage of this offer...<br /> 
+            You cannot find this method anywhere else! We are going to do some maintenance soon so you better order now by clicking this link because when we do our maintenance for adding new improvements, you won't be able to order these materials. When our site come back up after 
+            the maintenance, the price will shoot up to the regular price of $19.99 USD.
             </p>
             
-            <p> And don't forget you're protected by a full 60 Days<br>YOUR MONEY BACK GUARANTEE.</p>
+            <p>And don't forget you're protected by a full 60 Days<br />MONEY BACK GUARANTEE.</p>
         
             <p style="text-align: center;position:relative;margin-top: -10px">
-            <img width="200" border="0" height="153" src="<?=$imgDir?>satisfaction-guaranteed.jpg">
+            <img width="200" height="153" border="0" src="<?=$imgDir?>satisfaction-guaranteed.jpg">
             </p>
 
-            <p>So there's no risk on your part!<br>You have nothing to lose... it's that plain and simple.</p>
-    <p><span style="font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 24px; line-height: normal;color:yellow;font-weight: normal">*TOP EARNERS TODAY*</span></p>
+            <p>So there's no risk on your part!<br />You have nothing to lose... it's that plain and simple.</p>
+			
+			<p><span class="yellow" style="font-size: 24px;">*TOP EARNERS TODAY*</span></p>
 
             <p style="color: white; font-family: Helvetica,Arial,sans-serif; font-size: 20px;font-weight: bold">
             <span style="color: #ffffff;">1 - </span><span style="color:lime">Jack F.</span> 
