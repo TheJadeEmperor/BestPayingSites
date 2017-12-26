@@ -18,9 +18,7 @@
 </fieldset>
 
 <p>&nbsp;</p>
-<p>Here are some places where you can promote the Paypal Booster. With most PTC sites, there are several ways to advertise,
-    such as through text ads & banner ads. You can start off small, and as you make sales, scale up and advertise more, so
-    your sales increases.</p>
+<p>Here are some places where you can promote the Paypal Booster. With most PTC sites, there are several ways to advertise, such as through text ads & banner ads. You can start off small, and as you make sales, scale up and advertise more, so your sales increases.</p>
 
 <p>&nbsp;</p>
 
@@ -44,15 +42,11 @@
     <h3>Adhitz</h3>
     <a href="http://www.adhitz.com" target="_blank">http://www.adhitz.com</a>
 
-    <h3>DownlineRefs</h3>
-    <a href="http://www.downlinerefs.com/?ref=theemperor" target="_blank">http://downlinerefs.com</a>
-
-    <p>Easyhits4U<br />
+    <h3>EasyHits4U</h3>
         <a href="http://a.easyhits4u.com/splash8.php?ref=theemperor" target="_blank">http://www.easyhits4u.com</a>
-    </p>
-    <p>Top 10 Traffic Exchanges<br />
-        <a href="http://www.trafficexchangelist.com/" target="_blank">http://www.trafficexchangelist.com/</a>
-    </p>
+    
+	<h3>Top Traffic Exchanges</h3>
+	<a href="http://trexlist.com/manual-traffic-exchanges.shtml">http://trexlist.com/manual-traffic-exchanges.shtml</a>
     <br /><br />
 </fieldset>
 

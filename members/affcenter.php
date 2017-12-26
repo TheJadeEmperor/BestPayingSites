@@ -151,17 +151,18 @@ if(mysql_num_rows($res) > 0) {
 <center>
 <h3>Want more ways to make money?<br />Check out these sponsors below:</h3>
 
-<table>
-    <tr>
-        <td>
-            <a href="http://bestpayingsites.com/?action=surveys-ptc&campaign=upsell" target="_blank"><img src="http://bestpayingsites.com/images/banners/surveys/surveys300x250.gif" /></a>
-        </td>
-        <td width="70px"></td>
-        <td>
-             <a href="http://bestpayingsites.com/?action=translate&campaign=upsell" target="_blank"><img src="http://bestpayingsites.com/images/banners/translate/translate1.gif" /></a>
-        </td>
-    </tr>
-</table>
+ <table>
+        <tr>
+            <td>
+                <a href="https://bitconnect.co/?ref=TheEmperor" target="_blank"><img src="<?=$dir?>images/mms/bcc.gif" /></a>
+            </td>
+            <td width="70px"></td>
+            <td>
+                <a href="http://www.clixsense.com/?3373459&upsell" target="_blank"><img src="http://neobuxultimatestrategy.com/images/clixsense/clixsense_300x250.png" border="0"></a>
+            </td>
+        </tr>
+    </table>
+	
 
 </center>
         
