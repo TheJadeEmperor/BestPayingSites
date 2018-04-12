@@ -9,32 +9,43 @@ function img($url, $extra, $altText) {
 	return '<img src="'.$url.'" '.$extra.' alt="'.$altText.'" title="'.$altText.'"/>'; 
 }
 
+
+function showBanner ($siteName, $referralURL, $imgURL) {
+	
+	echo '<h2>'.$siteName.'</h2><br />';
+	
+	$image = img($imgURL, $siteName, $siteName);
+	
+	echo '<p><a href="'.$referralURL.'" "target=_blank">'.$image.'</a></p>';
+}
+
+
 $dir = '../../';
-$nusLink = 'http://neobuxultimatestrategy.com/?r='.$aff;
+$nusLink = 'http://neobuxultimatestrategy.com/';
 $nusImg = 'http://neobuxultimatestrategy.com/images/banners/ebook1.jpg';
 $msLink = 'http://neobuxultimatestrategy.com/minisite/';
 $basicsLink = 'http://neobuxultimatestrategy.com/basics';
-$nusLink = 'http://neobuxultimatestrategy.com/?r='.$aff;
-$vcLink = 'http://neobuxultimatestrategy.com/video/?r='.$aff;
+$nusLink = 'http://neobuxultimatestrategy.com/';
+$vcLink = 'http://neobuxultimatestrategy.com/video/';
 
 switch($_GET['page']) {
 
-	case 'neobux':
-		$fileName = 'neobux.html';
+	case 'exchanges-wallets':
+		$fileName = 'exchanges-wallets.html';
+		break;
+	case 'free-bitcoins':
+		$fileName = 'free-bitcoins';
+		break;
+	case 'survey-sites':
+		$fileName = 'survey-sites.html';
 		break;
 	case 'traffic':
 		$fileName = 'traffic.html';
 		break;
-	case '4-corners-alliance-group':
-		$fileName = '4-corners-alliance-group.html';
-		break;
-	case 'all-in-one-profits':
-		$fileName = 'all-in-one-profits.html';
-		break;
 	case 'home':
 	default:
 		$meta = array(
-			'title' => "Al's Mini Cash Site", 
+			'title' => "PTC earnings site", 
 			'tags' => 'earn money ptc, make money ptc, earn with ptc, get paid to click',
 			'desc' => 'Here are some great ptc sites that you can make money from'); 
 		$fileName = 'home.html';
