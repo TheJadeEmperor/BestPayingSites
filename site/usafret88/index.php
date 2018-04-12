@@ -34,7 +34,7 @@ switch($_GET['page']) {
 		$fileName = 'exchanges-wallets.html';
 		break;
 	case 'free-bitcoins':
-		$fileName = 'free-bitcoins';
+		$fileName = 'free-bitcoins.html';
 		break;
 	case 'survey-sites':
 		$fileName = 'survey-sites.html';
