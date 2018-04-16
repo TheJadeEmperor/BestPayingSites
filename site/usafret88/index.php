@@ -16,7 +16,7 @@ function showBanner ($siteName, $referralURL, $imgURL) {
 	
 	$image = img($imgURL, $siteName, $siteName);
 	
-	echo '<p><a href="'.$referralURL.'" "target=_blank">'.$image.'</a></p>';
+	echo '<p><a href="'.$referralURL.'" target="_BLANK">'.$image.'</a></p>';
 }
 
 
