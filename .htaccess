@@ -7,15 +7,16 @@ SecFilterEngine Off
 SecFilterScanPOST Off
 </ifModule>
 
-### New links ###
+## SSL redirect ###
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301] 
 
-RewriteRule ^translatejobs http://bestpayingsites.com/?action=real-translator-jobs [L,R=301]
- 
+### Link shortcuts ###
+
 RewriteRule ^/?action=translate http://bestpayingsites.com/?action=real-translator-jobs [L,R=301]
 
 RewriteRule ^eps http://bestpayingsites.com [L,R=301]
 
-RewriteRule ^catalog http://bestpayingsites.com/site/catalog/ [L,R=301]
 
 ErrorDocument 400 /images/
 ErrorDocument 401 /images/
