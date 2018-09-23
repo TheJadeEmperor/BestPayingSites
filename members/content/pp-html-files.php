@@ -39,8 +39,3 @@ can sell the Paypal Booster.</p>
 <p>&nbsp;</p>
 
 <p>&nbsp;</p>
-
-<?
-include('content/ads.php');
-?>
-<p>&nbsp;</p>

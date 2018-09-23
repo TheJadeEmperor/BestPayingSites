@@ -3,16 +3,16 @@
 <fieldset id="pp" style="text-align: left;">
 <legend>Join These Sites First</legend>
 <h3>Blogger</h3>
-<a href="http://www.blogger.com" target="_blank">http://www.blogger.com</a>
+<a href="https://www.blogger.com" target="_blank">http://www.blogger.com</a>
 
 <h3>Ghost Blog</h3>
-<a href="http://www.ghost.org/" target="_blank">http://www.ghost.org/</a>
+<a href="https://www.ghost.org/" target="_blank">http://www.ghost.org/</a>
 
 <h3>Paypal</h3>
-<a href="http://www.paypal.com" target="_blank">http://www.paypal.com</a>
+<a href="https://www.paypal.com" target="_blank">http://www.paypal.com</a>
 
 <h3>Solid Trust Pay</h3>
-<a href="http://www.solidtrustpay.com" target="_blank">http://www.solidtrustpay.com</a>
+<a href="https://www.solidtrustpay.com" target="_blank">http://www.solidtrustpay.com</a>
 
 <br /><br />
 </fieldset>
@@ -23,37 +23,24 @@
 <p>&nbsp;</p>
 
 <fieldset id="advertise">
-    <legend>PTC Sites</legend>
+    <legend>Advertising Sites</legend>
     <h3>Neobux</h3> 
     <a href="http://www.neobux.com/?r=SanctuaryInc" target="_blank">http://www.neobux.com</a>
 
     <h3>Clixsense</h3>
     <a href="http://www.clixsense.com/?3373459" target="_blank">http://www.clixsense.com</a>
 
-    <h3>BuxP</h3>
-    <a href="http://buxp.org/?r=theemperor" target="_blank">http://buxp.org/</a>
-    <br /><br />
-</fieldset>
-
-<p>&nbsp;</p>
-
-<fieldset><legend>Advertising Sites</legend>
-
     <h3>Adhitz</h3>
-    <a href="http://www.adhitz.com" target="_blank">http://www.adhitz.com</a>
+    <a href="https://www.adhitz.com" target="_blank">http://www.adhitz.com</a>
 
     <h3>EasyHits4U</h3>
-        <a href="http://a.easyhits4u.com/splash8.php?ref=theemperor" target="_blank">http://www.easyhits4u.com</a>
+	<a href="http://a.easyhits4u.com/splash8.php?ref=theemperor" target="_blank">http://www.easyhits4u.com</a>
     
 	<h3>Top Traffic Exchanges</h3>
-	<a href="http://trexlist.com/manual-traffic-exchanges.shtml">http://trexlist.com/manual-traffic-exchanges.shtml</a>
+	<a href="http://trexlist.com/manual-traffic-exchanges.shtml" target="_blank">http://trexlist.com/manual-traffic-exchanges.shtml</a>
     <br /><br />
+
 </fieldset>
 
 <p>&nbsp;</p>
-<p>&nbsp;</p>
-
-<?
-include('content/ads.php');
-?>
 <p>&nbsp;</p>

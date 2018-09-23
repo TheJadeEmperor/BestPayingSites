@@ -114,7 +114,7 @@ Cheers,
             <a class="url" href="http://bestpayingsites.com/eps" target="_blank">http://bestpayingsites.com/eps</a></p>
         </td>
         <td>
-             <a href="http://bestpayingsites.com/eps" target="_blank"><img src="http://bestpayingsites.com/images/eps/binder.jpg" width="250px" /></a>
+             <a href="//bestpayingsites.com/eps" target="_blank"><img src="//bestpayingsites.com/images/eps/binder.jpg" width="250px" /></a>
         </td>
     </tr>
 </table>

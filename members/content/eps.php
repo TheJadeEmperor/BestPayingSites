@@ -57,7 +57,7 @@ Method #2 (Freelance Email Processing)</h2>
 <p>Paypal:  <a href="http://paypal.com" target="_blank">http://paypal.com</a><br />
 SolidTrustPay: <a href="http://solidtrustpay.com" target="_blank">http://solidtrustpay.com</a> <br />
 Skrill: <a href="https://www.skrill.com" target="_blank">https://www.skrill.com</a> <br />
-Neteller: <a href="http://www.neteller.com">http://www.neteller.com</a> <br />
+Neteller: <a href="http://www.neteller.com" target="_blank">http://www.neteller.com</a> <br />
 </p>
 
 <p><b>Step 2. Creating Your Personal Advertisement</b></p>
@@ -154,9 +154,10 @@ Step 2: Edit Your Website files, Step 3: Upload your files and promote your site
 <p>&nbsp;</p>
 <h2 id="exampleAds">Example Ads</h2>
 
-<h3>Example 1</h3>
 <center>
-    <textarea cols="80" rows="11">Looking for a way to earn great money online? Make $1000's monthly with over 600 work-at-home firms listed in our report. 
+
+<h3>Example 1</h3>
+<textarea cols="80" rows="11">Looking for a way to earn great money online? Make $1000's monthly with over 600 work-at-home firms listed in our report. 
 
 These companies need survey takers, mystery shoppers and more ...Get paid to do what you love without stepping foot into an office! For the complete report, please pay $15.00-$25.00 via credit card to [insert your online payment information] and we will send you the information to your e-mail address. You may also send a payment via check or money order to [insert your mailing address here]. 
 
@@ -175,13 +176,13 @@ Get listings of 600+ Work at Home companies!
 You won't believe how easy it really is... 
 Paypal $25 to (your email address here)
 for Report or email for more info.</textarea>
-</center>
 
-</div>
+
 
 <p>&nbsp;</p>
 
 <h3 id="cutAndPaste">Cut and Paste Emails</h3>
+</center>
 
 <p>After someone sends you money, you need to send them their access to the system. This is how your reply should read:</p>
 
@@ -244,4 +245,5 @@ Best Regards,
     <a href="<?=$dir?>?action=bonus"><img src="<?=$dir?>images/members/bonus.png" /></a>
 </center>
 
+</div>
 <p>&nbsp;</p>

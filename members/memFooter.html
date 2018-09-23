@@ -1,4 +1,22 @@
     
+	<center>
+	
+	<?php
+	//mysql_select_db('codegeas_cc');
+	
+	$selA = 'SELECT * FROM ad_pages_content WHERE id = 1';
+	$resA = mysql_query($selA, $conn) or die(mysql_error());
+
+	if($ad = mysql_fetch_assoc($resA)) {
+		echo $ad['content'];
+	}
+	?>
+	</center>
+
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+
+	
     <hr color="#003366" />
     <div class="innerContent">
         <div class="membersFooter">
