@@ -20,7 +20,7 @@ $listA = array(
     'Survey Junkie' => 'http://www.surveyjunkie.com'
 ); 
 
-echo '<table width="100%"><tr><td width="200px"></td><td>';
+echo '<table width="100%"><tr><td>';
 foreach($listA as $name => $url) {
     echo '<p>'.$name.'<br /><a href="'.$url.'" target="_blank">'.$url.'</a></p>';
 }
@@ -89,7 +89,7 @@ $listB = array(
 
 echo '<h2>Get Paid to Take Surveys</h2>';
 $num = 1;
-echo '<table width="100%"><tr valign="top"><td width="20px"></td><td>';
+echo '<table width="100%"><tr valign="top"><td>';
 foreach($listB as $name => $url) {
     echo '
         <p class="list">#'.$num.' '.$name.'<br /><a href="'.$url.'" target="_blank">'.$url.'</a></p>';
@@ -112,7 +112,7 @@ $listC = array(
     'Clixsense' => 'http://tinyurl.com/clixsense-program'
 );
 
-echo '<table width="100%"><tr><td width="200px"></td><td>';
+echo '<table width="100%"><tr><td>';
 foreach($listC as $name => $url) {
     echo '<p>'.$name.'<br /><a href="'.$url.'" target="_blank">'.$url.'</a></p>';
 }

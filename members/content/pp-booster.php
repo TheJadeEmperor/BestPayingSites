@@ -1,7 +1,7 @@
 <center><h1>Paypal Booster Pro</h1>
 
 <h3>Click to Download the PDF </h3>
-<?
+<?php
 $productID = 10;
 $selD = 'select * from products where id="'.$productID.'"';
 $resD = mysql_query($selD) or die(mysql_error());
@@ -29,7 +29,7 @@ $upsellPage = 'http://ad.trwv.net/t.pl/57718/374163';
             <a class="url" href="<?=$upsellPage?>" target="_blank">http://bestpayingsites.com/eps</a></p>
         </td>
         <td>
-             <a href="http://bestpayingsites.com/eps" target="_blank"><img src="http://bestpayingsites.com/images/eps/binder.jpg" width="250px" /></a>
+             <a href="http://bestpayingsites.com/eps" target="_blank"><img src="//bestpayingsites.com/images/eps/binder.jpg" width="250px" /></a>
         </td>
     </tr>
 </table>
@@ -77,9 +77,4 @@ $upsellPage = 'http://ad.trwv.net/t.pl/57718/374163';
 </table>
 
 <p>&nbsp;</p>
-
-<p>&nbsp;</p>
-<?
-include('content/ads.php');
-?>
 <p>&nbsp;</p>

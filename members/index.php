@@ -34,7 +34,7 @@ if($_POST['login']) {
     }
 
     $selU = 'select * from users where username="'.$username.'" || email="'.$username.'"';
-    $resU = mysql_query($selU, $conn) or print(mysql_error());
+    $resU = mysql_query($selU, $conn) or print(mysql_error()); 
     $u = mysql_fetch_assoc($resU);
 
     if(mysql_num_rows($resU) == 0) { //no user found 

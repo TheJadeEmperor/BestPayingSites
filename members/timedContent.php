@@ -1,4 +1,4 @@
-<?
+<?php
 switch($_GET['action'])
 {
     case 'eps':
