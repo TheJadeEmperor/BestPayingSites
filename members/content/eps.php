@@ -44,9 +44,9 @@ Method #2 (Freelance Email Processing)</h2>
 
 <p>  1. Select Your Payment Method <br />
      2. Create Your Advertisement<br />
-     3. Place Your Advertisement in Online Classifieds--FREE<br />
-     4. Start Receiving Payments from Interested Prospects<br />
-     5. Process the E-mails
+     3. Place Your Advertisement in FREE Classified Sites<br />
+     4. Process the Emails <br />
+     5. Start Receiving Payments from Interested Prospects
 </p>
 
 <p>We are happy to help its members by giving them a remarkable way to earn a living right from home. Not only will you join the ranks of thousands who telecommute to work, you’ll recover your membership fee after processing just one email. Use your potential to its maximum, and enjoy the benefits of working from your own home.</p>
@@ -59,6 +59,7 @@ SolidTrustPay: <a href="http://solidtrustpay.com" target="_blank">http://solidtr
 Skrill: <a href="https://www.skrill.com" target="_blank">https://www.skrill.com</a> <br />
 Neteller: <a href="http://www.neteller.com" target="_blank">http://www.neteller.com</a> <br />
 </p>
+
 
 <p><b>Step 2. Creating Your Personal Advertisement</b></p>
 
@@ -120,34 +121,40 @@ Neteller: <a href="http://www.neteller.com" target="_blank">http://www.neteller.
 <h2>Step-by-Step Instructions<br />
 Method #3 (The Entrepreneur)</h2>
 
-<p>This method is for the Internet savvy. It involves creating your own website and promoting your own version of Email Processing System. The websites are already built for you. All that is required of you is to edit and upload them to your server using an FTP program.</p>
+<p>This method is for advanced users only. It involves creating your own website and promoting your own version of Email Processing System. The websites are already built for you. All that is required of you is to edit and upload them to your server using an FTP program.</p>
+
 
 <p><b>Step 1</b></p>
 
-<p><a href="content/EPS-Website.zip">Click here</a> to download your Email processing Website. Your website is professionally designed. You will need WinZip or similar program to download it. When downloaded, open zip files and extract all files. The extracted files should be in one folder named 'EP-Websites'. Inside this folder is another folder named 'images' and 5 HTML files named 'index', 'members' 'faq', 'tou' and 'testimonials' files.</p>
+<p><a href="download/EPS-Website.zip">Click here</a> to download your pre-made email processing Website. Your website is professionally designed to convert sales. You will need WinZip or a similar program to open it. When downloaded, open zip files and extract all files. The extracted files should be in one folder named 'EP-Website'. Inside this folder is another folder named 'images' and 5 HTML files named 'index', 'members' 'faq', 'tou' and 'testimonials' files.</p>
+
+<img src="content/eps_site_1.png" width="300px" />
+
+<img src="content/eps_site_2.png" width="300px" />
+
 
 <p><b>Step 2</b></p>   
 
-<p>Editing your sites:  Log into your Paypal Account and create a 'Buy Now' payment link for $15.00-$25.00. With the help of a website editor like 'Microsoft Front Page' copy and paste the link onto your index website at the appropriate positions. You must also indicate your contact email address for your prospects to contact you when they need to. To edit your members site all you really need to do is to insert your contact email address at the appropriate places at the bottom & top of the page. As a guide, edit all information written in red ink.</p>
+<p>Editing your website: Log into your Paypal Account and create a 'Buy Now' payment link for $15.00-$25.00. With the help of a website editor like 'Microsoft Front Page' copy and paste the link onto your index website at the appropriate positions. You must also indicate your contact email address for your prospects to contact you when they need to. To edit your members site all you really need to do is to insert your contact email address at the appropriate places at the bottom & top of the page. As a guide, edit all information written in red ink.</p> 
 
 <p><b>Step 3</b></p>
+
 <p>Uploading your sites: With the help of your FTP program, log onto your server and create a directory (name it) 'images'. Then upload only the contents of the 'images' folder onto the 'images' directory just created. Having done that, next upload the 'index' and the 'members' files onto the root directory of your domain. Note: The images and the html files must not be uploaded in the same directory (or folder) on your server. </p>
 
 <p>Another way of doing it without creating a directory on your server is to upload the 'images' folder to the root directory as well as the html files. In this way, the 'images' directory is automatically created. If done properly, your email processing homepage can be viewed at: <span class="url">http://www.yoursite.com</span>  While your members site will be at: <span class="url">http://www.yoursite.com/members.html</span></p>
     
 <p>Remember when creating your Paypal 'Buy Now' link to redirect all successful payments to your members site at: <span class="url">http://www.yoursite.com/members.html</span>&nbsp; This ensures that your business runs on auto pilot and makes money for you 24/7 even while you're sleeping or on vacation. But you will need to remember to set your Paypal Website Payment Preference to 'Auto-Return'. This means that your email processing task is effectively cut off. All you do now is promote your business and direct prospects to your website. As a Manager Associate in email processing, you do little or no email processing but assist others to email-process. At this level, the contents of your promotional ads will be slightly different from those illustrated above. Here again, we have done most of the work for you. All you need do is cut and paste. </p>
 
-<p><a href="content/EPS-Adcopies.doc">Click Here</a> to download your Sample Ad copies.</p>
+<p><a href="download/EPS-Adcopies.doc">Click Here</a> to download your Sample Ad copies.</p>
 
 <p>IMPORTANT NOTICE: The Following conditions apply<br />
 As an Email Processor, your minimum selling price must be $15 - $25.</p>
 
-<p>I know that's a lot of info to absorb. So here's a summary of this method: Step 1: Download Your Website files, 
-Step 2: Edit Your Website files, Step 3: Upload your files and promote your site using our sample ads</p>
+<p>I know that's a lot of info to absorb. So here's a summary of this method: Step 1: Download Your Website files, Step 2: Edit Your Website files, Step 3: Upload your files and promote your site using our sample ads</p>
 
 <p>Again, here are the materials you will need:<br />
-    <a href="content/EPS-Adcopies.doc">Sample Ad Copies</a><br />
-<a href="content/EPS-Website.zip">Website Files - to be uploaded</a></p>
+    <a href="download/EPS-Adcopies.doc">Sample Ad Copies</a><br />
+<a href="download/EPS-Website.zip">Website Files - to be uploaded</a></p>
 
 <p class="blackbox">Remember that Method #3 is for advanced users only. If you're a novice or you've never had your own website before, then we recommend you try Methods 1 and 2 first.</p>
 
