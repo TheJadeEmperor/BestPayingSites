@@ -112,7 +112,7 @@ h1 {
             <td align="center">
                 <img style="width: 249px; height: 90px;" alt="" src="<?=$imgDir?>redArrows.png">
 
-                <form method="post" onsubmit="NoExitPage=true;" action="http://www.trafficwave.net/cgi-bin/autoresp/inforeq.cgi">
+                <form method="post" onsubmit="NoExitPage=true;" action="https://www.trafficwave.net/cgi-bin/autoresp/inforeq.cgi">
 
 					<input type=hidden name="da_name" id="da_name" value="Internet Marketer">
 					<input type=hidden name="da_cust1" value="<?=$_SERVER['HTTP_REFERER']?>" />
