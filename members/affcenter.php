@@ -1,4 +1,4 @@
-<?
+<?php
 function purchasedProducts() {
     global $conn;
     
@@ -9,8 +9,7 @@ function purchasedProducts() {
         $itemName = $p['itemName']; 
         $productID = $p['id'];
 
-        $selS = 'SELECT *, date_format(purchased, "%m/%d/%Y") AS purchased FROM sales WHERE
-        (payerEmail="'.$_SESSION['login']['paypal'].'" or contactEmail="'.$_SESSION['login']['email'].'") 
+        $selS = 'SELECT *, date_format(purchased, "%m/%d/%Y") AS purchased FROM sales WHERE (payerEmail="'.$_SESSION['login']['paypal'].'" or contactEmail="'.$_SESSION['login']['email'].'") 
             AND productID="'.$p['id'].'"'; 
         $resS = mysql_query($selS) or die(mysql_error());
 
@@ -47,29 +46,29 @@ function purchasedProducts() {
                 <tr>
                     <td>You bought the product on '.$sale['purchased'].' </td>
                 </tr>';
+				
                 while($d = mysql_fetch_assoc($resD)) {
                     $downloadContent .= '<tr>
                     <td>'.$d['name'].'</td>
                     <td>
-                        <form method=post><input type=submit name=dl value=" Download " class="btn info" />
-                        <input type=hidden name=url value="'.$d['url'].'"></form>
+                        <form method="POST"><input type=submit name=dl value=" Download " class="btn info" />
+                        <input type="hidden" name="url" value="'.$d['url'].'"></form>
                     </td>';
                 }    
                 $downloadContent .= '</table>';
             }
             else { //single download
             
-                $downloadContent = 'You bought the product on '.$sale['purchased'].' <br>
-                    The product was last updated on '.date('m/d/Y', time()).' <br>';
+                $downloadContent = 'You bought the product on '.$sale['purchased'].' <br /> The product was last updated on '.date('m/d/Y', time()).' <br />';
                 
                 if($p['download'] != '') { //download link is set
                     $downloadContent .= '
-                    Click below to download the latest version of '.$itemName.' <br>
+                    Click below to download the latest version of '.$itemName.' <br />
                     <center>
                     <form method=post>
                     <input type=submit name="dl" value=" Download Now " />
-                    <input type=hidden name=id value="'.$p['id'].'">
-                    <input type=hidden name=url value="'.$p['download'].'">
+                    <input type=hidden name="id" value="'.$p['id'].'">
+                    <input type=hidden name="url" value="'.$p['download'].'">
                     </form></center>';
                 }
             }
