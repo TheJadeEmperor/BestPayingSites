@@ -5,14 +5,14 @@ function showBannerCode($bannerURL) {
     return '<p><a href="'.$frontEndProduct.'" title="" target="_blank"><img src="'.$bannerURL.'" /></a></p>
         
 <p><textarea rows=4 cols=75 onclick="javascript:this.select()">&lt;a href="'.$frontEndProduct.'"&gt;&lt;img border="0"
-src="http://www.bestpayingsites.com/images/banners/eps.jpg" width="468" height="60"&gt;&lt;/a&gt;</textarea></p>
+src="//bestpayingsites.com/images/banners/eps.jpg" width="468" height="60"&gt;&lt;/a&gt;</textarea></p>
 
 <p class="note">Direct image link: '.$bannerURL.'</p>';
 }
 
 global $frontEndProduct;
 $frontEndProduct = 'http://bestpayingsites.com/';
-$bannerDir = 'http://www.bestpayingsites.com/images/banners/';
+$bannerDir = '//bestpayingsites.com/images/banners/';
 $itemName = 'Email Profit System';
 
 $username = $u[username];
