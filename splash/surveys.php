@@ -89,7 +89,7 @@ function ExitPage()
     <h4 class="red">Then Surveys Are For You!</h4>
     
     <form method="post" onsubmit="window.onbeforeunload=null;" 
-	action="http://www.trafficwave.net/cgi-bin/autoresp/inforeq.cgi">
+	action="https://www.trafficwave.net/cgi-bin/autoresp/inforeq.cgi">
 
     <div class="infoWrap">
 	<?=$emailField?>
