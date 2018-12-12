@@ -19,11 +19,11 @@ $bonusPTC = '/home2/codegeas/ebooks/bonus/Santanderinos-PTC-Course.pdf'
         <tr>
             <td width="200px" align="center">
                 <fieldset>
-                    <input type=image name=dl value="dl" src="http://neobuxultimatestrategy.com/images/sales/bonus-mms.jpg" />
+                    <input type=image name=dl value="dl" src="https://neobuxultimatestrategy.com/images/sales/bonus-mms.jpg" />
                 </fieldset>
                 <br />	
-                <input type=submit name=dl value="Download Now" class="btn success" />
-                <input type=hidden name=url value="<?= $bonusMMS ?>" />
+                <input type="submit" name="dl" value="Download Now" class="btn success" />
+                <input type="hidden" name="url" value="<?= $bonusMMS ?>" />
             </td>
         </tr>
     </table>
@@ -32,12 +32,12 @@ $bonusPTC = '/home2/codegeas/ebooks/bonus/Santanderinos-PTC-Course.pdf'
 <p>&nbsp;</p>
 <h2>Make $18K in 30 Days</h2>
 
-<form method=POST>
+<form method="POST">
     <table>
         <tr>
             <td width="200px" align="center">
                 <fieldset>
-                    <input type=image name=dl value="dl" src="http://neobuxultimatestrategy.com/images/sales/bonus-ppbooster.jpg" />
+                    <input type=image name=dl value="dl" src="https://neobuxultimatestrategy.com/images/sales/bonus-ppbooster.jpg" />
                 </fieldset>
                 <br />	
                 <input type=submit name=dl value="Download Now" class="btn success" />
@@ -73,7 +73,7 @@ $bonusPTC = '/home2/codegeas/ebooks/bonus/Santanderinos-PTC-Course.pdf'
         <tr>
             <td width="200px" align="center">
                 <fieldset>
-                    <input type=image name=dl value="dl" src="http://neobuxultimatestrategy.com/images/sales/bonus-ptc-course.jpg" />
+                    <input type=image name=dl value="dl" src="https://neobuxultimatestrategy.com/images/sales/bonus-ptc-course.jpg" />
                 </fieldset>
                 <br />	
                 <input type=submit name=dl value="Download Now" class="btn success"/>
@@ -154,11 +154,11 @@ $bonusPTC = '/home2/codegeas/ebooks/bonus/Santanderinos-PTC-Course.pdf'
     <table>
         <tr>
             <td>
-                <a href="http://bestpayingsites.com/?action=surveys-ptc&campaign=upsell" target="_blank"><img src="http://bestpayingsites.com/images/banners/surveys/surveys300x250.gif" /></a>
+                <a href="https://bestpayingsites.com/?action=surveys-ptc&campaign=upsell" target="_blank"><img src="https://bestpayingsites.com/images/banners/surveys/surveys300x250.gif" /></a>
             </td>
             <td width="70px"></td>
             <td>
-                <a href="http://www.clixsense.com/?3373459&upsell" target=_blank><img src="http://csstatic.com/banners/clixsense_gpt300x250a.png" border=0></a>
+                <a href="https://www.clixsense.com/?3373459&upsell" target=_blank><img src="https://csstatic.com/banners/clixsense_gpt300x250a.png" border=0></a>
             </td>
         </tr>
     </table>
