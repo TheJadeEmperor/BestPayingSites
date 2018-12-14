@@ -37,7 +37,7 @@ $bonusPTC = '/home2/codegeas/ebooks/bonus/Santanderinos-PTC-Course.pdf'
         <tr>
             <td width="200px" align="center">
                 <fieldset>
-                    <input type=image name=dl value="dl" src="https://neobuxultimatestrategy.com/images/sales/bonus-ppbooster.jpg" />
+                    <input type="image" name="dl" value="dl" src="https://neobuxultimatestrategy.com/images/sales/bonus-ppbooster.jpg" />
                 </fieldset>
                 <br />	
                 <input type=submit name=dl value="Download Now" class="btn success" />

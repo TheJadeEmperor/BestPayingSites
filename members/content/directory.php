@@ -2,9 +2,7 @@
 
 <p>&nbsp;</p>
 
-<p>Below are a list of companies that will pay you cash to complete surveys. All you have to do is sign up
-to the companies' websites below and begin taking surveys right away. Some companies will require you
-to confirm some information before you can get started. </p>
+<p>Below are a list of companies that will pay you cash to complete surveys. All you have to do is sign up to the companies' websites below and begin taking surveys right away. Some companies will require you to confirm some information before you can get started. </p>
 
 <p>These websites are some of the top rated survey sites programs on the Internet and have been checked out and are guaranteed to pay.  You can use these programs daily to make monthly paychecks.  These are all simple and easy ways to stay at home, and make an income.  Some people do it part time for the extra $250 - $500 per month to pay their car loan.  Others work full time and make enough to quit their jobs.</p>
 
