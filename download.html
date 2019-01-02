@@ -63,18 +63,16 @@
     <table style="border: 1px solid black; padding: 10px; width: 700px;">
     <tr>
         <td>
-            <p><i><?=$firstName.' '.$lastName ?></i>, if you like <?=$itemName ?>, then you will love the Paypal Booster System.
-                This product was invented by a marketer named Gheorghe Cena, and he's been making an insane
-                amount of money from it everyday! 
+            <p><i><?=$firstName.' '.$lastName ?></i>, if you like <?=$itemName ?>, then you will love the Paypal Booster System. This product was invented by a marketer named Gheorghe Cena, and he's been making an insane amount of money from it everyday! 
             </p>
 
             <p>To find out more about the Paypal Booster system, visit the link below: <br />
-                <a href="http://bestpayingsites.com/ppbooster" target="_blank">http://bestpayingsites.com/ppbooster</a>
+                <a href="https://bestpayingsites.com/ppbooster" target="_blank">https://bestpayingsites.com/ppbooster</a>
             </p>
         </td>
         <td>
-            <a href="http://bestpayingsites.com/ppbooster" target="_blank">
-            <img src="http://bestpayingsites.com/images/booster/splash-balance.jpg" border="1" width="250px" /></a>
+            <a href="https://bestpayingsites.com/ppbooster" target="_blank">
+            <img src="https://bestpayingsites.com/images/booster/splash-balance.jpg" border="1" width="250px" /></a>
         </td>
     </tr>
     </table>
@@ -83,18 +81,7 @@
 
     <h3>Want more ways to make money?<br />Check out these sponsors below:</h3>
 
-	
-	<?php
-	
-	$selA = 'SELECT * FROM ad_pages_content WHERE id = 1';
-	$resA = mysql_query($selA, $conn) or die(mysql_error());
-
-	if($ad = mysql_fetch_assoc($resA)) {
-		echo $ad['content'];
-	}
-	?>
-
-	
+ 
     </center> 
 
     <p>&nbsp;</p>

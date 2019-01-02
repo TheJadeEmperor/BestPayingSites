@@ -13,15 +13,14 @@
     <h1><b>Thank you for your purchase, <?=$firstName.' '.$lastName ?>!</b></h1>
     </center>
 		
-    <p>Your payment has been successful. If you used your credit card, it will show a charge from PayPal. 
-    You can login to www.paypal.com anytime to view transaction details.</p>
+    <p>Your payment has been successful. If you used your credit card, it will show a charge from PayPal. You can login to www.paypal.com anytime to view transaction details.</p>
 
     <p>The <font color="#0000FF"><i><?=$itemName ?></i></font> is available inside the members area. For your convenience, we've created an account for you. To get access to the system, just log in below. </p>
 
     <p>Your credentials are:</p>
 
     <p><i>Username: <?=$payerEmail?><br />
-            Password: <?=$password?></i>
+          Password: <?=$password?></i>
     </p>
 
     <a href="<?=$dir?>members" target=_blank>Click here to go to the Members Area</a></p>
@@ -33,6 +32,7 @@
     <?
     }
     ?>
+	
     <p>If you have any problems, contact us below with your full name, 
     email address (<?=$payerEmail?>),<br /> and this Transaction ID: <b><?=$transID?></b></p>
     <p>Contact email: <a href="mailto:<?=$supportEmail?>"><?=$supportEmail?></a> </p>
@@ -54,7 +54,7 @@
                 <a class="url" href="http://bestpayingsites.com" target="_blank">http://bestpayingsites.com/</a></p>
             </td>
             <td>
-                <a href="http://bestpayingsites.com" target="_blank"><img src="http://bestpayingsites.com/images/eps/binder.jpg" width="250px" /></a>
+                <a href="https://bestpayingsites.com" target="_blank"><img src="https://bestpayingsites.com/images/eps/binder.jpg" width="250px" /></a>
             </td>
         </tr>
     </table>
@@ -62,8 +62,7 @@
     <p>&nbsp;</p>
     
     <h3>Want more ways to make money?<br />Check out these sponsors below:</h3>
-    
-	   
+       
 	<?php
 	
 	$selA = 'SELECT * FROM ad_pages_content WHERE id = 1';
@@ -73,7 +72,6 @@
 		echo $ad['content'];
 	}
 	?>
-
 	
     </center>
 	
