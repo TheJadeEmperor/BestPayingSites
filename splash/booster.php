@@ -2,7 +2,6 @@
 date_default_timezone_set('America/New_York'); 
 $imgDir = 'images/booster/';
 $landingURL = 'http://bestpayingsites.com/redirect.php?url=http://bestpayingsites.com/ppbooster'; 
-$landingURL = 'http://neobuxultimatestrategy.com/redirect.php?url=http://www.clixsense.com/?3373459';
 
 if($_GET['e']) { //email address passed in url
     $emailField = '<input type=text size="25" id="da_email" name="da_email" value="'.$_GET['e'].'" class="activeField">';
