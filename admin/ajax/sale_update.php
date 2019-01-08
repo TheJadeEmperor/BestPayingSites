@@ -9,8 +9,6 @@ foreach($_REQUEST as $request => $value) {
     $_REQUEST[$request] = mysql_real_escape_string($value);
 }
 
-$id = $_REQUEST['id'];
-
 $updateRecord = 'UPDATE sales set 
     productID="'.$_REQUEST['productID'].'",
     transID="'.$_REQUEST['transID'].'",
@@ -27,10 +25,10 @@ $updateRecord = 'UPDATE sales set
     status="'.$_REQUEST['status'].'",
     notes="'.$_REQUEST['notes'].'",
     optout="'.$_REQUEST['optout'].'"
-WHERE id="'.$id.'"';
+WHERE id="'.$_REQUEST['id'].'"';
 
 if(mysql_query($updateRecord))
-    echo 'Successfully updated record #'.$id;
+    echo 'Successfully updated record #'.mysql_insert_id();
 else
     echo 'Failed to update record: '.mysql_error();
 ?>
