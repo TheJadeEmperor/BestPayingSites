@@ -41,9 +41,31 @@ function affiliateMenu()
             <td align="right">
                 <b><a href="?action=tools">Promotion Tools</a></b>
             </td>
-        </tr></table>';
+        </tr>
+		</table>';
     }
-    
+	
+	//check if customer of BPS
+	$sel = "SELECT payerEmail FROM sales WHERE productID='13' AND 
+        (payerEmail = '".$_SESSION['login']['paypal']."' || payerEmail = '".$_SESSION['login']['email']."')";
+    $res = mysql_query($sel) or die(mysql_error());
+	
+	 if(mysql_num_rows($res) > 0) {
+        $output .= '<br />
+        <table cellspacing="0" cellpadding="0" width="100%" border="0">
+        <tr>
+            <td width="20px"></td>
+            <td align="left">
+                <b><a href="?action=bps-database">Surveys Database</a></b>
+            </td>
+            <td align="center">
+                <b><a href="?action=bps-guide">Surveys Guide</a></b>
+            </td>
+        </tr>
+		</table>';
+    }
+	
+	
     return $output.'<br /><hr color="#25569a" size="4" /><p>&nbsp;</p>';
 }
 

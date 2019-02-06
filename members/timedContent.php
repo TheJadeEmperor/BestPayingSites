@@ -1,14 +1,13 @@
 <?php
-switch($_GET['action'])
-{
+switch($_GET['action']) {
     case 'eps':
         $fileName = 'content/eps.php';
         break;
-    case 'directory':
-        $fileName = 'content/directory.php';
-        break;
     case 'classified':
         $fileName = 'content/classified.php';
+        break;
+    case 'directory':
+        $fileName = 'content/directory.php';
         break;
     case 'pp-booster':
         $fileName = 'content/pp-booster.php';
@@ -21,6 +20,12 @@ switch($_GET['action'])
         break;
     case 'pp-tools':
         $fileName = 'content/pp-tools.php';
+        break;
+	case 'bps-database':
+        $fileName = 'content/bps-database.php';
+        break;
+	case 'bps-guide':
+        $fileName = 'content/bps-guide.php';
         break;
 }
 
