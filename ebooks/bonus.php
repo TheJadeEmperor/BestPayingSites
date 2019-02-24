@@ -1,87 +1,53 @@
 <?   
-$bonus1 = '/home2/codegeas/ebooks/bonus/Traffic-Assault.pdf';
-$bonus2 = '/home2/codegeas/ebooks/bonus/Traffic-Heist.pdf';
-$bonus3 = '/home2/codegeas/ebooks/bonus/Traffic-Soldiers.pdf';
-$bonusPPB = '/home2/codegeas/ebooks/bonus/Make-$18K-in-30-Days.pdf';
-$bonusMMS = '/home2/codegeas/ebooks/bonus/MakeMoneySurveys.pdf';
-$bonusNUS = '/home2/codegeas/ebooks/bonus/NeobuxBasics.pdf';
-$bonusPTC = '/home2/codegeas/ebooks/bonus/Santanderinos-PTC-Course.pdf'
+$bonusDir = '/home2/codegeas/ebooks/bonus/';
+
+$bonus1 = $bonusDir.'Traffic-Assault.pdf';
+$bonus2 = $bonusDir.'Traffic-Heist.pdf';
+$bonus3 = $bonusDir.'Traffic-Soldiers.pdf';
+
+$bonusProducts = array( 
+	'Make Money Surveys' => array(
+        'img' => 'https://neobuxultimatestrategy.com/images/sales/bonus-mms.jpg',
+        'dl' => $bonusDir.'MakeMoneySurveys.pdf',
+    ),
+	'Make $18K in 30 Days' => array(
+        'img' => 'https://neobuxultimatestrategy.com/images/sales/bonus-ppbooster.jpg',
+        'dl' => $bonusDir.'Make-$18K-in-30-Days.pdf',
+    ),
+	'Neobux Basics' => array(
+        'img' => 'images/sales/nus.jpg',
+        'dl' => $bonusDir.'NeobuxBasics.pdf',
+    ), 
+	'MR S PTC Course' => array(
+        'img' => 'images/members/pdf.png',
+        'dl' => $bonusDir.'Santanderinos-PTC-Course.pdf',
+    ),
+	 
+	
+);
+
+
 ?>
 <center>
 <h1>Bonus Downloads</h1>
 
 <p>&nbsp;</p>
-    
-<h2>Make Money Surveys</h2>
+<?
+	foreach($bonusProducts as $name => $val) {
+		echo '<h2>'.$name.'</h2>
+		<form method="POST">
 
-<form method=POST>
-    <table>
-        <tr>
-            <td width="200px" align="center">
-                <fieldset>
-                    <input type=image name=dl value="dl" src="https://neobuxultimatestrategy.com/images/sales/bonus-mms.jpg" />
-                </fieldset>
-                <br />	
-                <input type="submit" name="dl" value="Download Now" class="btn success" />
-                <input type="hidden" name="url" value="<?= $bonusMMS ?>" />
-            </td>
-        </tr>
-    </table>
-</form>
+			<button type="submit" name="dl" value="dl"><img src="'.$val['img'].'" border="0" /></button>
+			 
+			<br /><br />		
+			<input type="submit" name="dl" value="Download Now" class="btn success" />
+			<input type="hidden" name="url" value="'.$val['dl'].'" />
+		</form>
+		<p>&nbsp;</p>';
+	
+	}
+?>
 
-<p>&nbsp;</p>
-<h2>Make $18K in 30 Days</h2>
-
-<form method="POST">
-    <table>
-        <tr>
-            <td width="200px" align="center">
-                <fieldset>
-                    <input type="image" name="dl" value="dl" src="https://neobuxultimatestrategy.com/images/sales/bonus-ppbooster.jpg" />
-                </fieldset>
-                <br />	
-                <input type=submit name=dl value="Download Now" class="btn success" />
-                <input type=hidden name=url value="<?= $bonusPPB ?>" />
-            </td>
-        </tr>
-    </table>
-</form>
-    
-<p>&nbsp;</p>
-<h2>Neobux Basics</h2>
-
-<form method=POST>
-    <table>
-        <tr>
-            <td width="200px" align="center">
-                <fieldset>
-                    <input type=image name=dl value="dl" src="images/sales/nus.jpg" />
-                </fieldset>
-                <br />	
-                <input type=submit name=dl value="Download Now" class="btn success" />
-                <input type=hidden name=url value="<?= $bonusNUS ?>" />
-            </td>
-        </tr>
-    </table>
-</form>
-
-<p>&nbsp;</p>
-<h2>PTC Course</h2>
-
-<form method=POST>
-    <table>
-        <tr>
-            <td width="200px" align="center">
-                <fieldset>
-                    <input type=image name=dl value="dl" src="https://neobuxultimatestrategy.com/images/sales/bonus-ptc-course.jpg" />
-                </fieldset>
-                <br />	
-                <input type=submit name=dl value="Download Now" class="btn success"/>
-                <input type=hidden name=url value="<?= $bonusPTC ?>" />
-            </td>
-        </tr>
-    </table>
-</form>
 
 
 <p>&nbsp;</p>
@@ -97,7 +63,7 @@ $bonusPTC = '/home2/codegeas/ebooks/bonus/Santanderinos-PTC-Course.pdf'
                     <tr>
                         <td width="200px" align="center">
                             <fieldset>
-                                <input type=image name=dl value="dl" src="images/members/pdf.png" />
+                                <button type="submit" name="dl" value="dl"><img src=" images/members/pdf.png" />
                             </fieldset>
                             <br />	
                             <input type=submit name=dl value="Download Now" class="btn success"/>
@@ -116,7 +82,7 @@ $bonusPTC = '/home2/codegeas/ebooks/bonus/Santanderinos-PTC-Course.pdf'
                     <tr>
                         <td width="200px" align="center">
                             <fieldset>
-                                <input type=image name=dl value="dl" src="images/members/pdf.png" />
+                                <button type="submit" name="dl" value="dl"><img src=" images/members/pdf.png" />
                             </fieldset>
                             <br />	
                             <input type=submit name=dl value="Download Now" class="btn success"/>
@@ -134,7 +100,7 @@ $bonusPTC = '/home2/codegeas/ebooks/bonus/Santanderinos-PTC-Course.pdf'
                     <tr>
                         <td width="200px" align="center">
                             <fieldset>
-                                <input type=image name=dl value="dl" src="images/members/pdf.png" />
+                               <button type="submit" name="dl" value="dl"><img src=" images/members/pdf.png" />
                             </fieldset>
                             <br />	
                             <input type=submit name=dl value="Download Now" class="btn success"/>

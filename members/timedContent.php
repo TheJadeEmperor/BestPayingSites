@@ -24,6 +24,9 @@ switch($_GET['action']) {
 	case 'bps-database':
         $fileName = 'content/bps-database.php';
         break;
+	case 'bps-apps':
+        $fileName = 'content/bps-apps.php';
+        break;
 	case 'bps-guide':
         $fileName = 'content/bps-guide.php';
         break;

@@ -58,7 +58,10 @@ function affiliateMenu()
             <td align="left">
                 <b><a href="?action=bps-database">Surveys Database</a></b>
             </td>
-            <td align="center">
+			<td align="center">
+                <b><a href="?action=bps-apps">Paid Apps & GPT</a></b>
+            </td>
+            <td align="right">
                 <b><a href="?action=bps-guide">Surveys Guide</a></b>
             </td>
         </tr>
@@ -88,7 +91,16 @@ $itemName = 'Email Profit System';
         color: #000000;
         font-family: Georgia; 
         font-size: 18px;
-        line-height: 28px; }
+        line-height: 28px; 
+	}
+		
+	.content {
+		padding: 0px 20px 0px 20px;
+	}
+	
+	.innerContent {
+		padding: 0px 20px 0px 40px;
+	}
 
     .list {
         font-size:12px;
@@ -147,6 +159,7 @@ $itemName = 'Email Profit System';
         margin: 15px auto;
         text-align: center;
     }
+	
     </style>
 </head>
 <body>
