@@ -1,5 +1,6 @@
 <?php
-include('adminCode.php'); 
+$adir = '../';
+include($adir.'adminCode.php');
 
 if($_POST['delete']) {
     if(sizeof($_POST['id']) > 0)
@@ -22,14 +23,14 @@ while($p = mysql_fetch_assoc($res)) {
         <td><a href="postNew.php?id='.$pID.'">'.$pID.'</a>
         </td><td><a href="postNew.php?id='.$pID.'">'.shortenText($subject, 30).'</a></td>
         <td>'.$p['postedTime'].'</td>
-        <td><a href="'.$websiteURL.'?p='.$p['url'].'" target="_blank" >View</a></td>
+        <td><a href="'.$dir.'?p='.$p['url'].'" target="_blank" >View</a></td>
         <td><input type=checkbox name="id[]" value="'.$pID.'"> </td>
     </tr>';
 }
 ?>
 
 <form method="POST">
-<table class=moduleBlue cellspacing=0 cellpadding=2>
+<table class="moduleBlue" cellpadding="2">
     <tr>
         <th>Post ID </th>
         <th>Subject</th>
@@ -37,10 +38,10 @@ while($p = mysql_fetch_assoc($res)) {
         <th>View</th>
         <th>Delete</th>
     </tr>
-<?=$theList?>
+	<?=$theList?>
     <tr>
         <td></td>
-        <td><input type=submit name=delete value="Delete Post" onclick="return confirm('** Deletions are irreversible. Are you sure you want to proceed? **');">        
+        <td colspan="4"><input type=submit name=delete value="Delete Post" onclick="return confirm('** Deletions are irreversible. Are you sure you want to proceed? **');" />        
         </td>
     </tr>
 </table>

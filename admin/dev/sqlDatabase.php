@@ -1,5 +1,6 @@
 <?php
-include('adminCode.php');
+$adir = '../';
+include($adir.'adminCode.php');
 
 function getTable($tableName)
 {
@@ -173,4 +174,6 @@ $dropDown = '<select name=select_db onChange="submit();">
 </form>
 
 <?=$pageContent?>
-</body></html>
+
+<?
+include('adminFooter.php');  ?>
