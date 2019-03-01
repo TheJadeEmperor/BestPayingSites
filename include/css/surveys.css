@@ -14,7 +14,7 @@
 	margin: 0px;
 	background-position: center top;
 	background-color: #005faf;
-	height:45px;
+	height: 25px;
 }
 
 #header {
@@ -64,9 +64,7 @@
 	margin-left: 40px;
 }
 
-
-
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5 {
 	padding-bottom: 5px;
 	color: #333333;
 	letter-spacing: -1px;
@@ -96,14 +94,20 @@ h5 {
 	font-size: 16px;
 	margin: 0px;
 }
-h6 {
-	font-size: 14px;
-	margin: 0px;
+
+.blue-box h2, .blue-box h1 {
+	color: white;
+}
+
+img {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
 }
 
 p {
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 18px;
+	font-size: 20px;
 	line-height: 24px;
 	margin-top: 20px;
 	color: #333333;
