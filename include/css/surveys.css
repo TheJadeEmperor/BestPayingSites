@@ -235,6 +235,10 @@ img {
 	max-width:100%;
 }
 
+img.testi {
+	max-width: 90% !important;
+}
+
 #header-border {
 	height:25px;
 }
