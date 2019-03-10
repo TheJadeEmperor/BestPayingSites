@@ -37,6 +37,21 @@
 
 ###############################################################*/
 
+
+
+function img_with_tags($src, $alt, $dimensions) {
+	echo '<img src="'.$src.'" alt="'.$alt.'" title="'.$alt.'"';
+	
+	if(isset($dimensions['width'])) {
+		echo 'width="'.$dimensions['width'].'"';
+	}
+	if(isset($dimensions['height'])) {
+		echo 'height="'.$dimensions['height'].'"';
+	}
+	echo ' />';
+}
+
+
 function downloadLink($url)
 {
 	header("Content-Type: application/octet-stream");
