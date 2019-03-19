@@ -86,6 +86,7 @@ $itemName = 'Email Profit System';
     <link href="<?=$dir?>include/css/buttons.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="<?=$dir?>include/css/turbo.css" rel="stylesheet" type="text/css" media="screen" />
     <link rel="icon" href="<?=$dir?>images/splash/dollarSign.jpg" type="image/x-icon" />
+	<meta name="google-site-verification" content="bv0J3GWHae3VQ6UNSknC9DFOnLhEEyzzKsyyLhIcITw" />
     <style>
     .content, p, li, ol {
         color: #000000;
