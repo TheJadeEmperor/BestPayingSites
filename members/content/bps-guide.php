@@ -38,6 +38,8 @@ $MakeMoreMoneyWithSurveys = '/home2/codegeas/ebooks/bonus/MakeMoreMoneyWithSurve
 
 <h1>What if I don't qualify for surveys?</h1>
 
+<h2>Mask Your IP Address</h2>
+
 <p>Not qualifying for surveys is not a problem. If they restrict you by country, you can use a VPN to mask your IP address, so it looks like you're accessing the website from another country. A VPN is basically a secure connection between two devices, so that outside parties are not able to intercept the data. </p>
 
 <p>VPN's are useful if you want the other party to think you are from a certain country. The VPN we recommend is TunnelBear. They have a free version that lets you use 500MB per month, which is plenty for taking surveys. 
@@ -46,3 +48,21 @@ $MakeMoreMoneyWithSurveys = '/home2/codegeas/ebooks/bonus/MakeMoreMoneyWithSurve
 <p>You can download their desktop software or browser extension. </p>
 
 <p>With TunnelBear you can tunnel your way to almost anywhere in the world, including Norway, Netherlands, Brazil, India, and of course, the USA. </p>
+
+
+<h2>Create A Fake Identity</h2>
+
+<p>If you pretend to be from another country, you need an address that matches your country. There's something called fake address generator that can be accessed here: </p>
+
+<p><a href="https://www.fakeaddressgenerator.com/" target="_BLANK">https://www.fakeaddressgenerator.com/</a></p>
+
+<p>They have almost all countries available. You should use the VPN to pretend to be a certain country and find a fake address that matches that country. This will create the illusion of a fake identity. Since you cannot receive checks from a fake address, you have only one payment option which is Paypal. </p>
+
+<p>Many surveys require you to enter a phone number, so the next thing you need to do is create a fake phone number. All you need is a google voice number. </p>
+
+<p><a href="https://www.google.com/voice#inbox" target="_BLANK">https://www.google.com/voice#inbox</a></p>
+
+<p>To get a new phone # you must first connect your real phone #. Google will send you a verification code for one time use. Then your phone will be connected to the google voice #. After this step you can use google voice to verify your phone # for surveys. </p>
+
+
+
