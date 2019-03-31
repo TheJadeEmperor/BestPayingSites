@@ -1,4 +1,4 @@
-<?   
+<?
 $bonusDir = '/home2/codegeas/ebooks/bonus/';
 
 $bonus1 = $bonusDir.'Traffic-Assault.pdf';
@@ -22,8 +22,10 @@ $bonusProducts = array(
         'img' => 'images/members/pdf.png',
         'dl' => $bonusDir.'Santanderinos-PTC-Course.pdf',
     ),
-	 
-	
+	'PTC Crash Course' => array(
+        'img' => 'https://neobuxultimatestrategy.com/images/sales/bonus-ptc-crash-course.jpg',
+        'dl' => '/home2/codegeas/ebooks/bonus/PTCCrashCourse.zip',
+    ),
 );
 
 
@@ -34,10 +36,11 @@ $bonusProducts = array(
 <p>&nbsp;</p>
 <?
 	foreach($bonusProducts as $name => $val) {
+		
 		echo '<h2>'.$name.'</h2>
 		<form method="POST">
 
-			<button type="submit" name="dl" value="dl"><img src="'.$val['img'].'" border="0" /></button>
+			<button type="submit" name="dl" value="dl"><img src="'.$val['img'].'" border="0" width="220px" /></button>
 			 
 			<br /><br />		
 			<input type="submit" name="dl" value="Download Now" class="btn success" />
@@ -66,8 +69,8 @@ $bonusProducts = array(
                                 <button type="submit" name="dl" value="dl"><img src=" images/members/pdf.png" />
                             </fieldset>
                             <br />	
-                            <input type=submit name=dl value="Download Now" class="btn success"/>
-                            <input type=hidden name=url value="<?= $bonus1 ?>" />
+                            <input type="submit" name="dl" value="Download Now" class="btn success"/>
+                            <input type="hidden" name="url" value="<?= $bonus1 ?>" />
                         </td>
                     </tr>
                 </table>
@@ -85,8 +88,8 @@ $bonusProducts = array(
                                 <button type="submit" name="dl" value="dl"><img src=" images/members/pdf.png" />
                             </fieldset>
                             <br />	
-                            <input type=submit name=dl value="Download Now" class="btn success"/>
-                            <input type=hidden name=url value="<?= $bonus2 ?>" />
+                            <input type="submit" name="dl" value="Download Now" class="btn success"/>
+                            <input type="hidden" name="url" value="<?= $bonus2 ?>" />
                         </td>
                     </tr>
                 </table>
@@ -103,8 +106,8 @@ $bonusProducts = array(
                                <button type="submit" name="dl" value="dl"><img src=" images/members/pdf.png" />
                             </fieldset>
                             <br />	
-                            <input type=submit name=dl value="Download Now" class="btn success"/>
-                            <input type=hidden name=url value="<?= $bonus3 ?>" />
+                            <input type="submit" name="dl" value="Download Now" class="btn success"/>
+                            <input type="hidden" name="url" value="<?= $bonus3 ?>" />
                         </td>
                     </tr>
                 </table>
@@ -115,20 +118,22 @@ $bonusProducts = array(
 </table>
 
 <p>&nbsp;</p>
+<p>&nbsp;</p>
 <h3>Want more ways to make money?<br />Check out these sponsors below:</h3>
+<p>&nbsp;</p>
 
-    <table>
-        <tr>
-            <td>
-                <a href="https://bestpayingsites.com/?action=surveys-ptc&campaign=upsell" target="_blank"><img src="https://bestpayingsites.com/images/banners/surveys/surveys300x250.gif" /></a>
-            </td>
-            <td width="70px"></td>
-            <td>
-                <a href="https://www.clixsense.com/?3373459&upsell" target=_blank><img src="https://csstatic.com/banners/clixsense_gpt300x250a.png" border=0></a>
-            </td>
-        </tr>
-    </table>
+	<?php
+	
+	$selA = 'SELECT * FROM ad_pages_content WHERE id = 1';
+	$resA = mysql_query($selA, $conn) or die(mysql_error());
 
+	if($ad = mysql_fetch_assoc($resA)) {
+		echo $ad['content'];
+	}
+	?>
+	
+ 
 </center>
+
 <p>&nbsp;</p>
 <p>&nbsp;</p>
