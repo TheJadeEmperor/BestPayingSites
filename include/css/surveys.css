@@ -116,14 +116,9 @@ p {
 p a {
 	color: #C58101;
 }
-p  a:hover {
+p a:hover {
 	color: #9B0707;
 	text-decoration: none;
-}
-.p-small {
-	font-family: Tahoma, Arial;
-	font-size: 14px;
-	color: #464646;
 }
 .red {
 	color: #9b0707;
@@ -131,6 +126,13 @@ p  a:hover {
 .blue {
 	color: #2C6185;
 }
+.p-small {
+	font-family: Tahoma, Arial;
+	font-size: 14px;
+	color: #464646;
+	text-align: center;
+}
+
 .johnsonbox {
 	background-color: #f4f4f4;
 	height: auto;
@@ -142,6 +144,10 @@ p  a:hover {
 	border: 6px dashed #9b0707;
 	padding: 30px;
 }
+.johnsonbox .p-small {
+	text-align: center;
+}
+
 #footer .text {
 	margin-top: 160px;
 	font-family: Arial, Helvetica, sans-serif;
@@ -177,6 +183,7 @@ section {
     margin-bottom: 0px;
     margin-left: auto;
     overflow: hidden;
+	padding: 35px;
 }
 
 .white-box p {
