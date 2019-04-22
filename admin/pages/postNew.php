@@ -265,4 +265,4 @@ if (document.location.protocol == 'file:') {
 }
 </script>
 <?
-include('adminFooter.php');  ?>
+include($adir.'adminFooter.php');  ?>
