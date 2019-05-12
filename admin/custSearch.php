@@ -273,6 +273,8 @@ function fillSalesForm (salesID) {
 			$.each(data, function(name, value) {
 				console.log(name+' '+value);
 				
+				if(name == 'id') $('#sale_id').val(value);
+				
 				$('#'+name).val(value);
 			});          
 		}
