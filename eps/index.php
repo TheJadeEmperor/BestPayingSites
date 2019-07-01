@@ -191,9 +191,6 @@ if($_GET['r'] || $_COOKIE['sponsor'])//check for cookie, set as affiliate
     setcookie("sponsor", $userID, $cookieExpire);
     setcookie("productID", $productID, $cookieExpire);     
 
-    //update aff stats    
-    updateAffStats($userID, $productID); 
-    
     $sel = 'select * from affstats where userID="'.$_COOKIE[sponsor].'" and productID="'.$productID.'"'; 
     $aff = mysql_fetch_assoc(mysql_query($sel, $conn));
   

@@ -1,9 +1,6 @@
 <?php
 /* ##############################################################
  * 
- * affstats($userID)
- *  show affiliate stats such as clicks and sales 
- * 
  * downloadLink($url)   
  *  create download link, given a url
  * 
