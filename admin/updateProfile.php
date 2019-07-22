@@ -3,12 +3,12 @@ include('adminCode.php');
 
 //delete user
 if($_POST['deleteUser']) {
-    $del = 'delete from users where id="'.$_POST['deleteID'].'"';
+    $del = 'DELETE FROM users WHERE id="'.$_POST['deleteID'].'"';
     mysql_query($del, $conn) or die(mysql_error());
     
     $msg = 'Deleted user from database ... redirecting to users list';
 	
-	echo '<meta http-equiv="refresh" content="3;URL=userList.php">';
+	echo '<meta http-equiv="refresh" content="3;URL=userSearch.php">';
 }
 
 //update db 
@@ -32,15 +32,15 @@ if($_POST['update']) {
 	
 	$theSet = implode(',', $set);
 	
-	$upd = 'update users set '.$theSet.' where id="'.$_POST['id'].'"';
+	$upd = 'UPDATE users SET '.$theSet.' WHERE id="'.$_POST['id'].'"';
 	mysql_query($upd, $conn) or die(mysql_error());
 }
 
 if($_GET['id']) { //if user ID is passed to the page
-	$selU = 'select * from users where id="'.$_GET['id'].'"';
+	$selU = 'SELECT * FROM users WHERE id="'.$_GET['id'].'"';
 }
 else if($_GET['e']) { //if email is passed to the page
-    $selU = 'select * from users where email="'.$_GET['e'].'" || paypal="'.$_GET['e'].'"';
+    $selU = 'SELECT * FROM users WHERE email="'.$_GET['e'].'" || paypal="'.$_GET['e'].'"';
 }
 
 //get user info
@@ -53,12 +53,11 @@ if($u = mysql_fetch_assoc($resU)) {
 }
 
 //check if this user is a customer
-$selS = 'select *, date_format(purchased, "%m/%d/%Y") as bought from sales where payerEmail="'.$u['paypal'].'" and payerEmail <> ""';
+$selS = 'SELECT *, date_format(purchased, "%m/%d/%Y") AS bought FROM sales WHERE payerEmail="'.$u['paypal'].'" and payerEmail <> ""';
 $resS = mysql_query($selS, $conn) or die(mysql_error());
 
 if(mysql_num_rows($resS) > 0) {
-    while($s = mysql_fetch_assoc($resS)) 
-    {
+    while($s = mysql_fetch_assoc($resS)) {
         $sContent .= '<p>Bought the '.$s['itemName'].' on 
         <a href="custManage.php?id='.$s['id'].'" title="'.$s['id'].'">'.$s['bought'].'</a></p>';
     }
@@ -68,11 +67,10 @@ else {
 }
 
 //generate affiliate links 
-$selP = 'select * from products where itemPrice > 0 order by id';
+$selP = 'SELECT * FROM products WHERE itemPrice > 0 ORDER BY id';
 $resP = mysql_query($selP, $conn) or die(mysql_error());
 
-while($p = mysql_fetch_assoc($resP))
-{
+while($p = mysql_fetch_assoc($resP)) {
     $folder = $p['folder'];
     
     if($folder == '')
@@ -82,68 +80,76 @@ while($p = mysql_fetch_assoc($resP))
 }
 
 
-
 if(!empty($msg)) {
-	$msg = '<fieldset><font color=red><b>'.$msg.'</b></font></fieldset>';
+	$msg = '<fieldset><font color="red"><b>'.$msg.'</b></font></fieldset>';
 }
 	
 echo $msg; 
 ?>
-<div class="moduleBlue"><h1>Update Affiliate</h1>
+<div class="moduleBlue"><h1>Update User</h1>
 <div class="moduleBody">
 
 
-<form method=post>
+<form method="POST">
 <table>
-<tr title="User's unique registration ID - given upon registration - it cannot be changed">
-	<td>User ID</td><td><?=$userID?> <input type="hidden" name="id" value="<?=$userID?>" /></td>
-</tr>
-<tr title="username">
-	<td>Username </td><td><input class="activeField" name="username" value="<?=$u['username']?>"> </td>
-</tr>
-<tr>
-	<td>Password </td><td><input class="activeField" name="password" value="<?=$u['password']?>"></td>
-</tr>
-<tr>
-	<td>First Name </td><td><input class="activeField" name="fname" value="<?=$u['fname']?>"></td>
-</tr>
-<tr>
-	<td>Last Name</td><td><input class="activeField" name="lname" value="<?=$u['lname']?>"></td>
-</tr>
-<tr>
-	<td>Email - Contact</td><td><input class="activeField" name="email" value="<?=$u['email']?>" size="30"></td>
-</tr>
-<tr>
-	<td>Email - Paypal</td><td><input class="activeField" name="paypal" value="<?=$u['paypal']?>" size="30"></td>
-</tr>
-<tr>
-    <td>Optout? </td>
-    <td><select name="optout">
-        <option <?=$optoutPick['']?> value="">N</option>
-        <option <?=$optoutPick['Y']?> value="Y">Y</option>
-    </select></td>
-</tr>
-<tr>
-    <td>Status </td>
-    <td><select name="status">
-        <option <?=$statusPick['']?> value="">Active</option>
-        <option <?=$statusPick['B']?> value="B">Banned</option>
-		<option <?=$statusPick['C']?> value="C">Cancelled</option>
-    </select>
-</tr>
-<tr>
-	<td colspan="2" align="center"><input type="submit" class="activeField" name="update" value="Update Profile"></td>
-</tr>
+	<tr title="User's unique registration ID - given upon registration - it cannot be changed">
+		<td>User ID</td>
+		<td><?=$userID?> <input type="hidden" name="id" value="<?=$userID?>" /></td>
+	</tr>
+	<tr title="username">
+		<td>Username </td>
+		<td><input class="activeField" name="username" value="<?=$u['username']?>"></td>
+	</tr>
+	<tr>
+		<td>Password </td>
+		<td><input class="activeField" name="password" value="<?=$u['password']?>"></td>
+	</tr>
+	<tr>
+		<td>First Name </td>
+		<td><input class="activeField" name="fname" value="<?=$u['fname']?>"></td>
+	</tr>
+	<tr>
+		<td>Last Name</td>
+		<td><input class="activeField" name="lname" value="<?=$u['lname']?>"></td>
+	</tr>
+	<tr>
+		<td>Email - Contact</td>
+		<td><input class="activeField" name="email" value="<?=$u['email']?>" size="30"></td>
+	</tr>
+	<tr>
+		<td>Email - Paypal</td>
+		<td><input class="activeField" name="paypal" value="<?=$u['paypal']?>" size="30"></td>
+	</tr>
+	<tr>
+		<td>Optout? </td>
+		<td><select name="optout">
+			<option <?=$optoutPick['']?> value="">N</option>
+			<option <?=$optoutPick['Y']?> value="Y">Y</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td>Status </td>
+		<td><select name="status">
+			<option <?=$statusPick['']?> value="">Active</option>
+			<option <?=$statusPick['B']?> value="B">Banned</option>
+			<option <?=$statusPick['C']?> value="C">Cancelled</option>
+		</select>
+	</tr>
+	<tr>
+		<td colspan="2" align="center"><input type="submit" class="activeField" name="update" value="Update Profile"></td>
+	</tr>
 </table>
 </form>
-</div></div>
+</div>
+</div>
 
 <p>&nbsp;</p>
 
-<div class="moduleBlue"><h1>Is Customer?</h1>
-<div class="moduleBody">
-    <?=$sContent?>
-</div>
+<div class="moduleBlue">
+	<h1>Is Customer?</h1>
+	<div class="moduleBody">
+		<?=$sContent?>
+	</div>
 </div>
 
 <p>&nbsp;</p>
@@ -151,17 +157,18 @@ echo $msg;
 
 
 <div class="moduleBlue"><h1>Delete User</h1>
-<div class="moduleBody">
-    <div title="header=[Delete User] body=[Delete a user from the users table, will not affect sales records]">
-	<center>
-	
-	<form method="post">
-    <img src="<?=$helpImg?>" />     
-    <input type="submit" name="deleteUser" <?=$disDel?> onclick="confirm ('Are you sure?')"/></div>
-    <input type="hidden" name="deleteID" value="<?=$userID?>" />
-    </form>
-
-	</center>
+	<div class="moduleBody">
+		<div title="header=[Delete User] body=[Delete a user from the users table, will not affect sales records]">
+		<center>
+		
+			<form method="post">
+			<img src="<?=$helpImg?>" />     
+			<input type="submit" name="deleteUser" <?=$disDel?> onclick="confirm ('Are you sure?')"/>
+			<input type="hidden" name="deleteID" value="<?=$userID?>" />
+			</form>
+		</div>
+		
+		</center>
 	</div>
 </div>
 </div>

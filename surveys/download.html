@@ -1,64 +1,55 @@
-<div class="white-box">
-	<div class="wrapper">
-	<center>
-	<h1><b>Thank you for your purchase, <?=$firstName.' '.$lastName ?>!</b></h1>
-	</center>
-     	
-    <p>Your payment has been successful. If you used your credit card, it will show a charge from PayPal. 
-    You can login to www.paypal.com anytime to view transaction details.</p>
-
-    <p>For your convenience, we've created an account for you, so all you have to do is log in once in a while (the more the better) and view the latest version of <b><?=$itemName?></b>. Your credentials are:</p>
-
-    <p><i>Username:  <?=$payerEmail?><br />
-            Password: <?=$password?></i>
-    </p>
-
-    <p>Just log in to the members area and access the materials at any time: <br>
-            <a href="<?=$dir?>members" target="_blank">Members Area</a></p>
-    
-      <p>If you have any problems, contact us below with your full name, 
-    email address (<?=$payerEmail?>), and this Transaction ID: <b><?=$transID?></b></p>
-
-    <p>Contact email: <a href="mailto:<?=$supportEmail?>"><?=$supportEmail?></a></p>
-    
-    <?
-    if($_GET['id'] != 'vipuser') {
-    ?>    
-        <p>After you log in, we recommend that you change your password to something easier to remember.</p>
-    <?
-    }
-    ?>
-    
-    <p>&nbsp; </p>
-
-    <center>
-    <h3>In the mean time, check out these offers...</h3>
-    <br />
-    
-    <table style="border: 1px solid black; padding: 10px; width: 700px;">
-    <tr>
-        <td>
-            <p><i><?=$firstName.' '.$lastName ?></i>, if you like <?=$itemName ?>, then you will love the Paypal Booster System. This product was invented by a marketer named Gheorghe Cena, and he's been making an insane amount of money from it everyday! 
-            </p>
-
-            <p>To find out more about the Paypal Booster system, visit the link below: <br />
-                <a href="https://bestpayingsites.com/ppbooster" target="_blank">https://bestpayingsites.com/ppbooster</a>
-            </p>
-        </td>
-        <td>
-            <a href="https://bestpayingsites.com/ppbooster" target="_blank">
-            <img src="https://bestpayingsites.com/images/booster/splash-balance.jpg" border="1" width="250px" /></a>
-        </td>
-    </tr>
-    </table>
-
-    <p>&nbsp; </p>
-
-    <!--<h3>Want more ways to make money?<br />Check out these sponsors below:</h3>
+<center>
+<h1><b>Thank you for your purchase, <?=$firstName.' '.$lastName ?>!</b></h1>
+</center>
 	
-	<p>&nbsp;</p>-->
+<p>Your payment has been successful. If you used your credit card, it will show a charge from PayPal. 
+You can login to www.paypal.com anytime to view transaction details.</p>
 
+<p>For your convenience, we've created an account for you, so all you have to do is log in once in a while (the more the better) and view the latest version of <b><?=$itemName?></b>. Your credentials are:</p>
 
-    </center> 
-    </div>
-</div>
+<p><i>Username:  <?=$payerEmail?><br />
+		Password: <?=$password?></i>
+</p>
+
+<p>Just log in to the members area and access the materials at any time: <br />
+	<a href="<?=$dir?>members" target="_blank">Members Area</a></p>
+
+<p>If you have any problems, contact us below with your full name, 
+email address (<?=$payerEmail?>), and this Transaction ID: <b><?=$transID?></b></p>
+
+<p>Contact email: <a href="mailto:<?=$supportEmail?>"><?=$supportEmail?></a></p>
+
+<?
+if($_GET['id'] != 'vipuser') {
+?>    
+	<p>After you log in, we recommend that you change your password to something easier to remember.</p>
+<?
+}
+?>
+
+<p>&nbsp; </p>
+
+<center>
+<h3>In the mean time, check out these offers...</h3>
+<br />
+
+<table style="border: 1px solid black; padding: 10px; width: 700px;">
+<tr>
+	<td>
+		<p><i><?=$firstName.' '.$lastName ?></i>, if you like <?=$itemName ?>, then you will love the Paypal Booster System. This product was invented by a marketer named Gheorghe Cena, and he's been making an insane amount of money from it everyday! 
+		</p>
+
+		<p>To find out more about the Paypal Booster system, visit the link below: <br />
+			<a href="https://bestpayingsites.com/ppbooster" target="_BLANK">https://bestpayingsites.com/ppbooster</a>
+		</p>
+	</td>
+	<td>
+		<a href="https://bestpayingsites.com/ppbooster" target="_BLANK">
+		<img src="https://bestpayingsites.com/images/booster/splash-balance.jpg" border="1" width="250px" /></a>
+	</td>
+</tr>
+</table>
+
+<p>&nbsp; </p>
+
+</center> 

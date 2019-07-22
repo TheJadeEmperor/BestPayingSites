@@ -3,7 +3,8 @@ include('adminCode.php');
 
 function getSales($whichMonth) {
     global $conn; 
-    $selR = 'select sum(amount) as revenue, date_format(purchased, "%m/%Y") as purchased from sales where purchased like "%'.$whichMonth.'%"';
+	
+    $selR = 'SELECT sum(amount) AS revenue, date_format(purchased, "%m/%Y") AS purchased FROM sales WHERE purchased LIKE "%'.$whichMonth.'%"';
     
     $resR = mysql_query($selR, $conn) or die(mysql_error()); 
     $r = mysql_fetch_assoc($resR);
@@ -23,9 +24,8 @@ $thisMonth = date('m/Y', time());
 $lastMonth = date("m/Y",strtotime("-1 month"));
 $thisYear = date("Y", time()); 
 
-
-$selS = 'select *, date_format(purchased, "%m/%d/%Y") as purchased, 
-date_format(purchased, "%m/%Y") as currentMonth, date_format(purchased, "%Y") as thisYear from sales order by purchased';
+$selS = 'SELECT *, date_format(purchased, "%m/%d/%Y") AS purchased, 
+date_format(purchased, "%m/%Y") AS currentMonth, date_format(purchased, "%Y") AS thisYear FROM sales ORDER BY purchased';
 $resS = mysql_query($selS, $conn) or die(mysql_error());
 
 while($s = mysql_fetch_assoc($resS)) {
@@ -82,14 +82,12 @@ $monthArray = array(
 <table>
 <tr valign="top">
     <td>
-        
         <div class="moduleBlue"><h1>Sales History</h1>
         <div>
         <table>
         <tr valign="top">
             <td>Sales This Month</td>
-            <td><div title="header=[This month's revenue] body=[All sales made by you and
-                your affiliates this month so far] ">
+            <td><div title="header=[This month's revenue] body=[All sales made by you and your affiliates this month so far] ">
             <img src="<?=$helpImg?>" /> <?=$salesThisMonth?></div>
             </td>
         </tr>
@@ -107,7 +105,8 @@ $monthArray = array(
             <img src="<?=$helpImg?>" /> <?=$grandTotal?></div></td> 
         </tr>
         </table>
-        </div></div>
+        </div>
+		</div>
         
         <p>&nbsp;</p>
         
@@ -120,7 +119,8 @@ $monthArray = array(
         
         ?>
         
-        </div></div>
+        </div>
+		</div>
     </td>
     <td width="10px"></td>
     <td>
@@ -149,7 +149,8 @@ $monthArray = array(
                 
                 echo '<tr>
                 <td>'.$productName.'</td> 
-                <td>'.$productTotal.'</td></tr>';
+                <td>'.$productTotal.'</td>
+				</tr>';
             }
             ?>
             </table>

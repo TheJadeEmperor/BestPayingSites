@@ -4,10 +4,12 @@ include($adir.'adminCode.php');
 
 //update download email options
 if($_POST['updateEmailOptions']) { 
-    $updEC = 'update settings set setting="'.$_POST['sendDownloadEmailCopy'].'" where opt="sendDownloadEmailCopy"';
+
+    $updEC = 'UPDATE settings SET setting="'.$_POST['sendDownloadEmailCopy'].'" WHERE opt="sendDownloadEmailCopy"';
+
     mysql_query($updEC, $conn) or die(mysql_error());
     
-    $updEA = 'update settings set setting="'.$_POST['sendDownloadEmailAddress'].'" where opt="sendDownloadEmailAddress"';
+    $updEA = 'UPDATE settings SET setting="'.$_POST['sendDownloadEmailAddress'].'" WHERE opt="sendDownloadEmailAddress"';
     mysql_query($updEA, $conn) or die(mysql_error());
     
     $val['sendDownloadEmailCopy'] = $_POST['sendDownloadEmailCopy'];
@@ -33,21 +35,25 @@ foreach($emailList as $e) {
     $selP = 'SELECT * FROM products WHERE id="'.$e['productID'].'"';
     $resP = mysql_query($selP, $conn) or die(mysql_error()); 
     $p = mysql_fetch_assoc($resP); 
+	
+	$pID = $e['productID'];
     
     if($currentProduct == $p['itemName']) {
-        $theList .= '<tr>
+
+        $theList .= '<tr title="'.$pID.'">
         <td></td>
-        <td><a href="productEmailsEdit.php?id='.$e['productID'].'&type='.$e['type'].'">'.$e[type].'</a></td>
+        <td><a href="productEmailsEdit.php?id='.$pID.'&type='.$e['type'].'">'.$e['type'].'</a></td>
         <td>'.$e['subject'].' </td>
         </tr>';
     }
     else {
         $itemName = $currentProduct = $p['itemName']; 
-        $theList .= '<tr><td></td></tr>
-        <tr>
+
+        $theList .= '<tr><td colspan="3"></td></tr>
+        <tr title="'.$pID.'">
         <td><a href="productNew.php?id='.$e['productID'].'">'.$itemName.'</a></td>
         <td><a href="productEmailsEdit.php?id='.$e['productID'].'&type='.$e['type'].'">'.$e['type'].'</a></td>
-        <td>'.$e['subject'].'</td>
+        <td>'.$e['subject'].' </td>
         </tr>';
     }
 }
