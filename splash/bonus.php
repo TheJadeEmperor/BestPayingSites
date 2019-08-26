@@ -9,22 +9,27 @@ $bonusProducts = array(
 	'Make Money Surveys' => array(
         'img' => 'https://neobuxultimatestrategy.com/images/sales/bonus-mms.jpg',
         'dl' => $bonusDir.'MakeMoneySurveys.pdf',
+		'id' => 'MakeMoneySurveys',
     ),
 	'Make $18K in 30 Days' => array(
         'img' => 'https://neobuxultimatestrategy.com/images/sales/bonus-ppbooster.jpg',
         'dl' => $bonusDir.'Make-$18K-in-30-Days.pdf',
+		'id' => 'Make18Kin30days',
     ),
 	'Neobux Basics' => array(
         'img' => 'images/sales/nus.jpg',
         'dl' => $bonusDir.'NeobuxBasics.pdf',
+		'id' => 'NeobuxBasics',
     ), 
 	'MR S PTC Course' => array(
         'img' => 'images/members/pdf.png',
         'dl' => $bonusDir.'Santanderinos-PTC-Course.pdf',
+		'id' => 'MRSPTCCourse',
     ),
 	'PTC Crash Course' => array(
         'img' => 'https://neobuxultimatestrategy.com/images/sales/bonus-ptc-crash-course.jpg',
         'dl' => '/home2/codegeas/ebooks/bonus/PTCCrashCourse.zip',
+		'id' => 'PTCCrashCourse',
     ),
 );
 
@@ -37,7 +42,7 @@ $bonusProducts = array(
 <?
 	foreach($bonusProducts as $name => $val) {
 		
-		echo '<h2>'.$name.'</h2>
+		echo '<h2 id="'.$val['id'].'">'.$name.'</h2>
 		<form method="POST">
 
 			<button type="submit" name="dl" value="dl"><img src="'.$val['img'].'" border="0" width="220px" /></button>
@@ -50,8 +55,6 @@ $bonusProducts = array(
 	
 	}
 ?>
-
-
 
 <p>&nbsp;</p>
 
@@ -131,7 +134,6 @@ $bonusProducts = array(
 		echo $ad['content'];
 	}
 	?>
-	
  
 </center>
 
