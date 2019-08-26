@@ -71,7 +71,7 @@ $upsellPage = 'http://ad.trwv.net/t.pl/57718/374163';
         <td align="center">
             <h3>How to set up your blog</h3>
             <br />
-            <iframe width="420" height="315" src="//www.youtube.com/embed/EwkG_oEAJ9c" frameborder="0" allowfullscreen></iframe>
+            <iframe width="420" height="315" src="//www.youtube.com/embed/1IUlzf_Ya4g" frameborder="0" allowfullscreen></iframe>
         </td>
     </tr>
 </table>

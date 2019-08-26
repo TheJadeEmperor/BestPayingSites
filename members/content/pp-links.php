@@ -1,20 +1,30 @@
 <center><h1>PP Booster Links</h1></center>
 
-<fieldset id="pp" style="text-align: left;">
-<legend>Join These Sites First</legend>
-<h3>Blogger</h3>
-<a href="https://www.blogger.com" target="_blank">http://www.blogger.com</a>
+<style>
+fieldset {
+    width: 80%;
+    margin: auto;
+}
+</style>
 
-<h3>Ghost Blog</h3>
-<a href="https://www.ghost.org/" target="_blank">http://www.ghost.org/</a>
+<fieldset id="pp">
+	<legend>Join These Sites First</legend>
+	<h3>Blogger</h3>
+	<p><a href="https://www.blogger.com" target="_BLANK">http://www.blogger.com</a></p>
+	<br />
 
-<h3>Paypal</h3>
-<a href="https://www.paypal.com" target="_blank">http://www.paypal.com</a>
+	<h3>Ghost Blog</h3>
+	<p><a href="https://www.ghost.org/" target="_BLANK">http://www.ghost.org/</a></p>
+	<br />
 
-<h3>Solid Trust Pay</h3>
-<a href="https://www.solidtrustpay.com" target="_blank">http://www.solidtrustpay.com</a>
+	<h3>Paypal</h3>
+	<p><a href="https://www.paypal.com" target="_BLANK">http://www.paypal.com</a></p>
+	<br />
 
-<br /><br />
+	<h3>Solid Trust Pay</h3>
+	<p><a href="https://www.solidtrustpay.com" target="_BLANK">http://www.solidtrustpay.com</a></p>
+
+	<br /><br />
 </fieldset>
 
 <p>&nbsp;</p>
@@ -23,23 +33,28 @@
 <p>&nbsp;</p>
 
 <fieldset id="advertise">
-    <legend>Advertising Sites</legend>
-    <h3>Neobux</h3> 
-    <a href="http://www.neobux.com/?r=SanctuaryInc" target="_blank">http://www.neobux.com</a>
-
-    <h3>Clixsense</h3>
-    <a href="http://www.clixsense.com/?3373459" target="_blank">http://www.clixsense.com</a>
-
-    <h3>Adhitz</h3>
-    <a href="https://www.adhitz.com" target="_blank">http://www.adhitz.com</a>
-
-    <h3>EasyHits4U</h3>
-	<a href="http://a.easyhits4u.com/splash8.php?ref=theemperor" target="_blank">http://www.easyhits4u.com</a>
     
-	<h3>Top Traffic Exchanges</h3>
-	<a href="http://trexlist.com/manual-traffic-exchanges.shtml" target="_blank">http://trexlist.com/manual-traffic-exchanges.shtml</a>
-    <br /><br />
+	<legend>Advertising Sites</legend>
+    <h3>Neobux</h3> 
+	<p> <a href="http://www.neobux.com/?r=KaibaCorp1" target="_BLANK">http://www.neobux.com</a></p>
+	<br />
+	
+    <h3>ySense</h3>
+	<p> <a href="http://www.clixsense.com/?3373459" target="_BLANK">http://www.clixsense.com</a></p>
+	<br />
+	
+    <h3>Adhitz</h3>
+	<p><a href="https://www.adhitz.com" target="_BLANK">http://www.adhitz.com</a></p>
+	<br />
+	
+    <h3>EasyHits4U</h3>
+	<p><a href="http://a.easyhits4u.com/splash8.php?ref=theemperor" target="_BLANK">http://www.easyhits4u.com</a></p>
 
+    
+	<!--<h3>Top Traffic Exchanges</h3>
+	<a href="http://trexlist.com/manual-traffic-exchanges.shtml" target="_BLANK">http://trexlist.com/manual-traffic-exchanges.shtml</a>-->
+	
+    <br /><br />
 </fieldset>
 
 <p>&nbsp;</p>
