@@ -92,8 +92,8 @@ body {
 
         <img src="images/splash/watchvideo1.png" height="112" width="490" />
     
-		<iframe width="640" height="360" src="https://www.youtube.com/embed/oDc6_wQB44A?rel=0&amp;controls=0&amp;showinfo=0&amp;autoplay=1" frameborder="0" allowfullscreen></iframe>
- 
+		<iframe width="640" height="360" src="https://www.youtube.com/embed/oDc6_wQB44A?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+
 		<br />
 		
 		<a href="<?=$productLink?>"><img src="images/splash/instantAccess.png"></a>
