@@ -34,7 +34,7 @@ switch($_GET['page']) {
 	case 'home':
 	default:
 		$meta = array(
-			'title' => "Olufunsho's PTC Website", 
+			'title' => "Top PTC Websites", 
 			'tags' => 'earn money ptc, make money ptc, earn with ptc, get paid to click',
 			'desc' => 'Here are some great ptc sites that you can make money from'); 
 		$fileName = 'home.html';
