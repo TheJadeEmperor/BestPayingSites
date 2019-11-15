@@ -156,24 +156,24 @@ $imgDir = $dir.'images/booster/';
 		<p>24 hours later I checked my Inbox and I was shocked! </p>
 		<center>
 			<? 
-			$src = $imgDir.'inbox-page-1.jpg';
+			$imgSrc = $imgDir.'inbox-page-1.jpg';
 			$alt = 'Paypal Booster Pro Payment Proof';
 			$d = array(
 				'width' => '595', 
 				'height' => '393' 
 			);
 			?>
-			<p><a href="<?=$src?>" target="_BLANK"><?=img_with_tags($src, $alt, $d);?></a></p>
+			<p><a href="<?=$imgSrc?>" target="_BLANK"><?=img_with_tags($src, $alt, $d);?></a></p>
 		
 			<? 
-			$src = $imgDir.'inbox-page-2.jpg';
+			$imgSrc = $imgDir.'inbox-page-2.jpg';
 			$alt = 'Paypal Booster Pro Payment Proof';
 			$d = array(
 				'width' => '595', 
 				'height' => '393' 
 			);
 			?>
-			<p><a href="<?=$src?>" target="_BLANK"><?=img_with_tags($src, $alt, $d);?></a></p>
+			<p><a href="<?=$imgSrc?>" target="_BLANK"><?=img_with_tags($src, $alt, $d);?></a></p>
 			
 			
 			<p>I had just earned over <span class="hightext" style="color: #38761D;background-color: yellow;">$267</span></p>
@@ -254,23 +254,36 @@ $imgDir = $dir.'images/booster/';
 		</p>
 	
 		<div>
-		<!-- Payment button -->
-		<!--<center onclick="NoExitPage=true;">
+		<?
+			$btcLink = 'mailto:'.$adminEmail.'?subject=I want to buy the PPB with Bitcoins&body=I want to purchase the Paypal Booster, please give me your Bitcoin address.'; 
+			$btcText = 'Contact us for instructions on paying with Bitcoin';
+			
+			if($paypalEnabled) {
+				$orderLink = '?action=order';
+				$orderText = 'Get Instant Access - Even at 2 AM - Guaranteed'; 
+			}
+			else {
+				$orderLink = $btcLink;
+				$orderText = $btcText;
+			}
+		?>
 		
-		<p style="text-align: center"><a href="?action=order" onclick="NoExitPage=true;"><img src="<?=$imgDir?>Paypal-Buy-Now-button.png"></a></p>
-	
-		</center>
+		<p align="center">
+            <a href="<?=$orderLink?>"><img src="<?=$imgDir?>Paypal-Buy-Now-button.png" /></a>
+		</p>
+		<i><font size="2"><?=$orderText ?></font></i>	
 		
-		<p style="text-align: center;font-family: Arial,Helvetica; font-size: large; font-weight: bold">You will get instant access to your order after purchase <br /> even if it's 2 A.M.  in the morning!</p>-->
+		<p>&nbsp;</p>
 		
+		<!--Payment button --> 
 		
-			<a href="mailto:<?=$adminEmail?>?subject=I want to buy the PPB with Bitcoins&body=I want to purchase the Paypal Booster, please give me your Bitcoin address."><img src="<?=$imgDir?>Paypal-Buy-Now-button.png" alt="Order Now" title="Order Now"></a>
+		<? /*
+		echo '<center><a href="'.$btcLink.'">
+			<img src="https://bitpay.com/img/button-large.png" border="0" name="submit" /></a>
 			<br />
-			<i><font size="2">Contact us for instructions on paying with Bitcoin</font></i>	
-		
-		<!-- Payment button --> 
-		
-		<!--<p><span class="smallText">Alternate options: <a href="mailto:support@bestpayingsites.com&subject=Purchase the Neobux Ultimate Strategy">Pay with Bitcoins</a></span></span></p>-->
+			<i><font size="2">'.$btcText.'</font></i>	
+		</center>';    */
+		?>
 		</div>
 			
         </div>
@@ -358,16 +371,9 @@ $imgDir = $dir.'images/booster/';
 		
             <p class="disclaim">Earnings Disclaimer</p>
             
-            <p class="dtext">EVERY EFFORT HAS BEEN MADE TO ACCURATELY REPRESENT THIS PRODUCT AND
-            ITS POTENTIAL. EVEN THOUGH THIS INDUSTRY IS ONE OF THE FEW WHERE ONE CAN
-            WRITE THEIR OWN CHECK IN TERMS OF EARNINGS, THERE IS NO GUARANTEE THAT YOU
-            WILL EARN ANY MONEY USING THE TECHNIQUES AND IDEAS IN THESE MATERIALS.
-            EXAMPLES IN THESE MATERIALS ARE NOT TO BE INTERPRETED AS A PROMISE
-            OR GUARANTEE OF EARNINGS. EARNING POTENTIAL IS ENTIRELY DEPENDENT
-            ON THE PERSON USING OUR PRODUCT, IDEAS AND TECHNIQUES. WE DO NOT SUPPORT
-            THIS AS A GET RICH SCHEME.</p>
+            <p class="dtext">EVERY EFFORT HAS BEEN MADE TO ACCURATELY REPRESENT THIS PRODUCT AND ITS POTENTIAL. EVEN THOUGH THIS INDUSTRY IS ONE OF THE FEW WHERE ONE CAN WRITE THEIR OWN CHECK IN TERMS OF EARNINGS, THERE IS NO GUARANTEE THAT YOU WILL EARN ANY MONEY USING THE TECHNIQUES AND IDEAS IN THESE MATERIALS. EXAMPLES IN THESE MATERIALS ARE NOT TO BE INTERPRETED AS A PROMISE OR GUARANTEE OF EARNINGS. EARNING POTENTIAL IS ENTIRELY DEPENDENT ON THE PERSON USING OUR PRODUCT, IDEAS AND TECHNIQUES. WE DO NOT SUPPORT THIS AS A GET RICH SCHEME.</p>
             
-            <p class="copyright">Copyright © <?=date('Y', time())?> | <span style="color: lime"> PayPal Booster Pro</span> | All rights reserved</p><br>
+            <p class="copyright">Copyright © <?=date('Y', time())?> | <span style="color: lime"> PayPal Booster Pro</span> | All rights reserved</p><br />
 
 	</div><!-- -->
 	</div><!-- middle div -->

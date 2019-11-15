@@ -1,47 +1,59 @@
 <?php
 global $context; 
 
-$selS = 'select * from settings order by opt';
+$selS = 'SELECT * FROM settings ORDER BY opt';
 $resS = mysql_query($selS, $conn) or die(mysql_error());
 
-while($s = mysql_fetch_assoc($resS)) 
-{
-    $val[$s[opt]] = $s[setting];     
+while($s = mysql_fetch_assoc($resS)) {
+    $s['setting'] = stripslashes($s['setting']);
+    $val[$s['opt']] = $s['setting'];     
 }
+
+$selL = 'SELECT * FROM links ORDER BY name';
+$resL = mysql_query($selL, $conn) or die(mysql_error());
+
+while($l = mysql_fetch_assoc($resL)) {
+	$l['url'] = stripslashes($l['url']);
+	$links[$l['name']] = $l['url'];
+}
+
 
 $context = array(
     'dir' => $dir, 
     'links' => $links,
     'conn' => $conn, 
-    'websiteURL' => $val[websiteURL], 
+    'websiteURL' => $val['websiteURL'], 
     'ipnURL' => $ipnURL,
-    'adminEmail' => $val[adminEmail],
-    'supportEmail' => $val[fromEmail],
-    'val' => $val); 
+    'adminEmail' => $val['adminEmail'],
+    'supportEmail' => $val['fromEmail'],
+    'val' => $val ); 
 
 //admin email address 
-$adminEmail = $val[adminEmail];
+$adminEmail = $val['adminEmail'];
 
 //paypal account to receive payments 
-$paypalEmail = $val[paypalEmail];
+$paypalEmail = $val['paypalEmail'];
 
 //customer support email 
-$supportEmail = $val[fromEmail];
+$supportEmail = $val['fromEmail'];
 
 //the main URL of this domain 
-$websiteURL = $val[websiteURL];
+$websiteURL = $val['websiteURL'];
 
 //name of business
-$businessName = $val[businessName]; 
+$businessName = $val['businessName']; 
 
 //URL if IPN handler
-$ipnURL = $val[ipnURL];
+$ipnURL = $val['ipnURL'];
 
-//affiliate registration
-$affLink = $websiteURL.'/members/?action=register';
 
 //members area
 $affLogin = $websiteURL.'/members/';
+
+//is paypal enabled? If not show backup payment option
+///////////////////
+$paypalEnabled = 0;
+///////////////////
 
 
 //weekly backups
