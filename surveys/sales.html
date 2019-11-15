@@ -196,9 +196,20 @@
 			<p>For the low prelaunch price of $17.00, you will get access to the members area of the Best Paying Surveys system and access your surveys database. You can begin taking surveys right away!</p>
 			<br />
 			
-			<p><a href="?action=order#orderPaypal"><img src="<?=$imgDir?>button.png" width="344" height="90" alt="Best Paying Surveys" /></a></p>
+			<?
+			if(false) {
+				$orderLink = '?action=order#orderPaypal';
+				$orderText = 'Get Instant Access - Even at 2 AM - Guaranteed';
+			}
+			else {
+				$orderLink = 'mailto:'.$adminEmail.'?subject=I want to buy the BPS with Bitcoins&body=I want to purchase the Best Paying Surveys, please give me your Bitcoin address."'; 
+				$orderText = 'Contact us for instructions on paying with Bitcoin';
+			}
+			?>
 			
-			<center><span class="p-small">Get Instant Access - Even at 2 AM - Guaranteed</span></center>
+			<p><a href="<?=$orderLink?>"><img src="<?=$imgDir?>button.png" width="344" height="90" alt="Best Paying Surveys" /></a></p>
+			
+			<center><span class="p-small"><?=$orderText?></span></center>
 			
 			<br />
 		</div>
