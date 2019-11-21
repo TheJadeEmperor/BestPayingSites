@@ -42,6 +42,7 @@ session_start();
 $url = curPageURL();  
 
 if(is_int(strpos(__FILE__, 'C:\\'))) { //localhost
+
     list($crap, $path) = explode('//', $url);
     list($crap, $crap, $path) = explode('/', $path); 
     $path = str_replace('index.php', '', $path); 
@@ -70,23 +71,25 @@ include($dir.'include/mysql.php');
 include($dir.'include/config.php');
 include($dir.'include/spmSettings.php'); 
 
-$selP = 'select * from products where folder="'.$path.'"';
+$selP = 'SELECT * FROM products WHERE folder="'.$path.'"';
 $resP = mysql_query($selP, $conn) or die(mysql_error());
 
 if($p = mysql_fetch_assoc($resP)) {
     //product vars
-    $productID = $p['id'];
+	$productID = $p['id'];
     $itemName = $p['itemName'];
     $itemPrice = $p['itemPrice'];
     $itemNumber = $p['itemNumber'];
     $keywords = $p['keywords'];
     $description = $p['description']; 
-    
+	$productOrderLink = $p['productOrderLink']; 
+ 	$productOrderText = $p['productOrderText'];
+	
     //download vars
     $expires = $p['expires'];
     $oto = $p['oto']; 
     $otoName = $p['otoName'];
-    $otoPrice = $p['otoPrice'];
+	$otoPrice = $p['otoPrice'];
     $otoNumber = $p['otoNumber'];
     $download = $p['download']; 
     $upsellID = $p['upsellID'];
@@ -106,7 +109,7 @@ if($p = mysql_fetch_assoc($resP)) {
    
     if($oto == 'Y') { //one time offer
     
-        $selO = 'select * from products where id="'.$upsellID.'"';
+        $selO = 'SELECT * FROM products WHERE id="'.$upsellID.'"';
         $resO = mysql_query($selO, $conn) or die(mysql_error());
         $o = mysql_fetch_assoc($resO);
         
@@ -142,8 +145,8 @@ if($_POST['dl']) {
     exit;
 }
 
-$paidToEmail = $paypalEmail; //paypal account to send payments to
-$action = $_GET['action']; //which page is being read
+$paidToEmail = $paypalEmail;
+$action = $_GET['action'];
 
 if(false) { //debug
     echo 'path: '.$path.'<br>
@@ -189,13 +192,11 @@ default:
     }    
     
     //custom site pages 
-    $selM = 'select * from memberpages order by url';
+    $selM = 'SELECT * FROM memberpages ORDER BY url';
     $resM = mysql_query($selM, $conn) or die(mysql_error());
     
-    while($m = mysql_fetch_assoc($resM))
-    {
-        if($action == $m['url'])
-        {
+    while($m = mysql_fetch_assoc($resM)) {
+        if($action == $m['url']) {
             $templateHeader = $m['header'];
             $templateFooter = $m['footer'];
             $fileName = $m['file'];
@@ -225,4 +226,4 @@ if($pageView) {
     setcookie('lastView', date('m/d/Y', time()));
 }
 
-mysql_close($conn);  ?>
+mysql_close($conn); ?>

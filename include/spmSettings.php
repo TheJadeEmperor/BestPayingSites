@@ -16,8 +16,7 @@ while($l = mysql_fetch_assoc($resL)) {
 	$l['url'] = stripslashes($l['url']);
 	$links[$l['name']] = $l['url'];
 }
-
-
+ 
 $context = array(
     'dir' => $dir, 
     'links' => $links,
@@ -40,34 +39,34 @@ $supportEmail = $val['fromEmail'];
 //the main URL of this domain 
 $websiteURL = $val['websiteURL'];
 
-//name of business
 $businessName = $val['businessName']; 
 
-//URL if IPN handler
 $ipnURL = $val['ipnURL'];
-
 
 //members area
 $affLogin = $websiteURL.'/members/';
 
 //is paypal enabled? If not show backup payment option
 ///////////////////
-$paypalEnabled = 0;
-///////////////////
+$paypalOrderLink = $val['paypalOrderLink'];
+$usePaypalOrderLink = $val['usePaypalOrderLink'];
+/////////////////// 
 
 
-//weekly backups
-//backup options
+//weekly backups of database
 $dayOfWeek = '0'; //day of week to backup 
 $backupDir = '.backup';
 $backupFile = date('Y-m-d', time()).'.sql';
 
-if( date('w', time()) == $dayOfWeek )
-{
+if( date('w', time()) == $dayOfWeek ) {
     $dump = 'mysqldump -u'.$dbUser.' -p'.$dbPW.' '.$dbName.' > ./'.$backupDir.'/'.$backupFile;
     system($dump); 
 } 
 
-if(file_exists('error_log'))
+error_reporting(E_ALL ^ E_WARNING ^ E_NOTICE);
+
+//delete error logs
+if(file_exists('error_log')) {   
     unlink('error_log');
+}
 ?>
