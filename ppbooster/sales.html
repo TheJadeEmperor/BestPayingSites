@@ -253,24 +253,28 @@ $imgDir = $dir.'images/booster/';
 		<span style="font-size: 16px;color: yellow;font-weight: bold"> This One Time Offer Is For A Very Limited Time. So Hurry! </span>
 		</p>
 	
-		<div>
-		<!-- Payment button -->
-		<!--<center onclick="NoExitPage=true;">
-		
-		<p style="text-align: center"><a href="?action=order" onclick="NoExitPage=true;"><img src="<?=$imgDir?>Paypal-Buy-Now-button.png"></a></p>
-	
-		</center>
-		
-		<p style="text-align: center;font-family: Arial,Helvetica; font-size: large; font-weight: bold">You will get instant access to your order after purchase <br /> even if it's 2 A.M.  in the morning!</p>-->
-		
-		
-			<a href="mailto:<?=$adminEmail?>?subject=I want to buy the PPB with Bitcoins&body=I want to purchase the Paypal Booster, please give me your Bitcoin address."><img src="<?=$imgDir?>Paypal-Buy-Now-button.png" alt="Order Now" title="Order Now"></a>
-			<br />
-			<i><font size="2">Contact us for instructions on paying with Bitcoin</font></i>	
-		
 		<!-- Payment button --> 
+		<div onclick="NoExitPage=true;">
 		
-		<!--<p><span class="smallText">Alternate options: <a href="mailto:support@bestpayingsites.com&subject=Purchase the Neobux Ultimate Strategy">Pay with Bitcoins</a></span></span></p>-->
+			<?
+			$btcLink = 'https://shoppy.gg/product/x4ZG0K8';
+			$btcText = 'Pay through Bitcoins';
+		
+			if(true) { 
+				$orderLink = '?action=order';
+				$orderText = 'Get Instant Access - Even at 2 AM - Guaranteed';
+			}
+			else {
+				$orderLink = $btcLink; 
+				$orderText = $btcText;
+			}
+			?>
+		
+			<a href="<?=$orderLink?>"><img src="<?=$imgDir?>Paypal-Buy-Now-button.png" alt="Order Now" title="Order Now"></a>
+			<br />
+			<i><font size="2"><?=$orderText?></font></i>
+		
+			<p><span class="smallText">Alternate options: <a href="<?=$btcLink?>"><?=$btcText?></a></span></span></p>
 		</div>
 			
         </div>
