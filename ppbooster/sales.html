@@ -156,24 +156,24 @@ $imgDir = $dir.'images/booster/';
 		<p>24 hours later I checked my Inbox and I was shocked! </p>
 		<center>
 			<? 
-			$src = $imgDir.'inbox-page-1.jpg';
+			$imgSrc = $imgDir.'inbox-page-1.jpg';
 			$alt = 'Paypal Booster Pro Payment Proof';
 			$d = array(
 				'width' => '595', 
 				'height' => '393' 
 			);
 			?>
-			<p><a href="<?=$src?>" target="_BLANK"><?=img_with_tags($src, $alt, $d);?></a></p>
+			<p><a href="<?=$imgSrc?>" target="_BLANK"><?=img_with_tags($src, $alt, $d);?></a></p>
 		
 			<? 
-			$src = $imgDir.'inbox-page-2.jpg';
+			$imgSrc = $imgDir.'inbox-page-2.jpg';
 			$alt = 'Paypal Booster Pro Payment Proof';
 			$d = array(
 				'width' => '595', 
 				'height' => '393' 
 			);
 			?>
-			<p><a href="<?=$src?>" target="_BLANK"><?=img_with_tags($src, $alt, $d);?></a></p>
+			<p><a href="<?=$imgSrc?>" target="_BLANK"><?=img_with_tags($src, $alt, $d);?></a></p>
 			
 			
 			<p>I had just earned over <span class="hightext" style="color: #38761D;background-color: yellow;">$267</span></p>
@@ -253,6 +253,7 @@ $imgDir = $dir.'images/booster/';
 		<span style="font-size: 16px;color: yellow;font-weight: bold"> This One Time Offer Is For A Very Limited Time. So Hurry! </span>
 		</p>
 	
+
 		<!-- Payment button --> 
 		<div onclick="NoExitPage=true;">
 		
@@ -275,9 +276,10 @@ $imgDir = $dir.'images/booster/';
 			<i><font size="2"><?=$orderText?></font></i>
 		
 			<p><span class="smallText">Alternate options: <a href="<?=$btcLink?>"><?=$btcText?></a></span></span></p>
-		</div>
+
 			
         </div>
+		
         <div class="bold smallText" style="width: 620px">
         
             <p align="left"><span class="yellow">P.S.</span> Dozens of other people have already taken advantage of this offer...<br /> Soon we may have to take down this offer because we don't want the market to be saturated. If too many people know about the Paypal Booster, it will decrease it's value, so we have to keep it limited! Tomorrow the price will shoot up to the regular price of $19.99 USD. </p>
@@ -362,16 +364,9 @@ $imgDir = $dir.'images/booster/';
 		
             <p class="disclaim">Earnings Disclaimer</p>
             
-            <p class="dtext">EVERY EFFORT HAS BEEN MADE TO ACCURATELY REPRESENT THIS PRODUCT AND
-            ITS POTENTIAL. EVEN THOUGH THIS INDUSTRY IS ONE OF THE FEW WHERE ONE CAN
-            WRITE THEIR OWN CHECK IN TERMS OF EARNINGS, THERE IS NO GUARANTEE THAT YOU
-            WILL EARN ANY MONEY USING THE TECHNIQUES AND IDEAS IN THESE MATERIALS.
-            EXAMPLES IN THESE MATERIALS ARE NOT TO BE INTERPRETED AS A PROMISE
-            OR GUARANTEE OF EARNINGS. EARNING POTENTIAL IS ENTIRELY DEPENDENT
-            ON THE PERSON USING OUR PRODUCT, IDEAS AND TECHNIQUES. WE DO NOT SUPPORT
-            THIS AS A GET RICH SCHEME.</p>
+            <p class="dtext">EVERY EFFORT HAS BEEN MADE TO ACCURATELY REPRESENT THIS PRODUCT AND ITS POTENTIAL. EVEN THOUGH THIS INDUSTRY IS ONE OF THE FEW WHERE ONE CAN WRITE THEIR OWN CHECK IN TERMS OF EARNINGS, THERE IS NO GUARANTEE THAT YOU WILL EARN ANY MONEY USING THE TECHNIQUES AND IDEAS IN THESE MATERIALS. EXAMPLES IN THESE MATERIALS ARE NOT TO BE INTERPRETED AS A PROMISE OR GUARANTEE OF EARNINGS. EARNING POTENTIAL IS ENTIRELY DEPENDENT ON THE PERSON USING OUR PRODUCT, IDEAS AND TECHNIQUES. WE DO NOT SUPPORT THIS AS A GET RICH SCHEME.</p>
             
-            <p class="copyright">Copyright © <?=date('Y', time())?> | <span style="color: lime"> PayPal Booster Pro</span> | All rights reserved</p><br>
+            <p class="copyright">Copyright © <?=date('Y', time())?> | <span style="color: lime"> PayPal Booster Pro</span> | All rights reserved</p><br />
 
 	</div><!-- -->
 	</div><!-- middle div -->

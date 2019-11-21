@@ -179,7 +179,7 @@ p  a:hover {
 <div id="body">
     <div id="contentbox">
      
-        <p align='center'><img src="<?=$imgDir?>epsSalesHeadline.jpg" /></p>
+        <p align="center"><img src="<?=$imgDir?>epsSalesHeadline.jpg" /></p>
         
         <h2>&nbsp;</h2>
         
@@ -203,14 +203,14 @@ p  a:hover {
 	  
         <p>But none of that matters anymore - because you came to the right place. I have found a way to make a stable online income - and today I'm going to share it with you!</p>
 
-        <p>How would you like to work at home and <span class='red'>make $15 to $25 for every e-mail you process online</span>? Processing emails is one of the oldest ways to make money online. Many have earned a full time income from home and quit their jobs!</p>
+        <p>How would you like to work at home and <span class="red">make $15 to $25 for every e-mail you process online</span>? Processing emails is one of the oldest ways to make money online. Many have earned a full time income from home and quit their jobs!</p>
 		
         <p>Our Email Profit System consists of 3 methods - they all come with step by step instructions. </p>
  
         <p>&nbsp;</p>
-        <h2 id='benefits' align='center'>Here's a quick snapshot of what you will get: </h2>
+        <h2 id="benefits" align="center">Here's a quick snapshot of what you will get: </h2>
      
-        <ul class='checkList'>
+        <ul class="checkList">
             <li>
                 <p class="red"><u>3 time tested, stable methods to making money on the Internet</u></p>
             </li>
@@ -232,20 +232,20 @@ p  a:hover {
         </ul>
  
         <p>&nbsp;</p>
-        <h2 id='bestpart' align='center'>And the best part is...</h2>
+        <h2 id="bestpart" align="center">And the best part is...</h2>
 
         <p>You'll <strong>NEVER</strong> have to do any of the following: direct selling, cold calls, chasing customers, and spamming. </p>
 
         <p>People are already interested in making an extra $4,000+ a month online - there is always a need for our services. And...</p>
 
-        <p align='center'><span class='red'><i>You are GUARANTEED to get paid for each e-mail you process! </i></span></p>
+        <p align="center"><span class="red"><i>You are GUARANTEED to get paid for each e-mail you process! </i></span></p>
 
         <p>You can work your own hours and at your own pace, and the best part is there will be NO boss looking over your shoulders telling you what to do!</p>
 
-        <p>How much you make is entirely up to you - <span class='blue'>you control your own paycheck </span> and that means you're in charge of your own destiny. </p>
+        <p>How much you make is entirely up to you - <span class="blue">you control your own paycheck </span> and that means you're in charge of your own destiny. </p>
 
         <p>&nbsp;</p>
-        <p align='center'>This is possible only with the Email Profit System!</p>
+        <p align="center">This is possible only with the Email Profit System!</p>
 
         <p align="center"><img src="<?=$imgDir?>ebook.png" alt="Email Profit System" /></p>
 
@@ -253,14 +253,14 @@ p  a:hover {
         <br />
         <h3 align="center">You get the system for ONLY $<?=$itemPrice?> (regular price $25)</h3>
 
-        <p id='dailySteps'>Imagine if this is your typical day:</p>
+        <p id="dailySteps">Imagine if this is your typical day:</p>
         <p>Step 1: Check your e-mail inbox daily.</p>
         <p>Step 2: Send out the info we supply for you in your training materials.</p>
         <p>Step 3: Get paid $15 to $25 per e-mail sent out!</p>
         <p>Step 4: Count your money and laugh your way to the bank! </p>
 
         <p>&nbsp;</p>
-        <h2 id='whatsTheCatch'>That's all you have to do!</h2>
+        <h2 id="whatsTheCatch">That's all you have to do!</h2>
         
         <p>As you can see, this system is very simple and easy to implement. You don't need any prior experience or technical know-how. You don't need any prior education - even a 10 year old can do this! The only thing is you need is a good work ethic and the desire to succeed! </p>
 
@@ -337,11 +337,11 @@ p  a:hover {
         
         <p>&nbsp;</p>
      
-        <h1 align='center' id='orderForm'>Get The Email Profit System Today!</h1>
+        <h1 align="center" id="orderForm">Get The Email Profit System Today!</h1>
         <div class="orderForm">
 
             <table>
-                <tr valign='top'>
+                <tr valign="top">
                     <td width="23px">
                         <input type="checkbox" name="checkbox" class="checkbox" />
                     </td>
@@ -349,7 +349,7 @@ p  a:hover {
                         <h3 style="text-align: left;"><strong>Yes, enroll me into the EPS program today so I can start making $4,250 a month!</strong></h3>
                     </td>
                 </tr>
-                <tr valign='top'>
+                <tr valign="top">
                     <td>
                         <input type="checkbox" name="checkbox" class="checkbox" />
                     </td>
@@ -362,19 +362,21 @@ p  a:hover {
             <p>For the low introductory price of <span class="red"><b>$<?=$itemPrice?></b></span>, you will get access to the members area of the Email Profit System and access your training materials. You will be able to start processing emails <i>immediately!</i></p>
 			
 			<?
+
 			$btcLink = 'https://shoppy.gg/product/4RhplGP';
 			$btcText = 'Pay through Bitcoins';
-			
-			if(true) { 
+		
+			if($paypalEnabled) {
+
 				$orderLink = '?action=order';
-				$orderText = 'Get Instant Access - Even at 2 AM - Guaranteed';
+				$orderText = 'Get Instant Access - Even at 2 AM - Guaranteed'; 
 			}
 			else {
 				$orderLink = $btcLink;
 				$orderText = $btcText;
 			}
 			?>
-			
+
             <p align="center">
             <a href="<?=$orderLink?>"><img src="<?=$imgDir?>downloadButton.png" /></a>
          
@@ -382,32 +384,34 @@ p  a:hover {
             <span class="p-small"><?=$orderText?></span></p>
 			
         </div>
+	
+		<?
+
+		echo '<center onclick="NoExitPage=true;"><a href="'.$btcLink.'">
+			<img src="https://bitpay.com/img/button-large.png" border="0" name="submit" /></a>
+			<br />
+			<i><font size="2" color="grey">'.$btcText.'</font></i>	
+		</center>';
+
+		?>
 		
-		<center onclick="NoExitPage=true;">
-		<a href="<?=$orderLink?>">
-		<img src="https://bitpay.com/img/button-large.png" border="0" name="submit" /></a>
-		<br />
-		<i><font size="2" color="grey"><?=$btcText?></font></i>	
-		</center>
-			
 		<p>&nbsp;</p>
 
-        <p align='center'>For only $<?=$itemPrice?>, you get a system that lets you can make $100 to $200 a day! </p>
+        <p align="center">For only $<?=$itemPrice?>, you get a system that lets you can make $100 to $200 a day! </p>
       
     
-        <p align='center' id='fool'><strong>Only a fool would let this opportunity pass him by.</strong></p>
+        <p align="center" id="fool"><strong>Only a fool would let this opportunity pass him by.</strong></p>
 
         <p>At one point in your life, you must have dreamed about what it's like to <b>work from home full time</b>, at your own leisure, without answering to a boss. </p>
 
-        <p align='center'>Your dream will no longer a dream, but a reality...</p>
+        <p align="center">Your dream will no longer a dream, but a reality...</p>
 
-        <p align='center'>Once you get your hands on the EPS program</p>
+        <p align="center">Once you get your hands on the EPS program</p>
 
         <p>&nbsp;</p>
         <h1>But The Price Won't Stay Low <br />For Long...</h1>
 
-        <p>Remember that the introductory price of <span class="red"><b>$<?=$itemPrice?></b></span> is good for <u>today only</u>. 
-            There's no guarantee if the price will stay the same tomorrow, let alone next week.</p>
+        <p>Remember that the introductory price of <span class="red"><b>$<?=$itemPrice?></b></span> is good for <u>today only</u>. There's no guarantee if the price will stay the same tomorrow, let alone next week.</p>
 
         <p>We can't give out the program to too many people at this price. In the members area, we have a database of paying sites that pay you money, as well as a database of the best classified ads sites. </p>
 
@@ -415,28 +419,29 @@ p  a:hover {
         
         <p><i>That's why we need to limit the amount of memberships that we sell - the price will soon go back up to $25, and eventually it will be $50. </i></p>
 
-        <p>So take action today... you don't want to pay more for it later. 
-            If you decide to close this website (which is a bad idea), then nothing will change... you will still be frustrated, searching for that one "magic pill" that will make you $4,000 a month.</p>
+        <p>So take action today... you don't want to pay more for it later. If you decide to close this website (which is a bad idea), then nothing will change... you will still be frustrated, searching for that one "magic pill" that will make you $4,000 a month.</p>
 
-        <p>Don't be one of those people - get the <span class='blue'>Email Profit System</span> today and reap the rewards right away! Go ahead and order right now, you'll be glad you did :)</p>
+        <p>Don't be one of those people - get the <span class="blue">Email Profit System</span> today and reap the rewards right away! Go ahead and order right now, you'll be glad you did :)</p>
 
         <p>&nbsp;</p>
         
         <p id="signature">To Your Success,</p>
 
-        <p><span style='font-family: Segoe Script;'><strong>Benjamin Louie</strong></span><br />
+        <p><span style="font-family: Segoe Script;"><strong>Benjamin Louie</strong></span><br />
             <em>Email Profit System</em><br />
             <em><a href="mailto:<?=$supportEmail?>"><?=$supportEmail?></a></em>
         </p>
 
         <p>&nbsp;</p>
         
-        <p align='center'><a href='<?=$orderLink?>'><img src='<?=$imgDir?>downloadButton.png' /></a></p>
-		
+        
+		<p align="center">
+            <a href="<?=$productOrderLink ?>"><img src="<?=$imgDir?>downloadButton.png" /></a>
+		</p>
 			 
-        <p class='p-small'><strong>P.S.</strong> You can start processing emails right away with this system. Sign up now to get instant access to your training materials, and you'll be on your way to a $4,250 monthly income!</p>
+        <p class="p-small"><strong>P.S.</strong> You can start processing emails right away with this system. Sign up now to get instant access to your training materials, and you'll be on your way to a $4,250 monthly income!</p>
 
-        <p class='p-small'><strong>P.S.S.</strong> Remember, the low price of <u>$<?=$itemPrice?></u> is guaranteed for today only. We'll keep it here at least until midnight tonight (EST), but make no promise about what it might cost you tomorrow. </a></p>
+        <p class="p-small"><strong>P.S.S.</strong> Remember, the low price of <u>$<?=$itemPrice?></u> is guaranteed for today only. We'll keep it here at least until midnight tonight (EST), but make no promise about what it might cost you tomorrow. </a></p>
 
         <p>&nbsp;</p>
      
