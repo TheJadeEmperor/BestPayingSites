@@ -258,16 +258,14 @@ $imgDir = $dir.'images/booster/';
 		<div onclick="NoExitPage=true;">
 		
 			<?
-			$btcLink = 'https://shoppy.gg/product/x4ZG0K8';
-			$btcText = 'Pay through Bitcoins';
-		
-			if(true) { 
-				$orderLink = '?action=order';
+
+			if($usePaypalOrderLink) { 
+				$orderLink = $paypalOrderLink; 
 				$orderText = 'Get Instant Access - Even at 2 AM - Guaranteed';
 			}
 			else {
-				$orderLink = $btcLink; 
-				$orderText = $btcText;
+				$orderLink = $productOrderLink; 
+				$orderText = $productOrderText;
 			}
 			?>
 		
@@ -275,9 +273,7 @@ $imgDir = $dir.'images/booster/';
 			<br />
 			<i><font size="2"><?=$orderText?></font></i>
 		
-			<p><span class="smallText">Alternate options: <a href="<?=$btcLink?>"><?=$btcText?></a></span></span></p>
-
-			
+			<p><span class="smallText">Alternate options: <a href="<?=$productOrderLink?>"><?=$productOrderText?></a></span></span></p>			
         </div>
 		
         <div class="bold smallText" style="width: 620px">
