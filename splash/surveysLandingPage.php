@@ -84,7 +84,7 @@ body {
 <body>
 <center>
     <?
-    $productLink='https://bestpayingsites.com/surveys';
+    $productLink = 'http://tinyurl.com/take-surveys-for-cash-product';
     ?>
     <meta http-equiv="refresh" content="58; <?=$productLink?>">
     <div class="content">
