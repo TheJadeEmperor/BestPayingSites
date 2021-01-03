@@ -1,22 +1,26 @@
 <?php
-include('adminCode.php');
+$adir = '../';
+include($adir.'adminCode.php');
 
 $sale_create = 'ajax/sale_create.php';
 $sale_read = 'ajax/sale_read.php';
 $sale_update = 'ajax/sale_update.php';
 
-if($_POST['id']) {
-    $del = 'delete from sales where id="'.$_POST['id'].'" limit 1';
-    
-    if(mysql_query($del, $conn))
-        $msg = 'Successfully deleted sales record';
+if($_POST['id']) { 
+  
+    $opt = array(
+        'tableName' => 'sales',
+        'cond' => 'WHERE id="'.$_POST['id'].'"'
+    );
+
+    dbDeleteQuery ($opt);  //$del = 'DELETE FROM sales WHERE id="'.$_POST['id'].'" LIMIT 1';
+
+    $msg = 'Successfully deleted sales record';
 }
 
-//get products info
-$selP = 'select * from products order by id';
-$resP = mysql_query($selP, $conn) or die(mysql_error());
 
-while($p = mysql_fetch_assoc($resP)) {
+$resP = getAllProducts (); //get product info from DB
+while($p = $resP->fetch_array()) {
     $products[$p['id']] = $p; 
 }
 
@@ -51,11 +55,16 @@ if($_SESSION['after'] == '')
     $searchFor .= ' purchased >= "'.$_SESSION['after'].' 00:00:00" and purchased <= "'.$_SESSION['before'].' 23:59:59"';
 
     $searchFor = ' id is not NULL';
-    $selS = 'select *, date_format(purchased, "%m/%d/%Y") as transDate 
-    from sales s where '.$searchFor.' order by purchased desc'; 
-    $resS = mysql_query($selS, $conn) or die(mysql_error());
 
-    $records = mysql_num_rows($resS);
+    //get sales records
+    $selS = 'SELECT *, date_format(purchased, "%m/%d/%Y") AS transDate 
+    FROM sales s where '.$searchFor.' ORDER BY purchased DESC'; 
+    //$resS = mysql_query($selS, $conn) or die(mysql_error());
+
+    $resS = $conn->query($selS); 
+    $records = mysqli_num_rows($resS);
+
+    //if(is_object ($records)) echo 'true'; 
 
     if ($records > 0) {
     unset($_SESSION['sendTo']);
@@ -65,7 +74,7 @@ if($_SESSION['after'] == '')
     $listCount = $count = 1;
     $perPage = 100;
 
-    while ($c = mysql_fetch_assoc($resS)) {
+    while($c = $resS->fetch_array()) {
         if ($count % $perPage == 0)
             $listCount++;
 
@@ -78,16 +87,16 @@ if($_SESSION['after'] == '')
         $custView = 'custView.php?id=' . $c['id'];
 
         $tableRow = '<tr title="Sales record #'.$c['id'].'">
-                    <td>'.$count.'</td>
-                    <td>'.$c['transDate'].'</td>
-                    <td><a href="updateProfile.php?e='.$c['payerEmail'].'">'.$c['payerEmail'].'</a></td>
-                    <td>'.$prodName.'</td>
-                    <td><a href="'.$custView.'" target="_blank">'.$c['transID'].'</a> &nbsp;
-                        <a href="'.$custView.'" target="_blank">View</a></td>
-                    <td><a href="javascript:updateSaleDialog(\''.$salesID.'\')">Edit</a></td>
-                    <td align="center">
+			<td>'.$count.'</td>
+			<td>'.$c['transDate'].'</td>
+			<td><a href="updateProfile.php?e='.$c['payerEmail'].'">'.$c['payerEmail'].'</a></td>
+			<td>'.$prodName.'</td>
+			<td><a href="'.$custView.'" target="_blank">'.$c['transID'].'</a> &nbsp;
+				<a href="'.$custView.'" target="_blank">View</a></td>
+			<td><a href="javascript:updateSaleDialog(\''.$salesID.'\')">Edit</a></td>
+			<td align="center">
                 <form method="POST">
-                <input type=image src="' . $delImg . '" onclick="confirm(\'Deletions are irreversible! Are you sure?\');">
+                <input type=image src="' . $delImg . '" onclick="confirm(\'Deletions are irreversible! Are you sure to delete record #'.$c['id'].'?\');">
                 <input type=hidden name=id value="' . $c['id'] . '"> 
                 </form>
             </td>
@@ -120,13 +129,13 @@ if($_SESSION['after'] == '')
     else
         $next = $currentPage + 1;
 
-    $emailButton = '<a href="email/emailSend.php"><input type=button class="btn btn-warning" value="Email All"></a>';
+    $emailButton = '<a href="email/emailSend.php"><input type="button" class="btn btn-warning" value="Email All"></a>';
 
-    $pages = '<tr><td colspan=5 align=center>
+    $pages = '<tr><td colspan="5" align="center">
         <a href="?p=' . $prev . '"><< Prev</a> ' . $pages . ' <a href="?p=' . $next . '">Next >></a>
         </td></tr>';
 
-    $salesTable = '<table class=moduleBlue cellspacing=0>
+    $salesTable = '<table class="moduleBlue" cellspacing="0">
         <tr>
             <th>#</th>
             <th>Purchased</th>
@@ -238,7 +247,6 @@ function insertSale () {
         });
         closeDialog();
     }
-//    else {}
 }
 
 function updateSaleDB () {
@@ -322,7 +330,7 @@ function closeDialog () {
 <br />
 <div class="panel panel-info">
     <div class="panel-heading">
-        <p align="center"><a href="email/emailSend.php"><input type=button class="btn btn-warning" value="Email All"></a></p>
+        <p align="center"><a href="email/emailSend.php"><input type="button" class="btn btn-warning" value="Email All"></a></p>
     </div>
 </div>
 

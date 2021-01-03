@@ -1,22 +1,11 @@
 <?php
 include('adminCode.php');
 
-function getSales($whichMonth) {
-    global $conn; 
-	
-    $selR = 'SELECT sum(amount) AS revenue, date_format(purchased, "%m/%Y") AS purchased FROM sales WHERE purchased LIKE "%'.$whichMonth.'%"';
-    
-    $resR = mysql_query($selR, $conn) or die(mysql_error()); 
-    $r = mysql_fetch_assoc($resR);
-    
-    $revenue = '$'.number_format($r['revenue'], 2);
-    return $revenue;
-}
 
 if($_POST['viewMonth']) {
     $pickYearMonth = $_POST['pickYear'].'-'.$_POST['pickMonth'];
     
-    $salesPickMonth = getSales($pickYearMonth);
+    $salesPickMonth = getRevenue($pickYearMonth);
 }
 
 
@@ -24,11 +13,11 @@ $thisMonth = date('m/Y', time());
 $lastMonth = date("m/Y",strtotime("-1 month"));
 $thisYear = date("Y", time()); 
 
-$selS = 'SELECT *, date_format(purchased, "%m/%d/%Y") AS purchased, 
-date_format(purchased, "%m/%Y") AS currentMonth, date_format(purchased, "%Y") AS thisYear FROM sales ORDER BY purchased';
-$resS = mysql_query($selS, $conn) or die(mysql_error());
 
-while($s = mysql_fetch_assoc($resS)) {
+
+$resS = getTotalSales ();
+
+while($s = $resS->fetch_array()) {
     //total sales 
     $grandTotal += $s['amount'];
     
@@ -87,7 +76,8 @@ $monthArray = array(
         <table>
         <tr valign="top">
             <td>Sales This Month</td>
-            <td><div title="header=[This month's revenue] body=[All sales made by you and your affiliates this month so far] ">
+            <td><div title="header=[This month's revenue] body=[All sales made by you and
+                your affiliates this month so far] ">
             <img src="<?=$helpImg?>" /> <?=$salesThisMonth?></div>
             </td>
         </tr>
@@ -105,8 +95,7 @@ $monthArray = array(
             <img src="<?=$helpImg?>" /> <?=$grandTotal?></div></td> 
         </tr>
         </table>
-        </div>
-		</div>
+        </div></div>
         
         <p>&nbsp;</p>
         
@@ -114,13 +103,12 @@ $monthArray = array(
         <div class="moduleBody">
         <?
         foreach($monthArray as $mo => $month) {
-            echo $month.' '.$thisYear.': '.getSales($thisYear.'-'.$mo).'<br />';
+            echo $month.' '.$thisYear.': '.getRevenue($thisYear.'-'.$mo).'<br />';
         }
         
         ?>
         
-        </div>
-		</div>
+        </div></div>
     </td>
     <td width="10px"></td>
     <td>
@@ -130,7 +118,7 @@ $monthArray = array(
             <form method="POST"> 
                 Year: <input type="text" class="activeField" size="6" name="pickYear" value="<?=$_POST['pickYear']?>"/>
                 Month: <select name="pickMonth"><?=$monthOpt?></select>
-                <input type="submit" name="viewMonth" class="btn success" value=" View " />
+                <input type="submit" name="viewMonth" class="btn btn success" value=" View " />
             </form> 
             <p>Total: <b><?=$salesPickMonth?></b></p>
         </div>
@@ -149,8 +137,7 @@ $monthArray = array(
                 
                 echo '<tr>
                 <td>'.$productName.'</td> 
-                <td>'.$productTotal.'</td>
-				</tr>';
+                <td>'.$productTotal.'</td></tr>';
             }
             ?>
             </table>

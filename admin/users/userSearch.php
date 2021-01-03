@@ -1,12 +1,14 @@
-<?
-include('adminCode.php'); 
+<?php
+$adir = '../';
+include($adir.'adminCode.php');
 
 $selS = 'SELECT U.id, username, fname, lname, email, paypal, S.id as salesID FROM users U LEFT JOIN sales S ON U.paypal = S.payerEmail GROUP BY U.ID'; 
+$resS = $conn->query($selS); 
 
-$resS = mysql_query($selS, $conn) or die(mysql_error());
-
-while ($u = mysql_fetch_assoc($resS)) {
+while($u = $resS->fetch_array()) {
 	
+	array_push($_SESSION['sendTo'], $c['payerEmail']);
+
 	$id = $u['id'];
 	$paypal = $u['paypal'];
 	$email = $u['email'];
@@ -61,6 +63,12 @@ $(document).ready( function () {
          <?=$custTable?>
     </tbody>
 </table>
+<br />
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <p align="center"><a href="email/emailSend.php"><input type="button" class="btn btn-warning" value="Email All"></a></p>
+    </div>
+</div>
 
 <?
 include('adminFooter.php');  ?>

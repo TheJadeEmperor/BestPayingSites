@@ -4,7 +4,7 @@ include($adir.'adminCode.php');
 
 if($_POST[sendEmail]) {
     switch($_POST[type]) {
-
+     
         default: 
             $_POST[payer_email] = $_POST[email]; 
             sendDownloadEmail($_POST[id], $conn);             
