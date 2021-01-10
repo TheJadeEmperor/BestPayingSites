@@ -2,7 +2,7 @@
 /*
 +---------------------------------------------------------------------
 | v2.0
-| Copyright 2012-2017 Sales Page Machine. 
+| Copyright 2012-2021 Sales Page Machine. 
 | Benjamin Louie
 |
 | The sale, duplication or transfer of the script to any 
@@ -17,7 +17,6 @@
 | of use of the script.  
 +---------------------------------------------------------------------
 */
-
 
 function curPageURL() {
     $pageURL = 'http';
@@ -39,45 +38,47 @@ session_start();
 /* get the path of the product from url
  * if url is www.domain.com/prod
  * the path is "prod" */
-$url = curPageURL();  
+$curPageURL = curPageURL();  
 
 if(is_int(strpos(__FILE__, 'C:\\'))) { //localhost
-
-    list($crap, $path) = explode('//', $url);
-    list($crap, $crap, $path) = explode('/', $path); 
-    $path = str_replace('index.php', '', $path); 
-    
-    if(is_int(strrpos($path, '?')))
-        $path = '';
+    $path = $_SERVER['REQUEST_URI']; 
+    $path = str_replace('/', '', $path);
 }
 else { //live website
 
-    list($crap, $path) = explode('//', $url);    
+    list($crap, $path) = explode('//', $curPageURL);    
     list($crap, $path) = explode('/', $path); 
     $path = str_replace('index.php', '', $path); //get the current path
     
     if(is_int(strrpos($path, '?')))
         $path = '';
-}
+} 
 
-//relative path to the root  
-if($path == '' || $_GET['p']) //already at the root
-    $dir = '';    
-else  //not at the root
-    $dir = '../'; 
+//get relative path to the root  
+$pos = strpos($path, '?'); //?action=page or ?p=post pages
+
+if(is_int($pos) || $path == '') {
+    $dir = '';
+}
+else {
+    $dir = '../';
+} 
 
 include($dir.'include/functions.php');
-include($dir.'include/mysql.php');
 include($dir.'include/config.php');
 include($dir.'include/spmSettings.php'); 
 
 $selP = 'SELECT * FROM products WHERE folder="'.$path.'"';
-$resP = mysql_query($selP, $conn) or die(mysql_error());
+$resP = $conn->query($selP);
+echo $dbName.' ';
 
-if($p = mysql_fetch_assoc($resP)) {
+print_r($conn);
+
+if( $p = $resP->fetch_array() ) {
+    
     //product vars
 	$productID = $p['id'];
-    $itemName = $p['itemName'];
+echo    $itemName = $p['itemName'];
     $itemPrice = $p['itemPrice'];
     $itemNumber = $p['itemNumber'];
     $keywords = $p['keywords'];
@@ -104,15 +105,15 @@ if($p = mysql_fetch_assoc($resP)) {
     $salespage = $p['salespage']; 
     
     //paypal vars 
-    $ipnURL = $val['websiteURL'].'/ipn.php';
+	$ipnURL = $val['websiteURL'].'/ipn.php';
     $cancelURL = $val['websiteURL'];
    
     if($oto == 'Y') { //one time offer
     
         $selO = 'SELECT * FROM products WHERE id="'.$upsellID.'"';
-        $resO = mysql_query($selO, $conn) or die(mysql_error());
-        $o = mysql_fetch_assoc($resO);
-        
+        $resO = $conn->query($selO);   
+		$o = $resO->fetch_array($resO);
+
         if($p['otoName'])
             $otoName = $p['otoName'];
         else
@@ -147,15 +148,7 @@ if($_POST['dl']) {
 
 $paidToEmail = $paypalEmail;
 $action = $_GET['action'];
-
-if(false) { //debug
-    echo 'path: '.$path.'<br>
-    productID: '.$productID.'<br>
-    userID: '.$userID.' <br>
-    paidToEmail: '.$paidToEmail;
-    exit;
-}
-
+echo __LINE__.' ';
 switch($action) {
     case 'order':
         if($itemPrice == 0) //free gift product
@@ -173,57 +166,64 @@ switch($action) {
         $templateHeader = $val['blogHeader'];
         $templateFooter = $val['blogFooter'];  
         $fileName = 'blog/index.php';
-        $meta = postMetaTags($_GET['p']);     
-    break;  
-default:
-    $keywords = $p['keywords'];
-    $description = $p['description']; 
+        $meta = postMetaTags($_GET['p']);    
 
-    $fileName = $salespage; //default action: show sales page  
-    $pageView = '/'.$path;
+		break;
+	default:
+		$keywords = $p['keywords'];
+		$description = $p['description']; 
+
+        $fileName = $salespage; //default action: show sales page  
+        $pageView = '/'.$path;
+        //blog post
+        if($_GET['p']) {
+            $templateHeader = $val['blogHeader'];
+            $templateFooter = $val['blogFooter'];   
+            $fileName = 'blog/post.php';
+            $meta = postMetaTags($_GET['p']);     
+            $pageView = '/?p='.$_GET['p'];
+        }    
     
-    //blog post
-    if($_GET['p']) {
-        $templateHeader = $val['blogHeader'];
-        $templateFooter = $val['blogFooter'];   
-        $fileName = 'blog/post.php';
-        $meta = postMetaTags($_GET['p']);     
-        $pageView = '/?p='.$_GET['p'];
-    }    
-    
-    //custom site pages 
-    $selM = 'SELECT * FROM memberpages ORDER BY url';
-    $resM = mysql_query($selM, $conn) or die(mysql_error());
-    
-    while($m = mysql_fetch_assoc($resM)) {
-        if($action == $m['url']) {
-            $templateHeader = $m['header'];
-            $templateFooter = $m['footer'];
-            $fileName = $m['file'];
-            $pageView = '/?action='.$m['url'];
-        }
-    }       
+        //custom site pages 
+        $selM = 'SELECT * FROM memberpages ORDER BY url';
+        $resM = $conn->query($selM); 
+        while($m = $resM->fetch_array()) {
+            if($action == $m['url']) {
+                $templateHeader = $m['header'];
+                $templateFooter = $m['footer'];
+                $fileName = $m['file'];
+                $pageView = '/?action='.$m['url'];
+            }
+        }       
+}
+
+if(true) { //debug
+    echo 'dir: '.$dir.'<br>
+	path: '.$path.'<br>
+    productID: '.$productID.'<br>
+    paidToEmail: '.$paidToEmail.'<br>
+	templateHeader: '.$templateHeader.'<br>
+	templateFooter: '.$templateFooter.'<br>
+	fileName: '.$fileName;
 }
 
 if(file_exists($templateHeader))
 include($templateHeader);
 
-include($fileName);
+include($fileName); 
 
 if(file_exists($templateFooter))
 include($templateFooter);   
-
+echo __LINE__;
 //track pageviews
 if($pageView) {
     if(isset($_COOKIE['lastView'])) { //raw views
-        $upd = 'update pageviews set rawViews=rawViews+1 where page="'.$pageView.'"';
-        $res = mysql_query($upd) or die(mysql_error());      
+        $res = updateRawViews($pageView);
     }
     else { //unique views
-        $upd = 'update pageviews set uniqueViews=uniqueViews+1, rawViews=rawViews+1 where page="'.$pageView.'"';
-        $res = mysql_query($upd) or die(mysql_error());      
-    }
+        $res = updateUniqueViews($pageView);  
+    } 
     setcookie('lastView', date('m/d/Y', time()));
 }
 
-mysql_close($conn); ?>
+?>

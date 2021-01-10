@@ -1,15 +1,16 @@
 <?php
-$transID = $_GET['id'];
+$transID = $_GET['id']; 
 
 //check for transaction in db
 $selS = 'select *, date_format(purchased, "%m/%d/%Y") as salesDate,
-date_format(expires, "%m/%d/%Y") as expiresDate from sales where transID = "'.$_GET[id].'"
+date_format(expires, "%m/%d/%Y") as expiresDate from sales where transID = "'.$_GET['id'].'"
 and productID="'.$productID.'"';
-$resS = mysql_query($selS, $conn) or die(mysql_error()); 
+$conn->query($selS);
 
-$sales = mysql_num_rows($resS);
+$sales = $resS->num_rows;
 
-if($s = mysql_fetch_assoc($resS)) {
+
+if($s = $resS->fetch_array()) {
     $firstName = $s['firstName'];
     $lastName = $s['lastName'];
     $salesDate = $s['salesDate'];  
@@ -30,14 +31,13 @@ else {
         $expiresDate = strtotime($expiresDate); 
         $expireSeconds = $expires * 60 * 60; 
 		
-        if($transID == 'vipuser') //no expiration date for VIP user
-        {
+        if($transID == 'vipuser') { //no expiration date for VIP user
             $today = 0;
             $expiresDate = 0;
         }
 		
-        if(($today) <= ($expiresDate + $expireSeconds))
-        {
+        if(($today) <= ($expiresDate + $expireSeconds)) {
+       
             //check for existing account
             $selU = 'select * from users where email="'.$payerEmail.'" or paypal="'.$payerEmail.'"';
             $resU = mysql_query($selU, $conn) or die(mysql_error());
