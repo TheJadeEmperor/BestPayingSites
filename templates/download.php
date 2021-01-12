@@ -2,13 +2,12 @@
 $transID = $_GET['id']; 
 
 //check for transaction in db
-$selS = 'select *, date_format(purchased, "%m/%d/%Y") as salesDate,
-date_format(expires, "%m/%d/%Y") as expiresDate from sales where transID = "'.$_GET['id'].'"
-and productID="'.$productID.'"';
-$conn->query($selS);
+$selS = 'SELECT *, date_format(purchased, "%m/%d/%Y") AS salesDate,
+date_format(expires, "%m/%d/%Y") AS expiresDate FROM sales WHERE transID = "'.$_GET['id'].'"
+AND productID="'.$productID.'"';
+$resS = $conn->query($selS);
 
 $sales = $resS->num_rows;
-
 
 if($s = $resS->fetch_array()) {
     $firstName = $s['firstName'];
@@ -17,7 +16,7 @@ if($s = $resS->fetch_array()) {
     $expiresDate = $s['expiresDate'];
     $payerEmail = $s['payerEmail'];
     
-    if(!isset($expiresDate))
+    if(!isset($expiresDate)) //no expiration date set
         $expiresDate = $salesDate; 
 }
 
@@ -33,69 +32,68 @@ else {
 		
         if($transID == 'vipuser') { //no expiration date for VIP user
             $today = 0;
-            $expiresDate = 0;
+            $expiresDate = 0; 
         }
 		
         if(($today) <= ($expiresDate + $expireSeconds)) {
-       
-            //check for existing account
-            $selU = 'select * from users where email="'.$payerEmail.'" or paypal="'.$payerEmail.'"';
-            $resU = mysql_query($selU, $conn) or die(mysql_error());
-            
-            if(mysql_num_rows($resU) == 0) //no account exists
-            {
+            $opt = array(
+                'tableName' => 'users',
+                'cond' => 'WHERE email="'.$payerEmail.'" OR paypal="'.$payerEmail.'"'
+            );           
+            $resU = dbSelectQuery($opt);
+             
+            if($resU->num_rows == 0) { //no user account exists
+           
                 //generate random password
                 $password = genString(8);
                 
                 //insert email & password into db
-                $ins = 'insert into users (
-                paypal,
-                email,
-                password,
-                joinDate
-                ) values (
-                "'.$payerEmail.'",
-                "'.$payerEmail.'",
-                "'.$password.'",
-                now() )';
-            
-                mysql_query($ins, $conn) or die(mysql_error());
+                $opt = array(
+                    'tableName' => 'users',
+                    'dbFields' => array(
+                        'paypal' => $payerEmail,
+                        'email' => $payerEmail,
+                        'password' => $password,
+                        'joinDate' => 'now()'
+                    )
+                );
+               
+                dbInsert($opt);
             }
-            else //existing account 
-            {
-                $u = mysql_fetch_assoc($resU); 
-                
-                $password = $u[password];
+            else { //existing account 
+                $u = $resU->fetch_assoc();
+                $password = $u['password'];
             } 
             
-            //multiple downloads
-            $selD = 'select * from downloads where productID="'.$productID.'" order by name';
-            $resD = mysql_query($selD) or die(mysql_error());
+            $opt = array(
+                'tableName' => 'downloads',
+                'cond' => 'WHERE productID="'.$productID.'" ORDER BY name'
+            ); 
             
-            if(mysql_num_rows($resD) > 0)
-            {
+            $resD = dbSelectQuery($opt);
+            
+            if($resD->num_rows > 0) {
                 $downloadContent = '<table>';
-                while($d = mysql_fetch_assoc($resD))
-                {
+                while($d = $resD->fetch_assoc()) {
                     $downloadContent .= '<tr>
-                    <td>'.$d[name].'</td>
-                    <td><form method=post><input type=submit name=dl value="Download"/>
-                        <input type=hidden name=url value="'.$d[url].'" /></form>
+                    <td>'.$d['name'].'</td>
+                    <td><form method="POST"><input type="submit" name="dl" value="Download" />
+                        <input type="hidden" name="url" value="'.$d['url'].'" /></form>
                     </td>';
                 }    
                 $downloadContent .= '</table>';
             }
             
             $fileName = 'download.html';
-        } 
-        else {
+        }  
+        else { //past expiration date
             $fileName = 'expired.html';
-        }
-    }
+        } 
+    } //if($sales > 0)
     else { //invalid sale
         $fileName = 'invalid.html';
     }
-}       
-//echo $fileName;
+}  
+
 include($fileName); 
 ?>

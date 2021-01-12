@@ -1,5 +1,5 @@
 <h1>Get Paid To Process Emails Instructions</h1>
-<div class="innerContent">
+
 
     <?
     $oneMonthAgo = 60 * 60 * 24 * 30;
@@ -252,5 +252,4 @@ Best Regards,
     <a href="<?=$dir?>?action=bonus"><img src="<?=$dir?>images/members/bonus.png" /></a>
 </center>
 
-</div>
 <p>&nbsp;</p>

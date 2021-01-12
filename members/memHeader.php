@@ -1,80 +1,139 @@
 <?php
-function affiliateMenu() 
-{
-    $output = '<table cellspacing="0" cellpadding="0" width="100%" border="0">
+
+$output = '<table cellspacing="0" cellpadding="0" width="100%" border="0">
+<tr>
+    <td width="20px"></td>
+    <td align="left">
+        <a href="?action=affcenter">Members Home</a>
+    </td>
+    <td width="25%" align="center">
+        <a href="http://bestpayingsites.com/?action=bonus" target="_blank">Bonus Downloads</a>
+    </td>
+    <td align="center">
+        <a href="?action=details">Update Profile</a>
+    </td>
+    <td align="right">
+        <a href="?action=logout">Logout</a>
+    </td>
+</tr>
+</table>';
+    
+
+$opt = array( //check if customer of EPS
+    'tableName' => 'sales',
+    'cond' => "WHERE productID='12' AND 
+    (payerEmail = '".$_SESSION['login']['paypal']."' || payerEmail = '".$_SESSION['login']['email']."')"
+);
+        
+$res = dbSelectQuery($opt); 
+
+if($res->num_rows > 0) {
+    $output .= '<br />
+    <table cellspacing="0" cellpadding="0" width="100%" border="0">
     <tr>
         <td width="20px"></td>
-        <td align="left">
-            <a href="?action=affcenter">Members Home</a>
-        </td>
-        <td width="25%" align="center">
-            <a href="http://bestpayingsites.com/?action=bonus" target="_blank">Bonus Downloads</a>
+        <td  align="left">
+            <b><a href="?action=eps">Email Profit System</a></b>
         </td>
         <td align="center">
-            <a href="?action=details">Update Profile</a>
+            <b><a href="?action=classified">Classified Ads</a></b>
+        </td>
+        <td align="center">
+            <b><a href="?action=directory">Paying Sites Directory</a></b>
         </td>
         <td align="right">
-            <a href="?action=logout">Logout</a>
+            <b><a href="?action=tools">Promotion Tools</a></b>
         </td>
     </tr>
     </table>';
-    
-    //check if customer of EPS
-    $sel = "SELECT payerEmail FROM sales WHERE productID='12' AND 
-        (payerEmail = '".$_SESSION['login']['paypal']."' || payerEmail = '".$_SESSION['login']['email']."')";
-    $res = mysql_query($sel) or die(mysql_error());
-    
-    if(mysql_num_rows($res) > 0) {
-        $output .= '<br />
-        <table cellspacing="0" cellpadding="0" width="100%" border="0">
-        <tr>
-            <td width="20px"></td>
-            <td  align="left">
-                <b><a href="?action=eps">Email Profit System</a></b>
-            </td>
-            <td align="center">
-                <b><a href="?action=classified">Classified Ads</a></b>
-            </td>
-            <td align="center">
-                <b><a href="?action=directory">Paying Sites Directory</a></b>
-            </td>
-            <td align="right">
-                <b><a href="?action=tools">Promotion Tools</a></b>
-            </td>
-        </tr>
-		</table>';
-    }
-	
-	//check if customer of BPS
-	$sel = "SELECT payerEmail FROM sales WHERE productID='13' AND 
-        (payerEmail = '".$_SESSION['login']['paypal']."' || payerEmail = '".$_SESSION['login']['email']."')";
-    $res = mysql_query($sel) or die(mysql_error());
-	
-	 if(mysql_num_rows($res) > 0) {
-        $output .= '<br />
-        <table cellspacing="0" cellpadding="0" width="100%" border="0">
-        <tr>
-            <td width="20px"></td>
-            <td align="left">
-                <b><a href="?action=bps-database">Surveys Database</a></b>
-            </td>
-			<td align="center">
-                <b><a href="?action=bps-apps">Paid Apps & GPT</a></b>
-            </td>
-            <td align="right">
-                <b><a href="?action=bps-guide">Surveys Guide</a></b>
-            </td>
-        </tr>
-		</table>';
-    }
-	
-	
-    return $output.'<br /><hr color="#25569a" size="4" /><p>&nbsp;</p>';
 }
+
+
+$opt = array( //check if customer of BPS
+    'tableName' => 'sales',
+    'cond' => "WHERE productID='13' AND 
+    (payerEmail = '".$_SESSION['login']['paypal']."' || payerEmail = '".$_SESSION['login']['email']."')"
+);
+    
+$res = dbSelectQuery($opt); 
+
+if($res->num_rows > 0) {
+    $output .= '<br />
+    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+    <tr>
+        <td width="20px"></td>
+        <td align="left">
+            <b><a href="?action=bps-database">Surveys Database</a></b>
+        </td>
+        <td align="center">
+            <b><a href="?action=bps-apps">Paid Apps & GPT</a></b>
+        </td>
+        <td align="right">
+            <b><a href="?action=bps-guide">Surveys Guide</a></b>
+        </td>
+    </tr>
+    </table>';
+}
+
+$output .= '<br /><hr color="#25569a" size="4" /><p>&nbsp;</p>';
+
+$membersMenu = $output;
 
 $imgDir = $dir.'images/crashcourse/'; 
 $refDir = $dir.'images/refs/';
 $itemName = 'Email Profit System';
+
+
+//BPS Surveys Database
+$opt = array(
+	'tableName' => 'surveys',
+    'cond' => 'WHERE category="" ORDER BY name '
+);
+
+$resS = dbSelectQuery($opt);
+
+while($s = $resS->fetch_array()) {
+	$bpsSurveysContent .= '<p><a target="_BLANK" href="'.$s['url'].'">'.$s['name'].'</a><br />'.$s['info'].'</p>'; 
+}
+
+
+//Paid Apps database
+$opt = array(
+	'tableName' => 'surveys',
+    'cond' => 'WHERE category="paidapp" ORDER BY name '
+);
+
+$resS = dbSelectQuery($opt);
+
+while($s = $resS->fetch_array()) {
+	$bpsPaidAppContent .= '<p><a target="_BLANK" href="'.$s['url'].'">'.$s['name'].'</a><br />'.$s['info'].'</p>';
+}
+
+
+//GPT database
+$opt = array(
+	'tableName' => 'surveys',
+    'cond' => 'WHERE category="gpt" ORDER BY name '
+);
+
+$resS = dbSelectQuery($opt);
+
+while($s = $resS->fetch_array()) {
+	$bpsGPTContent .= '<p><a target="_BLANK" href="'.$s['url'].'">'.$s['name'].'</a><br />'.$s['info'].'</p>';
+}
+
+
+
+$productID = 10; //paypal booster
+$opt = array( //get download URL from products table
+	'tableName' => 'products',
+    'cond' => 'WHERE id="'.$productID.'"'
+);
+
+$resPPB = dbSelectQuery($opt);
+
+$ppb = $resPPB->fetch_array();
+
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -100,7 +159,7 @@ $itemName = 'Email Profit System';
 	}
 	
 	.innerContent {
-		padding: 0px 20px 0px 40px;
+		padding: 0px 20px 0px 20px;
 	}
 
     .list {
@@ -180,4 +239,5 @@ $itemName = 'Email Profit System';
     <div id="language"></div>
 </center>
 <div class="content">
+<div class="innerContent">
     <br />

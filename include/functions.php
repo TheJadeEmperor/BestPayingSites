@@ -46,7 +46,7 @@ function database($host, $user, $pw, $dbName) {
 	}
 	
 	$conn = new mysqli($host, $user, $pw, $dbName);
-	echo $dbName;
+
 	// Check connection
 	if ($conn -> connect_errno) {
 	  echo __LINE__." ". $conn -> connect_error;
@@ -79,7 +79,7 @@ function popUpWindow($dir) {
 
 //get ad pages content from codegeas_cc db
 function getAdContent ($conn) { //call this function on ad pages
-	$conn->select_db('codegeas_cc'); 
+	//$conn->select_db('codegeas_cc'); 
 	
 	/////////////////////////////////
     $selA = 'SELECT * FROM ad_pages_content WHERE id = 1';
@@ -423,7 +423,8 @@ function dbSelect($opt) {
 /*
 $opt = array(
 	'tableName' => $tableName,
-	'cond' => $cond)
+	'cond' => $cond
+);
  */
 function dbSelectQuery($opt) {
 	global $conn; 
@@ -445,7 +446,8 @@ function dbSelectQuery($opt) {
 /*
 $opt = array(
 	'tableName' => $tableName,
-	'cond' => $cond)
+	'cond' => $cond
+);
  */
 function dbDeleteQuery ($opt) {
 	global $conn; 

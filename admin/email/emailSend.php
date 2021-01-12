@@ -62,8 +62,7 @@ if($_POST['sendEmail'] && $_POST['message'] != '')
 	foreach ($addresses as $emailTo)
 	{
         //add un-subscribe link
-        $unsubText = '<p>********************** </p><p>Unsubscribe from further announcements: <br />
-        <a href="'.$websiteURL.'/members/optout.php?e='.$emailTo.'" target=_blank>'.$websiteURL.'/members/optout.php?e='.$emailTo.'</a></p>';
+        $unsubText = '<p>********************** </p>';
     
         $sendEmailBody = $emailBody.$unsubText;
 

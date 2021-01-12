@@ -1,20 +1,17 @@
-<center><h1>Paypal Booster Pro</h1>
+<div class="innerContent">
+    <center><h1>Paypal Booster Pro</h1>
 
-<h3>Click to Download the PDF </h3>
+    <h3>Click to Download the PDF </h3>
+
 <?php
-$productID = 10;
-$selD = 'select * from products where id="'.$productID.'"';
-$resD = mysql_query($selD) or die(mysql_error());
-
-$p = mysql_fetch_assoc($resD);
 
 echo'<form method="post">
 <input type=submit name="dl" class="btn success" value=" Download Now ">
-<input type=hidden name=id value="'.$p['id'].'">
-<input type=hidden name=url value="'.$p['download'].'">
+<input type=hidden name=id value="'.$ppb['id'].'">
+<input type=hidden name=url value="'.$ppb['download'].'">
 </form>';
 
-$upsellPage = 'http://ad.trwv.net/t.pl/57718/374163';
+$upsellPage = 'http://bestpayingsites.com/eps';
 ?>
 <p>&nbsp;</p>
 
@@ -26,7 +23,7 @@ $upsellPage = 'http://ad.trwv.net/t.pl/57718/374163';
 
             <p>Everything you need is inside the course - step by step instructions laid out for you - 
             all you have to do is copy and paste and get paid for every email you process! <br /><br />
-            <a class="url" href="<?=$upsellPage?>" target="_blank">http://bestpayingsites.com/eps</a></p>
+            <a class="url" href="<?=$upsellPage?>" target="_blank"><?=$upsellPage?></a></p>
         </td>
         <td>
              <a href="http://bestpayingsites.com/eps" target="_blank"><img src="//bestpayingsites.com/images/eps/binder.jpg" width="250px" /></a>
@@ -78,3 +75,4 @@ $upsellPage = 'http://ad.trwv.net/t.pl/57718/374163';
 
 <p>&nbsp;</p>
 <p>&nbsp;</p>
+</div>

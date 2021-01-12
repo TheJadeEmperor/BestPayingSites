@@ -2,9 +2,9 @@
 $adir = '../';
 include($adir.'adminCode.php');
 
-$sale_create = 'ajax/sale_create.php';
-$sale_read = 'ajax/sale_read.php';
-$sale_update = 'ajax/sale_update.php';
+$sale_create = $adir.'ajax/sale_create.php';
+$sale_read = $adir.'ajax/sale_read.php';
+$sale_update = $adir.'ajax/sale_update.php';
 
 if($_POST['id']) { 
   

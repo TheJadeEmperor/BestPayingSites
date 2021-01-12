@@ -65,7 +65,6 @@ $paypalOrderLink = $val['paypalOrderLink'];
 $usePaypalOrderLink = $val['usePaypalOrderLink'];
 /////////////////// 
 
-echo $dbName.' ';
 //delete error logs
 if(file_exists('error_log')) {   
     unlink('error_log');

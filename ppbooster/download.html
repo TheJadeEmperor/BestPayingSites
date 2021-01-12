@@ -23,8 +23,8 @@
           Password: <?=$password?></i>
     </p>
 
-    <a href="<?=$dir?>members" target=_blank>Click here to go to the Members Area</a></p>
-
+    <p><a href="<?=$dir?>members" target=_blank>Click here to go to the Members Area</a></p>
+</p>
     <?
     if($_GET['id'] != 'vipuser') {
     ?>    
@@ -64,13 +64,7 @@
     <h3>Want more ways to make money?<br />Check out these sponsors below:</h3>
        
 	<?php
-	
-	$selA = 'SELECT * FROM ad_pages_content WHERE id = 1';
-	$resA = mysql_query($selA, $conn) or die(mysql_error());
-
-	if($ad = mysql_fetch_assoc($resA)) {
-		echo $ad['content'];
-	}
+	echo $adContent;
 	?>
 	
     </center>

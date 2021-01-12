@@ -40,9 +40,17 @@ session_start();
  * the path is "prod" */
 $curPageURL = curPageURL();  
 
+/*
 if(is_int(strpos(__FILE__, 'C:\\'))) { //localhost
     $path = $_SERVER['REQUEST_URI']; 
     $path = str_replace('/', '', $path);
+   // echo $path;
+
+    list($path, $crap) = explode('?', $path);    
+
+    echo $path.' '; 
+    //echo $path.' ';
+
 }
 else { //live website
 
@@ -52,9 +60,16 @@ else { //live website
     
     if(is_int(strrpos($path, '?')))
         $path = '';
-} 
+}
+*/
 
-//get relative path to the root  
+$path = $_SERVER['REQUEST_URI']; 
+$path = str_replace('/', '', $path); 
+// echo $path;
+
+list($path, $crap) = explode('?', $path); //get path before the ?
+
+//get relative path to the root
 $pos = strpos($path, '?'); //?action=page or ?p=post pages
 
 if(is_int($pos) || $path == '') {
@@ -68,17 +83,17 @@ include($dir.'include/functions.php');
 include($dir.'include/config.php');
 include($dir.'include/spmSettings.php'); 
 
-$selP = 'SELECT * FROM products WHERE folder="'.$path.'"';
-$resP = $conn->query($selP);
-echo $dbName.' ';
+//$selP = 'SELECT * FROM products WHERE folder="'.$path.'"';
+//$resP = $conn->query($selP);
+$opt = array(
+	'tableName' => 'products',
+	'cond' => 'WHERE folder="'.$path.'"');
+$resP = dbSelectQuery($opt);
 
-print_r($conn);
-
-if( $p = $resP->fetch_array() ) {
-    
+if( $p = $resP->fetch_array() ) {    
     //product vars
 	$productID = $p['id'];
-echo    $itemName = $p['itemName'];
+    $itemName = $p['itemName'];
     $itemPrice = $p['itemPrice'];
     $itemNumber = $p['itemNumber'];
     $keywords = $p['keywords'];
@@ -110,8 +125,14 @@ echo    $itemName = $p['itemName'];
    
     if($oto == 'Y') { //one time offer
     
-        $selO = 'SELECT * FROM products WHERE id="'.$upsellID.'"';
-        $resO = $conn->query($selO);   
+        //$selO = 'SELECT * FROM products WHERE id="'.$upsellID.'"';
+        //$resO = $conn->query($selO);   
+
+        $opt = array(
+            'tableName' => 'products',
+            'cond' => 'WHERE id="'.$upsellID.'"');
+        $resO = dbSelectQuery($opt);
+        
 		$o = $resO->fetch_array($resO);
 
         if($p['otoName'])
@@ -148,7 +169,7 @@ if($_POST['dl']) {
 
 $paidToEmail = $paypalEmail;
 $action = $_GET['action'];
-echo __LINE__.' ';
+
 switch($action) {
     case 'order':
         if($itemPrice == 0) //free gift product
@@ -197,7 +218,7 @@ switch($action) {
         }       
 }
 
-if(true) { //debug
+if(0) { //debug
     echo 'dir: '.$dir.'<br>
 	path: '.$path.'<br>
     productID: '.$productID.'<br>
@@ -214,7 +235,7 @@ include($fileName);
 
 if(file_exists($templateFooter))
 include($templateFooter);   
-echo __LINE__;
+
 //track pageviews
 if($pageView) {
     if(isset($_COOKIE['lastView'])) { //raw views

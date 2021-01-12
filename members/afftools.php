@@ -4,8 +4,7 @@ function showBannerCode($bannerURL) {
     
     return '<p><a href="'.$frontEndProduct.'" title="" target="_blank"><img src="'.$bannerURL.'" /></a></p>
         
-<p><textarea rows=4 cols=75 onclick="javascript:this.select()">&lt;a href="'.$frontEndProduct.'"&gt;&lt;img border="0"
-src="//bestpayingsites.com/images/banners/eps.jpg" width="468" height="60"&gt;&lt;/a&gt;</textarea></p>
+<p><textarea rows="4" cols="75" onclick="javascript:this.select()">&lt;a href="'.$frontEndProduct.'"&gt;&lt;img border="0" src="//bestpayingsites.com/images/banners/eps.jpg" width="468" height="60"&gt;&lt;/a&gt;</textarea></p>
 
 <p class="note">Direct image link: '.$bannerURL.'</p>';
 }
@@ -15,11 +14,10 @@ $frontEndProduct = 'http://bestpayingsites.com/';
 $bannerDir = '//bestpayingsites.com/images/banners/';
 $itemName = 'Email Profit System';
 
-$username = $u[username];
+$username = $u['username'];
 ?>
 <h1><?=$itemName?> Promotion Tools</h1>
 
-<div class="innerContent">
 <p>The Email Profit System can be promoted many different ways, as described in the system. 
 But you can also use banner ads and text ads to promote the EPS. Below we will give you
 some tools to advertise the system.</p>
@@ -56,8 +54,6 @@ $boxSizeFull = 'rows="6" cols="80"';
 <table>
     <tr valign="top">
 	<td align="left">
-
-            
             <p>&nbsp;</p>
 
             <p><b>Get $15 to $25 Per Email Processed</b><br />
@@ -121,9 +117,7 @@ business, email me at (your email address). Or visit my site at (your website ad
         <td>
             <p>&nbsp;</p>
             Ad #2: <br />  
-            <textarea rows=6 cols=80>Yes! You can work with your computer from the comfort of your own home. 
-Please email me at (your email address). Or visit my site at (your website address) for more info. Thanks, and have a great day!</textarea>
-
+            <textarea rows=6 cols=80>Yes! You can work with your computer from the comfort of your own home. Please email me at (your email address). Or visit my site at (your website address) for more info. Thanks, and have a great day!</textarea>
     </tr>
     <tr>
         <td>
@@ -135,9 +129,5 @@ Please email me at (your email address). Or visit my site at (your website addre
     </tr>
 </table>
 
-
 <p>&nbsp;</p>
-
-
 <p>&nbsp;</p>
-</div>

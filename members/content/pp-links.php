@@ -1,3 +1,5 @@
+<div class="innerContent">
+
 <center><h1>PP Booster Links</h1></center>
 
 <style>
@@ -78,3 +80,5 @@ fieldset {
 
 <p>&nbsp;</p>
 <p>&nbsp;</p>
+
+	</div>

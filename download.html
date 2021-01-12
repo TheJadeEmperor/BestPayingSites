@@ -25,16 +25,16 @@
 
 <div class="content">
     <div class="innerContent">
+	<div class="innerContent">
 	<center>
 	<h1><b>Thank you for your purchase, <?=$firstName.' '.$lastName ?>!</b></h1>
 	</center>
      	
-    <p>Your payment has been successful. If you used your credit card, it will show a charge from PayPal. 
-    You can login to www.paypal.com anytime to view transaction details.</p>
+    <p>Your payment has been successful. If you used your credit card, it will show a charge from PayPal. You can login to www.paypal.com anytime to view transaction details.</p>
 
     <p>For your convenience, we've created an account for you, so all you have to do is log in once in a while (the more the better) and view the latest copy of <b><?=$itemName?></b>. Your credentials are:</p>
 
-    <p><i>Username:  <?=$payerEmail?><br />
+    <p><i>Username: <?=$payerEmail?><br />
             Password: <?=$password?></i>
     </p>
 
@@ -77,15 +77,9 @@
     </tr>
     </table>
 
-    <p>&nbsp; </p>
-
-    <h3>Want more ways to make money?<br />Check out these sponsors below:</h3>
-
- 
     </center> 
 
     <p>&nbsp;</p>
 
-    </div><!--innerContent-->
-
+</div>
 <? include($dir.'members/memFooter.html'); ?>

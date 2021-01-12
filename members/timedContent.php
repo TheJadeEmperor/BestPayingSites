@@ -32,18 +32,6 @@ switch($_GET['action']) {
         break;
 }
 
-list($joinDate, $time) = split(' ', $u['joinDate']);
-$joinDate = strtotime($joinDate);
-$today = time(); 
+include($fileName);
 
-$numDaysInSeconds = $numDays * 24 * 60 * 60;
-
-if(($today) >= ($joinDate + $numDaysInSeconds)) //X days have passed
-{
-    include($fileName);
-}
-else //X days not passed yet, show coming soon page
-{
-    include('content/comingSoon.php');		
-}
 ?>

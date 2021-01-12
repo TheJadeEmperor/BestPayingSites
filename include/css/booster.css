@@ -50,6 +50,10 @@ p {
     color: black;
 }
 
+.content p {
+    padding: 0 20px;
+}
+
 .moduleBlue {
     font-family: Tahoma, Geneva, sans-serif;
     border: solid 1px #531d2a;

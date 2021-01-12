@@ -1,24 +1,27 @@
 <?php
 $dir = '../';
-include($dir.'include/mysql.php'); 
-include($dir.'include/config.php');
 include($dir.'include/functions.php');
+include($dir.'include/config.php');
 include($dir.'include/spmSettings.php');
 session_start();
 
+
 if($_POST['dl']) {
-    downloadLink($_POST['url']);
+    downloadLink($_POST['url']); exit;
 }
 
-if($_GET['redirect'])
-    $_SESSION['redirect'] = $_GET['redirect']; 
-else
-    unset($_SESSION['redirect']); 
+if(is_int(strpos(__FILE__, 'C:\\'))) {//localhost
+    error_reporting(E_ALL ^ E_NOTICE);
+}
+else { //live website
+    error_reporting(0);
+}
 
-	
+//values from spmSettings
 $templateHeader = $val['memHeader'];
 $templateFooter = $val['memFooter'];
 $membersContent = $val['memAreaContent'];
+
 
 if($_POST['login']) {
     //verify username/password
@@ -33,11 +36,12 @@ if($_POST['login']) {
         $_SESSION['error'] = 'Please enter a valid password!';
     }
 
-    $selU = 'select * from users where username="'.$username.'" || email="'.$username.'"';
-    $resU = mysql_query($selU, $conn) or print(mysql_error()); 
-    $u = mysql_fetch_assoc($resU);
+    $selU = 'SELECT * FROM users where USERNAME="'.$username.'" || email="'.$username.'"';
+    $resU = $conn->query($selU);
 
-    if(mysql_num_rows($resU) == 0) { //no user found 
+    $u = $resU->fetch_array();
+
+    if(mysqli_num_rows($resU) == 0) { //no user found 
         $_SESSION['error'] = 'The username '.$username.' does not exist!';
     }
     else { //user is found 
@@ -46,28 +50,26 @@ if($_POST['login']) {
         }
         else {
             if(empty($u['email']))
-                $u['email'] = 'N / A';
+                $u[email] = 'N / A';
                 
             if(empty($u['paypal']))
-                $u['paypal'] = 'N / A';
+                $u[paypal] = 'N / A';
                     
             $_SESSION['login'] = $u;
             
             if($u['status'] == 'B') { //check if user is banned
-            
                 $_SESSION['error'] = 'Unable to login - You have been banned from our system <br />
                 If you feel this is in error, please contact our support desk';    
             }
-            else { //coming from blog 
-            
-                if($_SESSION['redirect'])
-                    header('Location: ../'.$_GET['redirect']);  
-                else
-                    header('Location: ./?action=affcenter');                
+            else { //login successful            
+            	unset($_SESSION['error']); //remove the error message
+               	header('Location: ./?action=affcenter');                
             }
         }
     }
 }
+
+$msg = $_SESSION['error'];
 
 //user info 
 $u = $_SESSION['login'];
@@ -81,6 +83,7 @@ if(isset($u['id'])) { //logged in
 	
     switch($_GET['action']) {
         //==========================
+        default:
         case 'eps':
         case 'directory':
         case 'classified': 
@@ -88,14 +91,10 @@ if(isset($u['id'])) { //logged in
         case 'pp-html-files':
         case 'pp-links':
         case 'pp-tools':
-		case 'bps-database':
-		case 'bps-apps':
-		case 'bps-guide':
             $affmenu = true;
             $fileName = 'timedContent.php';
             break;
         //==========================
-        default:
         case 'affcenter': //affiliate center 
             if($_SESSION['login']['skipUpsell']) {
                 $fileName = 'affcenter.php';
@@ -136,7 +135,7 @@ if(file_exists($templateHeader))
 include($templateHeader);
 
 if($affmenu)
-    echo affiliateMenu(); 
+    echo $membersMenu; 
 
 include($fileName);
 
