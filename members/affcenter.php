@@ -136,6 +136,6 @@ if($isEPSCustomer == 1) {
     <p>Click here to claim your bonuses (worth over $1,000)</p>
     <a href="<?=$dir?>?action=bonus"><img src="<?=$dir?>images/members/bonus.png" /></a>
 </center>
-</div>
+
 <p>&nbsp;</p>
 <p>&nbsp;</p>

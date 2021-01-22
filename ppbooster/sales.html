@@ -269,7 +269,6 @@ $imgDir = $dir.'images/booster/';
 		<div onclick="NoExitPage=true;">
 		
 			<?
-
 			if($usePaypalOrderLink) { 
 				$orderLink = $paypalOrderLink; 
 				$orderText = 'Get Instant Access - Even at 2 AM - Guaranteed';
@@ -278,6 +277,7 @@ $imgDir = $dir.'images/booster/';
 				$orderLink = $productOrderLink; 
 				$orderText = $productOrderText;
 			}
+			$orderLink = 'https://codegeass.info/order/orderForm.php?db=nus&productID='.$productID;
 			?>
 		
 			<a href="<?=$orderLink?>"><img src="<?=$imgDir?>Paypal-Buy-Now-button.png" alt="Order Now" title="Order Now"></a>

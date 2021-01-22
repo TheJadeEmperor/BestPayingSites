@@ -126,15 +126,8 @@ $bonusProducts = array(
 <p>&nbsp;</p>
 
 	<?php
-	
-	$selA = 'SELECT * FROM ad_pages_content WHERE id = 1';
-	$resA = mysql_query($selA, $conn) or die(mysql_error());
-
-	if($ad = mysql_fetch_assoc($resA)) {
-		echo $ad['content'];
-	}
+	echo $adContent;
 	?>
- 
 </center>
 
 <p>&nbsp;</p>
