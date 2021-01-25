@@ -81,10 +81,11 @@ body {
 }
 </style>
 </head>
-<body>
+<body class="landing_page">
 <center>
     <?
-    $productLink = 'http://tinyurl.com/take-surveys-for-cash-product';
+    //replace this 
+    $productLink = 'http://bit.ly/366JM12';
     ?>
     <meta http-equiv="refresh" content="58; <?=$productLink?>">
     <div class="content">
