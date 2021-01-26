@@ -1,8 +1,9 @@
 <?php 
+$dir = '../';
 $url = $_GET['url']; 
 
-if (strpos($url,'http://') === false){
-    $url = 'http://'.$url;
+if (strpos($url,'http://') === false) { //no http in url
+    $url = 'http://'.$url; //fix the url 
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -28,7 +29,7 @@ body {
     
     <p>Please wait...</p>
     
-    <img src="images/waiting.gif" alt="Waiting">
+    <img src="<?=$dir?>images/waiting.gif" alt="Waiting">
 </td>
 </tr>
 </table>
@@ -37,7 +38,7 @@ body {
 
 <p>Only 1 more step left - check your inbox and confirm</p>
 
-<p><img src="images/splash/confirm.jpg" alt="Confirm subscription" border="1"/></p>
+<p><img src="<?=$dir?>images/splash/confirm.jpg" alt="Confirm subscription" border="1"/></p>
 
 </center>
 </body></html>

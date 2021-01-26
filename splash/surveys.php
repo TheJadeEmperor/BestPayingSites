@@ -2,7 +2,7 @@
 date_default_timezone_set('America/New_York'); 
 $imgDir = 'images/splash/';
 
-$redirURL = 'http://bestpayingsites.com/redirect.php?url=';
+$redirURL = 'http://bestpayingsites.com/templates/redirect.php?url=';
 $subscrLandingURL = $confirmLandingURL = $redirURL.'http://bestpayingsites.com/?action=get-cash-for-surveys';
 
 //redirect to Neobux opt in
