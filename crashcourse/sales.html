@@ -1,0 +1,18 @@
+
+<?
+	if($usePaypalOrderLink) { 
+		$orderLink = $paypalOrderLink; 
+		$orderText = 'Get Instant Access - Even at 2 AM - Guaranteed';
+	}
+	else {
+		$orderLink = $productOrderLink; 
+		$orderText = $productOrderText;
+	}
+	$orderLink = 'https://codegeass.info/order/orderForm.php?db=bps&productID='.$productID;
+?>
+		
+		
+		
+<a href="<?=$orderLink?>"><img src="../images/booster/Paypal-Buy-Now-button.png" alt="Order Now" title="Order Now"></a>
+<br />
+<i><font size="2"><?=$orderText?></font></i>
