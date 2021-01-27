@@ -229,7 +229,8 @@ if(0) { //debug
     paidToEmail: '.$paidToEmail.'<br>
 	templateHeader: '.$templateHeader.'<br>
 	templateFooter: '.$templateFooter.'<br>
-	fileName: '.$fileName;
+    fileName: '.$fileName.'<br>
+    downloadPage: '.$downloadPage;
 }
 
 if(file_exists($templateHeader))
