@@ -36,9 +36,5 @@ body {
 
 <p>&nbsp;</p>
 
-<p>Only 1 more step left - check your inbox and confirm</p>
-
-<p><img src="<?=$dir?>images/splash/confirm.jpg" alt="Confirm subscription" border="1"/></p>
-
 </center>
 </body></html>
