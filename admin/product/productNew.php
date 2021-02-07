@@ -41,17 +41,11 @@ $dbFields = array(
 	'expires' => $_POST['expires'], 
 	'keywords' => $_POST['keywords'],
 	'description' => $_POST['description'],
-	'affProgram' => $_POST['affProgram'], 
-	'affcenter' => $_POST['affcenter'],
-	'salesPercent' => $_POST['salesPercent'],
     'upsellID' => $_POST['upsellID'],
-	'oto' => $_POST['oto'],
-	'otoName' => $_POST['otoName'],
-	'otoNumber' => $_POST['otoNumber'],
-	'otoPrice' => $_POST['otoPrice'], 
 	'header' => $_POST['header'], 
 	'footer' => $_POST['footer'],
 	'salespage' => $_POST['salespage'],
+	'otoPage' => $_POST['otoPage'],
 	'downloadPage' => $_POST['downloadPage'],
 	'productOrderLink' => $_POST['productOrderLink'],
 	'productOrderText' => $_POST['productOrderText']
@@ -137,9 +131,6 @@ if($_GET['id']) {
             
         if($id == $item['id']) {
             $p = $item;
-            $aff[ $p['affProgram'] ] = 'selected';
-            $payment[ $p['payment'] ] = 'selected';
-            $oto[ $p['oto'] ] = 'selected';
         }
     
         $products[] = $item; 
@@ -272,7 +263,6 @@ else {
 	    </td>
 	</tr>
 	
-	
 	<tr valign="top">
 		<td>SEO Keywords</td>
 		<td>
@@ -299,51 +289,6 @@ else {
 </center>
 
 <p>&nbsp;</p>
-
-<p>&nbsp;</p>
-
-<div class="moduleBlue"><h1>Upsell Product</h1>
-<div class="moduleBody">
-<table>
-<tr valign="top">
-	<td>Use Upsell? *</td>
-	<td><select class="activeField" name="oto">
-	    <option <?=$oto['Y']?> value="Y">Yes</option>
-	    <option <?=$oto['N']?> value="N">No</option>
-	</select>
-	</td>
-<tr>
-    <td>One time offer?</td>
-    <td></td>
-</tr>
-<tr>
-    <td>Use this product as upsell </td>
-    <td>
-        <select class="activeField" name="upsellID">
-            <?=$upsellDropDown?>
-        </select>
-    </td>
-</tr>
-<tr valign="top">
-	<td>Upsell Item Name</td>
-	<td><?=$u['itemName']?></td>
-</tr><tr valign="top">
-	<td>Upsell Price</td>
-	<td><?=$u['itemPrice']?></td>
-</tr>
-<tr valign="top">
-	<td>Upsell Item #</td>
-	<td><?=$u['itemNumber']?></td>
-</tr>
-<tr valign="top">
-    <td>Use Special Upsell Price: </td>
-    <td><input type="text" class="activeField" name="otoPrice" value="<?=$p['otoPrice']?>"><br>
-        Leave blank to use above price
-    </td>
-</tr>
-</table>
-</div></div>
-
 <p>&nbsp;</p>
 
 <div class="moduleBlue"><h1>Template Options</h1>
@@ -364,6 +309,10 @@ else {
 	<tr>
 		<td>Download Page</td>
 		<td><input class="activeField" name="downloadPage" value="<?=$p['downloadPage']?>" /></td>
+	</tr>
+	<tr>
+		<td>OTO Page</td>
+		<td><input class="activeField" name="otoPage" value="<?=$p['otoPage']?>" /></td>
 	</tr>
 </table>
 </div>
