@@ -14,9 +14,6 @@
  * showPost($id)
  *  show the post contents, given the post's id
  * 
- * showMenu($menu)
- *  display the admin menu
- * 
  * embedYoutubeVideo($src, $width, $height)
  *  displays embedded youtube video
  * 
@@ -46,7 +43,6 @@ function database($host, $user, $pw, $dbName) {
 	}
 	
 	$conn = new mysqli($host, $user, $pw, $dbName);
-
 	// Check connection
 	if ($conn -> connect_errno) {
 	  echo __LINE__." ". $conn -> connect_error;
@@ -60,26 +56,27 @@ function database($host, $user, $pw, $dbName) {
 function popUpWindow($dir) {
 	global $popUp;
 
-	//echo 'popUp: '. $popUp;
-	//echo $_SESSION['popUp']; 
+	//echo 'popUp: '. $popUp; echo $_SESSION['popUp']; 
 
 	if ($popUp) { //popUp = 1: enabled 
-		if ($_SESSION['popUp'] < 1)  //pop up happens once per user session
-		return '
-		var windowSize = $(window).width();
-		if(windowSize >= 420) { //no popUp on mobile
-			var seconds = 12; 
-			var milliseconds = seconds * 1000; 
-			setTimeout("javascript:TINY.box.show({url:\''.$dir.'splash/popUp.php\',width:780,height:490,openjs:\'initPopupLogin\',opacity:30});", milliseconds);
-		} '; //use JS tiny box to show pop up
-		
-		$_SESSION['popUp'] = 1; //track session
+		if ($_SESSION['popUp'] < 1) {  //pop up happens once per user session
+			$_SESSION['popUp'] = 1; //track session
+
+			return '
+			var windowSize = $(window).width();
+			if(windowSize >= 420) { //no popUp on mobile
+				var seconds = 12; 
+				var milliseconds = seconds * 1000; 
+				setTimeout("javascript:TINY.box.show({url:\''.$dir.'splash/popUp.php\',width:780,height:490,openjs:\'initPopupLogin\',opacity:30});", milliseconds);
+			} 
+			'; //use JS tiny box to show pop up
+		}
 	}
 }
 
 //get ad pages content from codegeas_cc db
 function getAdContent ($conn) { //call this function on ad pages
-	//$conn->select_db('codegeas_cc'); 
+	$conn->select_db('codegeas_cc'); 
 	
 	/////////////////////////////////
     $selA = 'SELECT * FROM ad_pages_content WHERE id = 1';
@@ -90,7 +87,7 @@ function getAdContent ($conn) { //call this function on ad pages
 	/////////////////////////////////
 
     //switch back to main db
-	//$conn->select_db('codegeas_nus');
+	$conn->select_db('codegeas_nus');
 	
 	return $adContent;
 }
@@ -156,8 +153,12 @@ function postMetaTags($url) {
 }
  
 
-function sendDownloadEmail($id, $conn) {
+function sendDownloadEmail($data) {
     global $context; 
+	
+	$id = $data['productID'];
+	$type = $data['type'];
+	$conn = $context['conn'];
     
     $selP = 'SELECT * FROM products WHERE id="'.$id.'"';
 	$resP = $conn->query($selP);
@@ -170,15 +171,15 @@ function sendDownloadEmail($id, $conn) {
     $folder = $p['folder'];
     
     if($folder == '') {
-        $downloadLink = $context['websiteURL'].'/?action=download&id='.$_POST[txn_id];
+        $downloadLink = $context['websiteURL'].'/?action=download&id='.$_POST['txn_id'];
     }
     else {
         $downloadLink = $context['websiteURL'].'/'.$folder.'/?action=download&id='.$_POST['txn_id'];
     }
         
-    $selE = 'select * from emails where type="download" and productID="'.$id.'"';
+    $selE = 'SELECT * FROM emails WHERE type="'.$type.'" AND productID="'.$id.'"';
 	$resE = $conn->query($selE);
-	$p = $resE->fetch_array(); 
+	$e = $resE->fetch_array();
  
     $var = array(
     '$itemName', 
@@ -195,7 +196,7 @@ function sendDownloadEmail($id, $conn) {
     
     $val = array(
     $itemName, 
-    $itemNumber,
+    $itemNumber, 
     $expires, 
     $downloadLink,
     $_POST['mc_gross'], 
@@ -206,25 +207,30 @@ function sendDownloadEmail($id, $conn) {
     $_POST['payment_status'], 
     $_POST['receiver_email'] );
     
-    $message = stripslashes($e['message']);
-    $subject = stripslashes($e['subject']);
-    $message = str_replace($var, $val, $message);
-    $subject = str_replace($var, $val, $subject);   
+    $message = stripslashes($e['message']); 
+    $subject = stripslashes($e['subject']); 
+    $message = str_replace($var, $val, $message); //replace vars in message
+    $subject = str_replace($var, $val, $subject); //replace vars in subject line
 
     $headers = "From: ".$context['adminEmail']."\n";
     $headers .= "Content-type: text/html;";     
     
     mail($_POST['payer_email'], $subject, $message, $headers);
     
+	//// log for debugging
     $myFile = "sendDownloadEmail.txt";
     $fh = fopen($myFile, 'a') or die("can't open file");
     $stringData = "sendDownloadEmailAddress: ".$context['val']['sendDownloadEmailAddress']."\n"
-            . "headers: .$headers";
+            . "headers: .$headers"; 
     
     fwrite($fh, $stringData);
     fclose($fh);
-    
-    if($context['val']['sendDownloadEmailCopy'] == 'on')
+    //// log for debugging
+
+	if($_GET['debug'] == 1)
+		echo $selP.' '.$selE.' '.$message; 
+
+    if($context['val']['sendDownloadEmailCopy'] == 'on') //send copy of emails to self
         return mail($context['val']['sendDownloadEmailAddress'], $subject, $message, $headers); 
 }
 
@@ -268,34 +274,9 @@ function showPost($url) {
 	
 	echo $p['post'].'<hr /> <p>&nbsp;</p>'; 
 
-	//$postContent = 'No post by that title exists'; 
- 	
 	return $postContent; 
 }
 
-
-function showMenu($menu) {
-	$extraMenu = '<div class="adminMenu" title="'.$menu[bar][title].'">
-	<a href="'.$menu[bar][link].'"><h2>'.$menu[bar][title].'</h2></a><ul id="menu">';
-	
-	foreach($menu[item] as $name => $value)
-	{
-		$extraMenu .= '<li><a href="'.$value[link].'" title="'.$value[title].'" '.$value[extra].'>'.$name.'</a>';
-
-		if(sizeof($value[sub_menu]) > 0)
-		{
-			$extraMenu .= '<ul>';
-			foreach($value[sub_menu] as $sub => $val)
-			{
-				$extraMenu .= '<li><a href="'.$val[link].'" title="'.$val[title].'" '.$val[extra].'>
-				:: '.$sub.' ::</a></li>';
-			}
-			$extraMenu .= '</ul>';
-		}
-		$extraMenu .= '</li>';
-	}
-	return $extraMenu.'</ul></div>';
-}
 
 /*
  * $options = array(
@@ -381,7 +362,7 @@ function dbInsert($opt) {
 	$res = $conn->query($ins);
 
 	if($_GET['debug'] == 1) {
-		echo '<pre>'.$ins.'</pre>';
+		echo '<pre>'.$ins.'<br />insert_id:'.$conn->insert_id.'</pre>';
 	}
 	
 	return $res;
@@ -443,8 +424,7 @@ function dbSelectQuery($opt) {
 /*
 $opt = array(
 	'tableName' => $tableName,
-	'cond' => $cond
-);
+	'cond' => $cond)
  */
 function dbDeleteQuery ($opt) {
 	global $conn; 
@@ -485,7 +465,7 @@ function dbUpdate($opt) {
 	
 	$theSet = implode(',', $set); 
 	
-	$upd = 'UPDATE '.$opt['tableName'].' SET '.$theSet.' '.$opt[cond]; 
+	$upd = 'UPDATE '.$opt['tableName'].' SET '.$theSet.' '.$opt['cond']; 
 	$res = $conn->query($upd);
 	
 	if($_GET['debug'] == 1) {
