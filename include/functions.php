@@ -76,7 +76,7 @@ function popUpWindow($dir) {
 
 //get ad pages content from codegeas_cc db
 function getAdContent ($conn) { //call this function on ad pages
-	$conn->select_db('codegeas_cc'); 
+	//$conn->select_db('codegeas_cc'); 
 	
 	/////////////////////////////////
     $selA = 'SELECT * FROM ad_pages_content WHERE id = 1';
@@ -86,9 +86,6 @@ function getAdContent ($conn) { //call this function on ad pages
 	}
 	/////////////////////////////////
 
-    //switch back to main db
-	$conn->select_db('codegeas_nus');
-	
 	return $adContent;
 }
 

@@ -18,31 +18,14 @@
 +---------------------------------------------------------------------
 */
 
-function curPageURL() {
-    $pageURL = 'http';
-    if ($_SERVER["HTTPS"] == "on") {
-        $pageURL .= "s";
-    }
-    $pageURL .= "://";
-    if ($_SERVER["SERVER_PORT"] != "80") {
-        $pageURL .= $_SERVER["SERVER_NAME"] . ":" . $_SERVER["SERVER_PORT"] . $_SERVER["REQUEST_URI"];
-    } 
-    else {
-        $pageURL .= $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
-    }
-    return $pageURL;
-}
-
 date_default_timezone_set('America/New_York'); 
 session_start(); 
 /* get the path of the product from url
  * if url is www.domain.com/prod
  * the path is "prod" */
-$curPageURL = curPageURL();  
 
 $path = $_SERVER['REQUEST_URI']; 
 $path = str_replace('/', '', $path); 
-// echo $path;
 
 list($path, $crap) = explode('?', $path); //get path before the ?
 
@@ -55,6 +38,7 @@ if(is_int($pos) || $path == '') {
 else {
     $dir = '../';
 } 
+
 
 include($dir.'include/functions.php');
 include($dir.'include/config.php');
