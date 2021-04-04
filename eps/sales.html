@@ -373,7 +373,7 @@ p  a:hover {
 
             <p>For the low introductory price of <span class="red"><b>$<?=$itemPrice?></b></span>, you will get access to the members area of the Email Profit System and access your training materials. You will be able to start processing emails <i>immediately!</i></p>
 			
-			<?
+			<?php
 
 			if($usePaypalOrderLink) { 
 				$orderLink = $paypalOrderLink; 
@@ -383,8 +383,9 @@ p  a:hover {
 				$orderLink = $productOrderLink; 
 				$orderText = $productOrderText;
             }
-            $orderLink = 'https://codegeass.info/order/orderForm.php?db=bps&productID='.$productID;
-			?>
+            //$orderLink = 'https://codegeass.info/order/orderForm.php?db=bps&productID='.$productID;
+            
+            ?>
 		
             <p align="center">
             <a href="<?=$orderLink?>"><img src="<?=$imgDir?>downloadButton.png" /></a>
