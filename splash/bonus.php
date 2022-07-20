@@ -7,12 +7,12 @@ $bonus3 = $bonusDir.'Traffic-Soldiers.pdf';
 
 $bonusProducts = array( 
 	'Make Money Surveys' => array(
-        'img' => 'https://neobuxultimatestrategy.com/images/members/bonus-mms.jpg',
+        'img' => 'images/members/bonus-mms.jpg',
         'dl' => $bonusDir.'MakeMoneySurveys.pdf',
 		'id' => 'MakeMoneySurveys',
     ),
 	'Make $18K in 30 Days' => array(
-        'img' => 'https://neobuxultimatestrategy.com/images/members/bonus-ppbooster.jpg',
+        'img' => 'images/members/bonus-ppbooster.jpg',
         'dl' => $bonusDir.'Make-$18K-in-30-Days.pdf',
 		'id' => 'Make18Kin30days',
     ),
@@ -27,7 +27,7 @@ $bonusProducts = array(
 		'id' => 'MRSPTCCourse',
     ),
 	'PTC Crash Course' => array(
-        'img' => 'https://neobuxultimatestrategy.com/images/members/bonus-ptc-crash-course.jpg',
+        'img' => 'images/members/bonus-ptc-crash-course.jpg',
         'dl' => '/home2/codegeas/ebooks/bonus/PTCCrashCourse.zip',
 		'id' => 'PTCCrashCourse',
     ),
