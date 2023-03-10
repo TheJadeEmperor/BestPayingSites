@@ -1,4 +1,4 @@
-<?
+<?php
 function img_with_tags($src, $alt, $dimensions) {
 	echo '<img src="'.$src.'" alt="'.$alt.'" title="'.$alt.'"';
 	
@@ -11,6 +11,12 @@ function img_with_tags($src, $alt, $dimensions) {
 	echo ' />';
 }
 $imgDir = $dir.'images/booster/';
+
+
+$stripeOrderLink = 'https://buy.stripe.com/cN23eO3NH3U28uI9AC';
+
+$btcOrderLink = 'https://commerce.coinbase.com/checkout/c778f22a-741c-40e6-95c0-1167e71d69b9';
+
 ?>
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
@@ -247,7 +253,7 @@ $imgDir = $dir.'images/booster/';
 		
 		<p>* Once you get inside the members area, watch the video tutorials and follow our easy step by step program. Every step has been laid out for you - it's so simple you can't possibly fail. And even if you somehow fail, you're protected by the guarantee. </p>
 		
-		<? 
+		<?php
 			$src = $imgDir.'money-back-guarantee.jpg';
 			$alt = 'Paypal Booster Pro guarantee'; 
 		?>
@@ -260,31 +266,20 @@ $imgDir = $dir.'images/booster/';
 		<p class="bold" style="font-size: small;text-align: center;margin-top: 20px">I understand that the material contains all I need to make money.<br />
 		Now starting today you can get all these materials for 75% 0ff, for only $<?=$itemPrice?> After savings, So for a limited time it is NOT regular price of $19.99 </p>
            
-		<p style="font-size: x-large;text-align: center;line-height: 20px">Now only <span class="bold">$<?=$itemPrice?></span> <span style="font-size: 20px">(AFTER SAVINGS)</span><br>
-		<span style="font-size: 16px;color: yellow;font-weight: bold"> This One Time Offer Is For A Very Limited Time. So Hurry! </span>
+		<center>
+		<p style="font-size: x-large;text-align: center;line-height: 20px">Now only 
+			<span class="bold">$<?=$itemPrice?></span> <span style="font-size: 20px">(AFTER SAVINGS)</span><br /><br />
+			<span style="font-size: 16px;color: yellow;font-weight: bold">This One Time Offer Is For A Very Limited Time. So Hurry! </span>
 		</p>
-	
+		</center>
 
 		<!-- Payment button --> 
 		<div onclick="NoExitPage=true;">
 		
-			<?php
-			if($usePaypalOrderLink) { 
-				$orderLink = $paypalOrderLink; 
-				$orderText = 'Get Instant Access - Even at 2 AM - Guaranteed';
-			}
-			else {
-				$orderLink = $productOrderLink; 
-				$orderText = $productOrderText;
-			}
-			//$orderLink = 'https://codegeass.info/order/orderForm.php?db=bps&productID='.$productID;
-			?>
-		
-			<a href="<?=$orderLink?>"><img src="<?=$imgDir?>Paypal-Buy-Now-button.png" alt="Order Now" title="Order Now"></a>
+			<a href="<?=$stripeOrderLink?>"><img src="<?=$imgDir?>Paypal-Buy-Now-button.png" alt="Order Now" title="Order Now"></a>
 			<br />
-			<i><font size="2"><?=$orderText?></font></i>
 		
-			<p><span class="smallText">Alternate options: <a href="<?=$productOrderLink?>"><?=$productOrderText?></a></span></span></p>			
+			<p><span class="smallText">Alternate option: <a href="<?=$btcOrderLink?>">Pay with Bitcoins</a></span></span></p>			
         </div>
 		
         <div class="bold smallText" style="width: 620px">
@@ -293,7 +288,7 @@ $imgDir = $dir.'images/booster/';
             
             <p>And don't forget you're protected by a full 60 Days<br />MONEY BACK GUARANTEE.</p>
         
-			<? 
+			<?php 
 			$src = $imgDir.'satisfaction-guaranteed.jpg';
 			$alt = 'Paypal Booster Pro guarantee';
 			$d = array(
@@ -304,7 +299,7 @@ $imgDir = $dir.'images/booster/';
 			
 			<p><?=img_with_tags($src, $alt, $d);?></p>
 		
-			<?
+			<?php
 			$randA = rand()%200;
 			$randA = '$'.$randA;
 			
