@@ -31,7 +31,7 @@ body {
 <body>
 <center>
     <?
-	$productLink = 'http://tinyurl.com/writing-jobs-online-product';
+	$productLink = 'https://hop.clickbank.net/?affiliate=ironprice&vendor=easywriter&pid=instantapply';
     ?>
     
     <meta http-equiv="refresh" content="40; <?=$productLink?>" />

@@ -11,81 +11,81 @@
     }
 </script>
 <style>
-body {
-    font: 14px Helvetica;
-}
+    body {
+        font: 14px Helvetica;
+    }
 
-.content {
-    margin: 5px;
-    padding: 10px 25px 0px 25px;
-    background-color: #FFF;
-    box-shadow: 0 0 25px #000;
-    -moz-box-shadow: 0 0 25px #000;
-    -webkit-box-shadow: 0 0 25px #000;
-    margin-right: 0 auto;
-    display: block;
-    width: 650px;
-}
+    .content {
+        margin: 5px;
+        padding: 10px 25px 0px 25px;
+        background-color: #FFF;
+        box-shadow: 0 0 25px #000;
+        -moz-box-shadow: 0 0 25px #000;
+        -webkit-box-shadow: 0 0 25px #000;
+        margin-right: 0 auto;
+        display: block;
+        width: 650px;
+    }
 
-.leftText {
-    float: left; 
-    margin: 6px 0px;
-    display: block;
-}
+    .leftText {
+        float: left; 
+        margin: 6px 0px;
+        display: block;
+    }
 
-.rightText {
-    float: right; 
-    margin: 6px 0px;
-    display: block;
-}
+    .rightText {
+        float: right; 
+        margin: 6px 0px;
+        display: block;
+    }
 
-.sideBannerLeft {
-    left: 0;
-    top: 12%;
-    position: fixed;
-    width: 125px;
-    height: 400px;
-}
+    .sideBannerLeft {
+        left: 0;
+        top: 12%;
+        position: fixed;
+        width: 125px;
+        height: 400px;
+    }
 
-.sideBannerRight {
-    right: 0;
-    top: 12%;
-    position: fixed;
-}
+    .sideBannerRight {
+        right: 0;
+        top: 12%;
+        position: fixed;
+    }
 
-.activeBox {
-    text-align: left;
-    padding: 20px;
-    border: 1px solid #a1a1a1;
-}
+    .activeBox {
+        text-align: left;
+        padding: 20px;
+        border: 1px solid #a1a1a1;
+    }
 
-.activeBox:hover {
-    border: 1px solid black;
-}
+    .activeBox:hover {
+        border: 1px solid black;
+    }
 
-.contentBox {
-    border: 1px solid white;
-    padding: 10px;
-    text-align: center;
-    color: gray;
-}
+    .contentBox {
+        border: 1px solid white;
+        padding: 10px;
+        text-align: center;
+        color: gray;
+    }
 
-.contentBox:hover {
-    border: 1px solid #AAAAAA;
-    padding: 10px;
-}
+    .contentBox:hover {
+        border: 1px solid #AAAAAA;
+        padding: 10px;
+    }
 
-.help {
-    float: left;
-    margin: 0px 5px 0px 0px;
-}
+    .help {
+        float: left;
+        margin: 0px 5px 0px 0px;
+    }
 </style>
 </head>
 <body class="landing_page">
 <center>
     <?
     //replace this 
-    $productLink = 'http://bit.ly/366JM12';
+    $productLink = 'https://bestpayingsites.com/surveys';
     ?>
     <meta http-equiv="refresh" content="58; <?=$productLink?>">
     <div class="content">
