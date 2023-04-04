@@ -4,23 +4,7 @@ $imgDir = 'images/splash/';
 
 $redirURL = 'http://bestpayingsites.com/templates/redirect.php?url=';
 $subscrLandingURL = $confirmLandingURL = $redirURL.'http://bestpayingsites.com/?action=get-cash-for-surveys';
-
-//redirect to Neobux opt in
-if( date('Y-m-d', time()) > '2015-05-30' && date('Y-m-d', time()) < '2015-06-22' ) {
-    if($_GET['action'] == 'surveys-ptc') {
-        echo '<h3>Directing you to the sign up page...</h3>
-        <META http-equiv="refresh" content="2;URL=http://neobuxultimatestrategy.com/?action=ecourse">';
-        exit;
-    }
-
-    if($_GET['action'] == 'surveys-neobux') { 
-
-        echo '<h3>Directing you to the sign up page...</h3>
-        <META http-equiv="refresh" content="2;URL=http://neobuxultimatestrategy.com/?action=freereport">';
-        exit;
-    }
-}
-
+ 
 
 if($_GET['e']) { //email address passed in url
     $emailField = '<input type=text id="da_email" name="da_email" value="'.$_GET[e].'" class="textField" />';
@@ -101,9 +85,9 @@ function ExitPage()
     
     <input type=hidden name="da_name" id="da_name" value="PTC User">
     <input type=hidden name="da_cust1" value="<?=$page?>" />
-    <input type=hidden name="da_cust2" value="<?=$_SERVER[HTTP_REFERER]?>" />
-    <input type=hidden name="da_cust3" value="<?=$_GET[campaign]?>" />
-    <input type=hidden name="trwvid" value="theemperor" />
+    <input type=hidden name="da_cust2" value="<?=$_SERVER['HTTP_REFERER']?>" />
+    <input type=hidden name="da_cust3" value="<?=$_GET['campaign']?>" />
+    <input type=hidden name="trwvid" value="neobux" />
     <input type=hidden name="series" value="makemoneysurveys" />
     <input type=hidden name="subscrLandingURL" value="<?=$subscrLandingURL?>" />
     <input type=hidden name="confirmLandingURL" value="<?=$confirmLandingURL?>" />
