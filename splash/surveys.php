@@ -27,32 +27,6 @@ else
 <meta name="description" content="" />
 <link href="<?=$dir?>include/css/splash.css" rel="stylesheet" type="text/css" media="screen" />
 <script type="text/javascript" src="include/js/jquery.js"></script>
-<script>
-<!-- 
-var NoExitPage = false; 
-
-function ExitPage() 
-{ 
-    if(NoExitPage == false) { 
-    NoExitPage=true; 
-    location.href='http://tinyurl.com/high-paying-surveys-product'; 
-    
-    return"***********************************************\n\n"+ 
-    " WAIT! Do you really want to close this window? \n\n"+ 
-    " Don't you want to make $5 to $75 per survey? \n\n"+ 
-    " Sign up for our FREE offers - no obligation whatsoever!\n\n"+ 
-    "***********************************************"; 
-    } 
-} 
-// --> 
-
-    document.ondragstart = test;
-    document.onselectstart = test;
-    document.oncontextmenu = test;
-    function test() {
-        return false;
-    }
-</script>
 </head>
 <body onbeforeunload="return ExitPage();">
 <div id="wrapper">
