@@ -129,7 +129,8 @@ a {
 }
 
 a:visited {
-	color: #AF89E8;
+	color: #6e48a8;
+	font-weight:900;
 	text-decoration: none;
 }
 

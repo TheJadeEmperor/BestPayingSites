@@ -217,7 +217,8 @@ $sitePages = $stat['sitePages'];
                             <li><a href="<?=$adir?>pages/sitePages.php">Site Pages</a></li>
                             <li><a href="<?=$adir?>pages/pageviews.php">Pageviews</a></li>
 							<li><a href="<?=$adir?>links.php">Links</a></li>
-							
+							<li><a href="<?=$adir?>checkSurveys.php">Surveys DB</a></li>
+
 							<li class="divider"></li>
 							
                             <li><a href="<?=$adir?>pages/postNew.php">New Post</a></li>

@@ -4,7 +4,7 @@
 
 <p>Below are a list of the best paying PTC and GPT sites that are on the internet. We have checked them out thoroughly, all of them have been around for many years and are guaranteed to pay. Newer PTC Sites might pay, but they are not trusted yet, and usually PTC sites have a very short life. </p> 
 
-<p>The more sites you sign up with, the more money you will make per month. To make guaranteed income, we recommend that you join all of the sites below. The key is to be active daily and also get direct referrals for each site. To learn how to get unlimited direct referrals, you should check out the Neobux Ultimate Strategy: <a href="https://neobuxultimatestrategy.com" target="_BLANK">http://neobuxultimatestrategy.com</a></p>
+<p>The more sites you sign up with, the more money you will make per month. To make guaranteed income, we recommend that you join all of the sites below. The key is to be active daily and also get direct referrals for each site. To learn how to get unlimited direct referrals, you should check out the Neobux Ultimate Strategy: <a href="https://ultimateneobuxstrategy.com" target="_BLANK">http://ultimateneobuxstrategy.com</a></p>
 
 
 <p>&nbsp;</p>

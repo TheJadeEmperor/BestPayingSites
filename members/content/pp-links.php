@@ -72,7 +72,7 @@ fieldset {
     
 	<h3>Top Traffic Exchanges</h3>
 	
-	<p><a href="https://neobuxultimatestrategy/?p=top-traffic-exchanges-for-ptc-sites" target="_BLANK">https://neobuxultimatestrategy/?p=top-traffic-exchanges-for-ptc-sites</a>
+	<p><a href="https://ultimateneobuxstrategy/?p=top-traffic-exchanges-for-ptc-sites" target="_BLANK">https://ultimateneobuxstrategy/?p=top-traffic-exchanges-for-ptc-sites</a>
 	</p>
 	
     <br /><br />

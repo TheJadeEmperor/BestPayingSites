@@ -10,7 +10,7 @@ function img($url, $extra, $altText) {
 }
 
 $dir = '../../';
-$msLink = 'http://neobuxultimatestrategy.com/minisite/';
+$msLink = 'http://ultimateneobuxstrategy.com/minisite/';
 
 switch($_GET['page']) {
 	case 'what-is-ptc':
