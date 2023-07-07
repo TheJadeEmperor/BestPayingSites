@@ -1,7 +1,7 @@
 <?php
 $aff = '';
-$nusLink = 'http://neobuxultimatestrategy.com/';
-$msLink = 'http://neobuxultimatestrategy.com/minisite/';
+$nusLink = 'http://ultimateneobuxstrategy.com/';
+$msLink = 'http://ultimateneobuxstrategy.com/minisite/';
 
 switch($_GET['page']) {
     case 'home':

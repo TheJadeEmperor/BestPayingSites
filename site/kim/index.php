@@ -7,8 +7,8 @@ function img($url, $extra, $altText) {
     return '<img src="'.$url.'" '.$extra.' alt="'.$altText.'" title="'.$altText.'"/>'; 
 }
 
-$nusLink = 'http://neobuxultimatestrategy.com/';
-$msLink = 'http://neobuxultimatestrategy.com/minisite/';
+$nusLink = 'http://ultimateneobuxstrategy.com/';
+$msLink = 'http://ultimateneobuxstrategy.com/minisite/';
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">

@@ -13,11 +13,11 @@ function img($url, $extra, $altText)
 
 $dir = '../../';
 $aff = 'harele';
-$nusLink = 'http://neobuxultimatestrategy.com/?r='.$aff;
-$nusImg = 'http://neobuxultimatestrategy.com/images/banners/ebook1.jpg';
-$msLink = 'http://neobuxultimatestrategy.com/minisite/';
-$basicsLink = 'http://neobuxultimatestrategy.com/basics';
-$nusLink = 'http://neobuxultimatestrategy.com/?r='.$aff;
+$nusLink = 'http://ultimateneobuxstrategy.com/?r='.$aff;
+$nusImg = 'http://ultimateneobuxstrategy.com/images/banners/ebook1.jpg';
+$msLink = 'http://ultimateneobuxstrategy.com/minisite/';
+$basicsLink = 'http://ultimateneobuxstrategy.com/basics';
+$nusLink = 'http://ultimateneobuxstrategy.com/?r='.$aff;
 
 switch($_GET[page])
 {

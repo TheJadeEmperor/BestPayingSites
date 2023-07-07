@@ -12,7 +12,7 @@ function img($url, $extra, $altText)
 }
 
 $aff = 'nelze';
-$msLink = 'http://neobuxultimatestrategy.com/minisite/?r='.$aff;
+$msLink = 'http://ultimateneobuxstrategy.com/minisite/?r='.$aff;
 
 switch($_GET[page])
 {

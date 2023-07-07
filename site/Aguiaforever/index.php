@@ -12,12 +12,12 @@ function img($url, $extra, $altText)
 }
 
 $dir = '../../';
-$nusLink = 'http://neobuxultimatestrategy.com/';
-$nusImg = 'http://neobuxultimatestrategy.com/images/banners/ebook1.jpg';
-$msLink = 'http://neobuxultimatestrategy.com/minisite/';
-$basicsLink = 'http://neobuxultimatestrategy.com/basics';
-$nusLink = 'http://neobuxultimatestrategy.com/';
-$vcLink = 'http://neobuxultimatestrategy.com/video/';
+$nusLink = 'http://ultimateneobuxstrategy.com/';
+$nusImg = 'http://ultimateneobuxstrategy.com/images/banners/ebook1.jpg';
+$msLink = 'http://ultimateneobuxstrategy.com/minisite/';
+$basicsLink = 'http://ultimateneobuxstrategy.com/basics';
+$nusLink = 'http://ultimateneobuxstrategy.com/';
+$vcLink = 'http://ultimateneobuxstrategy.com/video/';
 
 switch($_GET[page])
 {

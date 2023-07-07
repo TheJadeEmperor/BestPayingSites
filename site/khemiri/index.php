@@ -13,9 +13,9 @@ function img($url, $extra, $altText)
 
 $dir = '../../';
 $aff = 'khemiri';
-$nusLink = 'http://neobuxultimatestrategy.com/?r='.$aff;
+$nusLink = 'http://ultimateneobuxstrategy.com/?r='.$aff;
 $nusImg = 'http://bestpayingsites.com/images/banners/ebook1.jpg';  
-$msLink = 'http://neobuxultimatestrategy.com/minisite/?r='.$aff;
+$msLink = 'http://ultimateneobuxstrategy.com/minisite/?r='.$aff;
 
 switch($_GET[page])
 {

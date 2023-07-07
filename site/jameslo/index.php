@@ -52,7 +52,7 @@ switch($_GET[page])
 		$fileName = 'home.html';
 }
 
-$msLink = 'http://neobuxultimatestrategy.com/minisite/?r=jameslo';
+$msLink = 'http://ultimateneobuxstrategy.com/minisite/?r=jameslo';
 
 include('header.html');
 include($fileName);

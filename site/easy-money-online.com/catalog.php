@@ -5,9 +5,9 @@ if($_GET[e])
 else if($_GET[r])
     $aff = $_GET[r];
 
-$basicsLink = 'http://neobuxultimatestrategy.com/basics';
-$nusLink = 'http://neobuxultimatestrategy.com/?r='.$aff;
-$vcLink = 'http://neobuxultimatestrategy.com/video/?r='.$aff;
+$basicsLink = 'http://ultimateneobuxstrategy.com/basics';
+$nusLink = 'http://ultimateneobuxstrategy.com/?r='.$aff;
+$vcLink = 'http://ultimateneobuxstrategy.com/video/?r='.$aff;
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -52,7 +52,7 @@ $vcLink = 'http://neobuxultimatestrategy.com/video/?r='.$aff;
 </tr><tr>
 	<td><p>Format: PDF<br />
 		Price: <span class="subheadline">FREE</span></p><br />
-		<a href="http://neobuxultimatestrategy.com/basics">Download Now</a>
+		<a href="http://ultimateneobuxstrategy.com/basics">Download Now</a>
 	</td><td></td><td>
 		<table width="95%" class="catalog">
 		<tr>
@@ -90,7 +90,7 @@ $vcLink = 'http://neobuxultimatestrategy.com/video/?r='.$aff;
 can receive payments to your paypal immediately - no waiting 30 days for payments. Plus,
 register within the next half hour, and you can use a site like this to promote our products.</p>
 
-<p>To sell the Neobux Ultimate Strategy guide, please <a href="http://neobuxultimatestrategy.com/members/?action=register">go here</a>.</p>
+<p>To sell the Neobux Ultimate Strategy guide, please <a href="http://ultimateneobuxstrategy.com/members/?action=register">go here</a>.</p>
 
 
 <p>&nbsp;</p>
@@ -98,7 +98,7 @@ register within the next half hour, and you can use a site like this to promote 
 <p class="note">
         <a href="./">Home</a> &nbsp; &nbsp;
         <a href="../">PTC Mini-Sites</a> &nbsp; &nbsp; 
-        <a href="http://neobuxultimatestrategy.com/minisite">Get Your Own Catalog</a> &nbsp; &nbsp; 
+        <a href="http://ultimateneobuxstrategy.com/minisite">Get Your Own Catalog</a> &nbsp; &nbsp; 
 		<a href="mailto:admin@bestpayingsites.com">Contact Us</a></p>
 	</div><!-- content -->
 	<div id="contentBtm"></div>

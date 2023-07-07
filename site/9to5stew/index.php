@@ -10,9 +10,9 @@ function img($url, $extra, $altText) {
 }
 
 $dir = '../../';
-$nusLink = 'http://neobuxultimatestrategy.com/';
-$nusImg = 'http://neobuxultimatestrategy.com/images/banners/ebook1.jpg';
-$msLink = 'http://neobuxultimatestrategy.com/minisite/';
+$nusLink = 'http://ultimateneobuxstrategy.com/';
+$nusImg = 'http://ultimateneobuxstrategy.com/images/banners/ebook1.jpg';
+$msLink = 'http://ultimateneobuxstrategy.com/minisite/';
 
 switch($_GET['page'])
 {
