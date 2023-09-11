@@ -149,9 +149,7 @@ $ppb = $resPPB->fetch_array();
     <meta name="google-site-verification" content="bv0J3GWHae3VQ6UNSknC9DFOnLhEEyzzKsyyLhIcITw" />
     <style>
         .content,
-        p,
-        li,
-        ol {
+        p, li, ol {
             color: #000000;
             font-family: Georgia;
             font-size: 18px;
@@ -160,12 +158,13 @@ $ppb = $resPPB->fetch_array();
 
         .content {
             padding: 0px 20px 0px 20px;
+            margin-top: 60px
         }
-
+/*
         .innerContent {
             padding: 0px 20px 20px 20px;
         }
-
+*/
         .list {
             font-size: 12px;
         }
@@ -224,11 +223,73 @@ $ppb = $resPPB->fetch_array();
             text-align: center;
         }
     </style>
-</head>
+ 
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to bottom, #3498db, #2980b9); /* Blue gradient background */
+    }
+
+    .menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: white;
+        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .members {
+        background: linear-gradient(to bottom, #3498db, #2980b9); /* Blue gradient background */
+        margin-top: 60px; /* Adjust based on your menu bar height */
+        text-align: center;
+        color: white; 
+        padding: 50px;
+    }
+
+    .login-form { 
+        padding: 60px 20px 30px 20px;
+        border-radius: 5px;
+        display: inline-block;
+        text-align: left;
+    }
+
+    /* Additional styling for login form elements */
+    .login-form input[type="text"],
+    .login-form input[type="password"] {
+        padding: 10px;
+        margin: 5px 0 15px 0;
+        border: none;
+        border-radius: 3px;
+    }
+
+    .login-form input[type="submit"], .login-form input[type="reset"]  {
+        padding: 10px 20px;
+        margin: 10px 0px 10px 0px; 
+        background: linear-gradient(to bottom, #60dac8, #389f90);
+        border: none;
+        color: white;
+        cursor: pointer;
+        width: 48%;
+    }
+
+    .members * {
+        color: #FFF;
+    }
+
+    .members p {
+        text-align: left;
+    }
+</style>
 
 <body>
-    <center>
-        <script type="text/javascript">
+<div class="menu">
+  
+    <script type="text/javascript">
             function googleTranslateElementInit() {
                 new google.translate.TranslateElement({
                     pageLanguage: 'en',
@@ -241,7 +302,8 @@ $ppb = $resPPB->fetch_array();
         </script>
         <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
         <div id="language"></div>
-    </center>
-    <div class="content">
-        <div class="innerContent">
-            <br />
+</div>
+
+<div class="content">
+    <div class="innerContent">
+            

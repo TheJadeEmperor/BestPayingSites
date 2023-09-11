@@ -1,7 +1,7 @@
 <h1>Members Home</h1>
 <p>&nbsp;</p> 
 
-<? 
+<?php
 $opt = array(
     'tableName' => 'sales',
     'cond' => "WHERE productID='10' AND
@@ -24,7 +24,7 @@ if($res->num_rows > 0) {
         <p><a href="?action=pp-tools">Promotion Tools</a></p>
     </fieldset>
 
-<?
+<?php
 }
 
 $opt = array(

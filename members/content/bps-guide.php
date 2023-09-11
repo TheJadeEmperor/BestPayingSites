@@ -1,4 +1,4 @@
-<?
+<?php
 $MakeMoreMoneyWithSurveys = '/home2/codegeas/ebooks/bonus/MakeMoreMoneyWithSurveys.pdf';
 ?>
 <div class="innerContent">

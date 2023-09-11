@@ -1,42 +1,24 @@
-<center><h2><?=$businessName?><br />Members Area</h2><br />
-    <font face="arial" color="red"><b><?=$msg?></b></font>
-    
-    <form method="POST">
-        <table class="moduleBlue" cellspacing="2" width="380px">
-            <tr>
-                <th colspan="2"><h1>Members Area Login</h1></th>
-            </tr>
-            <tr>
-                <td align="center" colspan="2"><br />
-                    <table width="320px">
-                        <tr>
-                            <td>Username </td>
-                            <td><input type="text" name="username" class="activeField" size=28 value="<?=$_POST['username']?>"></td>
-                        </tr>
-                        <tr>
-                            <td>Password </td><td><input type="password" name="password" class="activeField" size="28" /></td>
-                        </tr>
-                        <tr>
-                            <td align="center" colspan="2"><br />
-                                <input type="submit" name="login" class="btn danger" value="Login Now" />
-                                <input type="reset" value="Clear" class="btn danger" />
-                              <br /> <br /><a href="mailto:<?=$adminEmail?>">Forgot Password</a>
-                            </td>
-                        </tr>
-    
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td align="left"></td>
-                
-            </tr>
-        </table>
-    </form>
-    
-    <p>&nbsp;</p>
-    
-    <h2>What is the members area?</h2></center>
-    
+
+
+<div class="members">
+    <div class="login-form">
+        <h2>Members Area Login</h2>
+        <font face="arial" color="red"><b><?=$msg?></b></font>
+        <form method="POST">
+            <label>Username *</label>  <br /> 
+            <input type="text" placeholder="Username" name="username" required size="38" value="<?=$_POST['username']?>">
+            <br />
+            <label>Password *</label>  <br /> 
+            <input type="password" placeholder="Password" name="password"  required size="38">
+            <br />
+            <input type="submit" value="Login" name="login">
+            <input type="reset" value="Clear" class="" />
+
+            <a href="mailto:<?=$adminEmail?>">Forgot Password</a>
+        </form>
+    </div>
+ 
     <p>Log in to download the latest copy of <?=$businessName?> products, as well as update your profile and download bonuses. If you made a purchase and you're unable to log in, please contact our support helpdesk below.<br />
         <a href="mailto:<?=$adminEmail?>"><?=$adminEmail?></a></p>
+
+</div>

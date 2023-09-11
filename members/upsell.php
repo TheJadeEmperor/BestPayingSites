@@ -32,7 +32,7 @@ $transition = '<meta http-equiv="refresh" content="1;url=./?action=affcenter">
 //is upsell enabled? 
 if($val['memAreaUpsell'] != 'on')
 {   //if not
-    $_SESSION[login][skipUpsell] = true;
+    $_SESSION['login']['skipUpsell'] = true;
     echo $transition; 
 }
 else //if yes

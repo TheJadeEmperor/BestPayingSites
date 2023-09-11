@@ -2,7 +2,7 @@
 	<p>&nbsp;</p>
     
     <center>
-    <?
+    <?php
     echo $adContent;
     ?>
     </center>
@@ -17,16 +17,18 @@
                 <?=$businessName?> - Copyright &copy; 2012 - <?=date('Y', time())?>
             </p>
             <p>
-                <a href="./" title="<?=$businessName?>">Home</a> | 
+                <a href="<?=$dir?>" title="<?=$businessName?>">Home</a> | 
+                <a href="<?=$dir?>ppbooster" title="<?=$businessName?>">Booster</a> | 
+                <a href="<?=$dir?>surveys" title="<?=$businessName?>">Surveys</a> | 
                 <a href="<?=$dir?>?action=faq">F.A.Q.</a> | 
                 <a href="<?=$dir?>?action=contact" title="Contact Us">Contact Us</a> | 
-                <a href="<?=$dir?>members" title="Members Login">Members Login</a>
+                <a href="<?=$dir?>members" title="Members Login">Members</a>
             </p>
             <br />
         </div> 
     </div><!--innerContent-->
 </div><!--content-->
 </center>
-<br />
+<br /> 
 </body>
 </html>
