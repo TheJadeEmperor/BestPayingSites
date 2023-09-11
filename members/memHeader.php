@@ -159,12 +159,8 @@ $ppb = $resPPB->fetch_array();
         .content {
             padding: 0px 20px 0px 20px;
             margin-top: 60px
-        }
-/*
-        .innerContent {
-            padding: 0px 20px 20px 20px;
-        }
-*/
+        } 
+
         .list {
             font-size: 12px;
         }
@@ -256,6 +252,10 @@ $ppb = $resPPB->fetch_array();
         border-radius: 5px;
         display: inline-block;
         text-align: left;
+    }
+
+    .login-form input {
+        color: #000;
     }
 
     /* Additional styling for login form elements */
