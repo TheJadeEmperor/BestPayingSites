@@ -2,7 +2,10 @@
 include/config.php
 nbproject/
 backup/
+vendor/
 .project
+composer.json
+composer.lock
 
 # Windows image file caches
 Thumbs.db
